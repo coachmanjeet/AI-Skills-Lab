@@ -22,7 +22,7 @@ import { mountPractice } from './practice.js';
 const LAB_IDS = ['lab-01', 'lab-02', 'lab-03', 'lab-04'];
 
 const TRACKS = {
-  'ai-native-pm':  { number: '01', title: 'How to Become an AI-Native PM', accent: '#3b82f6', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'ai-native-pm':  { number: '01', title: 'How to Become an AI-Native PM', accent: '#3b82f6', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'pm-agent-team': { number: '02', title: 'AI PM Agent Team',              accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'stub' } },
   'eval-101':      { number: '03', title: 'Eval 101',                      accent: '#34d399', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'eval-201':      { number: '04', title: 'Eval 201',                      accent: '#f59e0b', modes: { learn: 'real', practice: 'real', apply: 'real' } },

@@ -62,11 +62,11 @@
 
       <div class="landing__grid">
         <a class="landing__tile" style="--accent:#3b82f6" href="#/ai-native-pm/learn" data-track="ai-native-pm">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
+          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
           <div class="landing__tile-num">Track 01</div>
           <div class="landing__tile-title">How to Become an AI-Native PM</div>
           <div class="landing__tile-question">What does it take to be a PM in the age of AI?</div>
-          <div class="landing__tile-desc">Foundations for the modern PM. <strong>Learn:</strong> what AI-Native means, the AI PM Operating System, self-assessment against the PM skill map, and how to improve with an AI coach. <strong>Practice:</strong> score yourself, get a personalized skill-building plan. <em>Coming next.</em></div>
+          <div class="landing__tile-desc">Foundations for the modern PM. <strong>Learn:</strong> the shift, the new skillset, the two tests every AI-native PM must pass. <strong>Practice:</strong> score yourself across 8 readiness areas, get a personalized weekly plan. <strong>Apply:</strong> the 5 daily moves + weekly self-review that compound over a year.</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
@@ -151,6 +151,497 @@
     </nav>
 
     <main class="track__main">
+
+      <!-- ============================================================
+           TRACK 01 · AI-NATIVE PM · LEARN
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="ai-native-pm" data-mode="learn" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 01 · How to Become an AI-Native PM</div>
+          <h2 class="chapter__title">A practical playbook for PMs in the age of agents.</h2>
+          <p class="chapter__lede">AI-native isn't "I used ChatGPT to write a PRD." AI-native means agents are the default way you build and operate the product — and the PM job reshapes around that. This track walks the shift, names the new skillset, and gives you the two tests every AI-native PM must pass.</p>
+        </section>
+
+        <div class="chapter-group">
+
+          <!-- Ch 1 · The shift -->
+          <section class="chapter chapter--sub" id="ainpm-shift">
+            <div class="chapter__eyebrow">Chapter 1 · The shift</div>
+            <h3 class="chapter__title" style="font-size:22px">Old model vs new model</h3>
+            <p class="chapter__lede">The PM job used to be about writing the right document. Now it's about running the right loop — with agents doing most of the execution.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Old model</div>
+                <div class="two-kinds__title">Write it. Hand it off.</div>
+                <div class="two-kinds__q"><strong>Shape:</strong> PM figures out what to build → writes a spec → engineers build it → PM reviews → iterate.</div>
+                <ul class="two-kinds__list">
+                  <li>Weeks between "idea" and "seeing it"</li>
+                  <li>Handoff is where meaning gets lost</li>
+                  <li>PM is a bottleneck, not a builder</li>
+                  <li>Feedback cycle: measured in sprints</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Failure mode:</strong> a beautifully written PRD that ships as something no one wanted.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">New model</div>
+                <div class="two-kinds__title">Build with agents. Ship in loops.</div>
+                <div class="two-kinds__q"><strong>Shape:</strong> PM figures out what to build → PM builds it with agents → PM evaluates → iterate quickly → (when they like it) hand to engineers to go live in prod.</div>
+                <ul class="two-kinds__list">
+                  <li>Hours between "idea" and "seeing it"</li>
+                  <li>PM is closer to the artifact than ever</li>
+                  <li>Engineers get a working prototype, not a doc</li>
+                  <li>Feedback cycle: measured in coffee breaks</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Superpower:</strong> the PM shows up with a working prototype and a passing eval, not a slide deck.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Why it matters:</strong> agents are getting cheap and abundant. Execution is not the scarce resource anymore. Problem selection, taste, and orchestration are. The PMs who win this decade run the tightest loops.</p>
+          </section>
+
+          <!-- Ch 2 · AI-native means agents are the default -->
+          <section class="chapter chapter--sub" id="ainpm-default">
+            <div class="chapter__eyebrow">Chapter 2 · What AI-native means</div>
+            <h3 class="chapter__title" style="font-size:22px">Agents are the default, not an add-on.</h3>
+            <p class="chapter__lede">Bolting AI onto old workflows is not AI-native. AI-native means you design around agents from the start.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">Design around agents</div>
+                <div class="concept-block__value">Assume powerful agents exist and design around them — stop bolting AI onto old workflows. Like building for mobile-first instead of shrinking a desktop site.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Agents execute, humans judge</div>
+                <div class="concept-block__value">Humans focus on problems where agents do most of the execution; humans do problem selection, constraints, and judgment. Like a surgeon who decides what to fix, not the robot arm that does the cutting.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Embrace emergent behavior</div>
+                <div class="concept-block__value">Ship products where behavior emerges from models + prompts + evals + data — not just deterministic code. Like tuning a jazz ensemble: you set the key, they improvise.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The test:</strong> "Can I turn this into a system where agents do 80% of the work, and humans focus on the 20% that can't be easily graded?" If the answer is no, you're still in the old model.</p>
+          </section>
+
+          <!-- Ch 3 · The bell curve -->
+          <section class="chapter chapter--sub" id="ainpm-curve">
+            <div class="chapter__eyebrow">Chapter 3 · Where value lives now</div>
+            <h3 class="chapter__title" style="font-size:22px">PM and Engineer are converging on the same peak.</h3>
+            <p class="chapter__lede">AI models get better at any task that can be optimized with a loss function or evaluated by a reliable verifier (evals). That means AI is rapidly improving at solving well-defined problems.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Getting abundant</div>
+                <div class="two-kinds__title">Cheap and fast</div>
+                <ul class="two-kinds__list">
+                  <li>Coding is becoming cheaper</li>
+                  <li>Execution is becoming faster</li>
+                  <li>Knowledge is becoming abundant</li>
+                </ul>
+                <div class="two-kinds__ex">If a task can be graded by a verifier, the model will beat you at it soon enough.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Getting scarce</div>
+                <div class="two-kinds__title">The Agent Era premium</div>
+                <ul class="two-kinds__list">
+                  <li><strong>Problem selection</strong> — finding high-leverage problems worth building</li>
+                  <li><strong>Taste + judgment</strong> — last-mile obsession: UX, reliability, observability, scalability</li>
+                  <li><strong>Agent orchestration</strong> — best agentic design and collaboration</li>
+                </ul>
+                <div class="two-kinds__ex">Pure strategy no-building and pure code no-taste both die on the wings of the curve. The peak is problem shaping + taste + orchestration.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Consequence:</strong> the next generation of AI builders will be rewarded for deciding what's worth building first, then allocating their time and AI tokens accordingly. PM and Engineer both converge on this — from opposite sides of the curve.</p>
+          </section>
+
+          <!-- Ch 4 · The new PM skillset -->
+          <section class="chapter chapter--sub" id="ainpm-skillset">
+            <div class="chapter__eyebrow">Chapter 4 · The new PM skillset</div>
+            <h3 class="chapter__title" style="font-size:22px">Three skills that make agents actually useful.</h3>
+            <p class="chapter__lede">If agents are the default, then the PM job is: shape the problem, feed the context, judge the output. These used to be one skill among many. Now they are the whole job.</p>
+
+            <div class="raci-grid">
+              <div class="raci-card">
+                <div class="raci-card__role">Problem shaping</div>
+                <div class="raci-card__label">Turn ambiguity into a well-formed problem</div>
+                <ul>
+                  <li>Take a vague pain point and make it agent-actionable</li>
+                  <li>Identify the constraints that actually matter</li>
+                  <li>Articulate what success looks like — measurable, not fuzzy</li>
+                  <li>The spec isn't a document anymore. It's a well-formed problem with clear boundaries.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Context curation</div>
+                <div class="raci-card__label">Quality of output ∝ quality of context</div>
+                <ul>
+                  <li><strong>The user, specifically.</strong> Not a persona. Real details.</li>
+                  <li><strong>The problem in their words.</strong> Direct quotes, not your synthesis.</li>
+                  <li><strong>What good looks like.</strong> Examples, not descriptions.</li>
+                  <li><strong>What you've tried and why it failed.</strong> Institutional knowledge.</li>
+                  <li><strong>Constraints that shape the solution.</strong> The ones that actually change the output.</li>
+                  <li><strong>How you'll know it worked.</strong> Concrete, measurable.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Evaluation &amp; taste</div>
+                <div class="raci-card__label">The scarcest skill of all</div>
+                <ul>
+                  <li>Is this actually solving the problem, or just running?</li>
+                  <li>Does it handle the edge cases that matter?</li>
+                  <li>Is this the version we should ship, or the version we should keep iterating?</li>
+                  <li>No shortcut: you have to build ten things, evaluate them, and learn what "good enough to ship" actually feels like.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="section-note"><strong>Context is the hidden lever.</strong> When PMs give vague prompts — "build me a dashboard for customer feedback" — they get output that technically works but misses the point. When they hand the agent a curated context doc, the output fits because the input was specific.</p>
+          </section>
+
+          <!-- Ch 5 · Four things you're expected to do -->
+          <section class="chapter chapter--sub" id="ainpm-four">
+            <div class="chapter__eyebrow">Chapter 5 · The mandate</div>
+            <h3 class="chapter__title" style="font-size:22px">Four things an AI-native PM is expected to do.</h3>
+            <p class="chapter__lede">"Can I turn this into a system where agents do 80% of the work, and humans focus on the 20% that can't be easily graded?" These four moves make that possible.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">01 · Start from agent possibility</div>
+                <div class="concept-block__value">Ask "what can agents now make possible?" — choose problems where agents change the frontier, not problems where they slightly speed up the status quo.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">02 · Prioritize ruthlessly</div>
+                <div class="concept-block__value">Spend more time picking the right problem and allocating tokens/compute. Execution is cheap; picking is the leverage.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">03 · Work in an agentic loop</div>
+                <div class="concept-block__value">Think: data → prompt/policy → agent behavior → evals → iteration. The loop is the unit of work, not the PRD.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">04 · Embrace non-determinism</div>
+                <div class="concept-block__value">Design UX, guardrails, and success metrics knowing outputs vary. Deterministic thinking will make you ship the wrong product.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ch 6 · Two tests -->
+          <section class="chapter chapter--sub" id="ainpm-tests">
+            <div class="chapter__eyebrow">Chapter 6 · The bar</div>
+            <h3 class="chapter__title" style="font-size:22px">Two tests define the minimum bar for an AI-native PM.</h3>
+            <p class="chapter__lede">If you can't do both of these on demand, you are not yet AI-native — regardless of title, seniority, or team. Both tests are 15-minute exercises you can run against any workflow.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Test 1 · Problem finding</div>
+                <div class="two-kinds__title">Can you spot the real bottleneck?</div>
+                <ul class="two-kinds__list">
+                  <li>Frame the environment: users, constraints, data, agents, failure modes</li>
+                  <li>Generate 4–6 high-leverage candidates: eval gaps, routing, data quality, UX-agent mismatch</li>
+                  <li>Write one crisp problem statement: user · context · measurable gap · why agents</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Example output:</strong> "Support agent handles 60% of tickets but only 35% fully resolved; drop-off is complex billing edge cases."</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Test 2 · Problem solving (agent-first)</div>
+                <div class="two-kinds__title">Can you design the end-to-end agentic solution?</div>
+                <ul class="two-kinds__list">
+                  <li>Design the workflow: planner → workers → critic/eval agent → human-in-the-loop</li>
+                  <li>Define metrics: task success rate, correction rate, time-to-resolution, hallucination rate</li>
+                  <li>Address reliability: guardrails, fallbacks, monitoring, escalations, cost, latency</li>
+                  <li>Iterate in loops: launch minimal slice → gather evals → refine prompts/tools → expand</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Not:</strong> "we should use AI." <strong>Instead:</strong> the graph, the metrics, and the failure modes named out loud.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The gap isn't speed — it's depth and judgment.</strong> "Uses AI" means prototypes fast but can't explain why they work or fail. "AI-native" explains failure modes with data and traces, runs evals on real workflows, and ships to production trust, not just demos.</p>
+          </section>
+
+          <!-- Ch 7 · Getting started -->
+          <section class="chapter chapter--sub" id="ainpm-start">
+            <div class="chapter__eyebrow">Chapter 7 · Getting started</div>
+            <h3 class="chapter__title" style="font-size:22px">Do this ten times. That's how you develop the intuition.</h3>
+            <p class="chapter__lede">If you're a PM who hasn't worked this way yet, there's no shortcut. You have to build things, evaluate them, and learn what "good enough to ship" actually feels like versus "technically works."</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">1 · Pick a small problem you actually have</div>
+                <div class="concept-block__value">Not an imaginary one. Something that's annoying you right now. A report you have to manually compile. A workflow that's tedious. A prototype you wish existed.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">2 · Spend 30 minutes writing context before you prompt</div>
+                <div class="concept-block__value">User specifics · problem in their words · what good looks like · what's failed before · constraints that shape the solution · how you'll know it worked. See Chapter 4.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">3 · Point an agent at it and watch</div>
+                <div class="concept-block__value">Don't expect perfection. Expect a starting point. React to it. Guide it. Iterate. This is where taste develops.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">4 · Do this ten times</div>
+                <div class="concept-block__value">Different problems. Different levels of complexity. You'll develop intuition for what works, what context matters, how to evaluate output. This intuition <em>is</em> the new PM skill.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The PMs who will thrive</strong> are the ones who understand problems so clearly that the solution becomes obvious — to them and to the agents they work with. Now go take the readiness self-assessment.</p>
+          </section>
+
+          <!-- Ch 8 · CTA -->
+          <div class="apply-callout apply-callout--dark">
+            <div class="apply-callout__title">Score yourself. Find your gap.</div>
+            <p>The AI-Native PM Self-Assessment in Practice walks you through 8 readiness areas (Problem finding · Problem solving · Eval thinking · Observability · Product judgment · Speed to prototype · Trust &amp; safety · Influence &amp; adoption). Score yourself 1/3/5, and get a personalized weekly plan targeting your lowest 2 areas.</p>
+            <a class="apply-callout__link" href="#/ai-native-pm/practice">→ Head to Practice · Self-Assessment</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 01 · AI-NATIVE PM · PRACTICE
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="ai-native-pm" data-mode="practice" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 01 · Practice</div>
+          <h2 class="chapter__title">Score yourself across 8 readiness areas.</h2>
+          <p class="chapter__lede">A stepped self-assessment. Rate yourself 1/3/5 across the eight things AI-native PMs actually do. Get your gap map, your lowest 2 areas, and one concrete weekly action for each. Everything auto-saves in your browser — export as JSON + Markdown when you're done.</p>
+        </section>
+
+        <div class="chapter-group">
+          <section class="chapter chapter--sub exercise" id="ex-self-assessment">
+            <div class="chapter__eyebrow">Applied work · ~10 min</div>
+            <h3 class="chapter__title" style="font-size:22px">AI-Native PM Self-Assessment</h3>
+            <p class="chapter__lede">Eight areas from the practical playbook: Problem finding, Problem solving, Eval thinking, Observability, Product judgment, Speed to prototype, Trust &amp; safety, Influence &amp; adoption. Each with a 1 / 3 / 5 rubric so you can be honest with yourself. Output: your gap map + a weekly plan.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">Applied work · ~10 min</div>
+              <h3 class="builder-launcher__title">Grade yourself · get your weekly plan</h3>
+              <p class="builder-launcher__body">Walks you through: score all 8 areas → confirm your two lowest gaps → pick one small weekly action per gap → export the plan as JSON + Markdown. Same shape as every other builder in this lab. Nothing to install; state persists in your browser.</p>
+              <a class="builder-launcher__cta" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">
+                Open Self-Assessment <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a shareable score report (JSON + Markdown) — attach to a growth doc, share with your manager, or keep as a private weekly ritual. Re-score every Friday; watch the numbers move.</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 01 · AI-NATIVE PM · APPLY
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="ai-native-pm" data-mode="apply" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 01 · Apply</div>
+          <h2 class="chapter__title">Five compounding moves. One weekly self-review.</h2>
+          <p class="chapter__lede">Five daily moves that compound over a year despite org drag — plus a weekly self-review to keep you honest. Do these consistently and you become the person in your org who "always has a working agent demo." That's how you become AI-native in a place that isn't quite there yet.</p>
+        </section>
+
+        <div class="chapter-group">
+
+          <!-- Move 1 -->
+          <section class="chapter chapter--sub" id="apply-move-1">
+            <div class="chapter__eyebrow">Move 1 · 15–30 min / day</div>
+            <h3 class="chapter__title" style="font-size:22px">Run one daily agent experiment.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">One real workflow, one agent attempt</div>
+                <ul class="two-kinds__list">
+                  <li>Pick one real workflow: case triage, routing, drafting, diagnostics</li>
+                  <li>Ask: "How would an agent do 80% of this?"</li>
+                  <li>Prototype planner → tools → answer with your available stack</li>
+                  <li>Capture what worked, what broke, what made it unusable</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Micro-demos beat slides</div>
+                <ul class="two-kinds__list">
+                  <li>Show micro-demos tied to real objects — not slides</li>
+                  <li>Become the person with a working agent demo in every meeting</li>
+                  <li>Stack: Agentforce, OpenAI, Claude, or internal tools</li>
+                  <li>Evidence beats opinion when arguing "should we do AI here?"</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 2 -->
+          <section class="chapter chapter--sub" id="apply-move-2">
+            <div class="chapter__eyebrow">Move 2 · 20 min / day</div>
+            <h3 class="chapter__title" style="font-size:22px">Build a personal eval + observability gym.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Instrument three things</div>
+                <ul class="two-kinds__list">
+                  <li>Outcome (did the agent solve the task?)</li>
+                  <li>Reliability (does it work across runs?)</li>
+                  <li>Safety / quality (does it fail gracefully?)</li>
+                  <li>Log runs; review traces for bad tool choices, loops, hallucinations</li>
+                  <li>Write one concrete change: prompt tweak, guardrail, golden example</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">MELT beats hand-waving</div>
+                <ul class="two-kinds__list">
+                  <li>When a director says "we can't trust agents," show the eval pattern</li>
+                  <li>MELT-style data (metrics, events/logs, traces) signals credibility</li>
+                  <li>Shifts you from hand-waving to evidence in architecture reviews</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 3 -->
+          <section class="chapter chapter--sub" id="apply-move-3">
+            <div class="chapter__eyebrow">Move 3 · 15–20 min / day</div>
+            <h3 class="chapter__title" style="font-size:22px">Do one problem-finding rep per day.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">One live agent use case in your orbit</div>
+                <ul class="two-kinds__list">
+                  <li>Pick a live or pilot agent use case: service agent, sales copilot, internal automation</li>
+                  <li>Ask daily: where do users drop off? where do humans override? where do metrics spike?</li>
+                  <li>Write one short problem statement</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Example:</strong> "For queue X, agent handles 60% of cases but only 30% end without human edits; bottleneck is tool Y and missing policy Z."</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Evidence-grounded problems win</div>
+                <ul class="two-kinds__list">
+                  <li>You bring specific, high-leverage problems grounded in data and traces</li>
+                  <li>Shifts team conversations from <strong>org politics</strong> to <strong>evidence</strong></li>
+                  <li>Directly trains the "problem finding" bar — the first of two tests every AI-native PM must pass</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 4 -->
+          <section class="chapter chapter--sub" id="apply-move-4">
+            <div class="chapter__eyebrow">Move 4 · 20–30 min / day</div>
+            <h3 class="chapter__title" style="font-size:22px">Ship one tiny, visible artifact every day.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Ship something small and shareable</div>
+                <ul class="two-kinds__list">
+                  <li>1-pager: "How to run offline evals for this service agent feature"</li>
+                  <li>3-min Loom tracing an agent incident</li>
+                  <li>Spec snippet: kill-switches, fallback policies, golden datasets</li>
+                  <li>Internal post: "Today's agent failure and what it taught us"</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Org inertia loves examples, hates decks</div>
+                <ul class="two-kinds__list">
+                  <li>Tie to your org's language: Service Cloud, Agentforce, CSAT/containment</li>
+                  <li>Over time, people route AI/agent questions to you by default</li>
+                  <li>You become the go-to for anything agent-adjacent</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 5 -->
+          <section class="chapter chapter--sub" id="apply-move-5">
+            <div class="chapter__eyebrow">Move 5 · weekly ritual</div>
+            <h3 class="chapter__title" style="font-size:22px">Curate a career-xG map and act on it weekly.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The weekly ritual</div>
+                <div class="two-kinds__title">Map where the ambition lives</div>
+                <ul class="two-kinds__list">
+                  <li>Map where the most ambitious agent problems live in your org</li>
+                  <li>Identify the 5–10 people actually shipping those (PMs, eng leaders, architects)</li>
+                  <li>Note which teams have "ship agents with guardrails" posture vs. slideware first</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">One concrete move each week</div>
+                <div class="two-kinds__title">Show up where it counts</div>
+                <ul class="two-kinds__list">
+                  <li>Coffee chat or Slack thread with someone on those teams</li>
+                  <li>Offer to help on evals, monitoring, kill-switches, or golden datasets</li>
+                  <li>Run a brown-bag on multi-agent evals or observability</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Weekly self-review -->
+          <section class="chapter chapter--sub" id="apply-review">
+            <div class="chapter__eyebrow">Weekly self-review · Friday</div>
+            <h3 class="chapter__title" style="font-size:22px">Five questions to ask yourself every Friday.</h3>
+            <p class="chapter__lede">If you can't answer these clearly, you've found your gap for next week.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">What real problem did I find this week that others missed?</div>
+                <div class="concept-block__value">Problem finding is the first test. If you can't name one this week, that's the gap.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What did I ship or design that used AI/agents meaningfully?</div>
+                <div class="concept-block__value">Not "used AI to draft." Meaningfully — as in the outcome would not have been possible without agent execution.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What did I measure before and after?</div>
+                <div class="concept-block__value">Before/after tells you whether the change was real or theatre. Vibes don't count.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What failure did I understand from traces or data?</div>
+                <div class="concept-block__value">One trace-driven understanding per week. Not "the agent didn't work" — the specific tool call, prompt slice, or policy that broke.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What org blocker did I reduce or route around?</div>
+                <div class="concept-block__value">Every org has drag. Every week, name one piece of drag you moved past — and how.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- How to signal you're AI-native -->
+          <section class="chapter chapter--sub" id="apply-signal">
+            <div class="chapter__eyebrow">Career move · positioning</div>
+            <h3 class="chapter__title" style="font-size:22px">How to signal you're AI-native.</h3>
+            <p class="chapter__lede">Doing the work is step one. Making the work legible to hiring committees, promo panels, and cross-team leaders is step two. Four moves that shift how people describe you.</p>
+            <div class="raci-grid">
+              <div class="raci-card">
+                <div class="raci-card__role">Reframe your projects</div>
+                <div class="raci-card__label">Language shift, not fiction</div>
+                <ul>
+                  <li>"Built eval + monitoring for multi-agent systems, improving token efficiency and reliability in production"</li>
+                  <li>Beats "improved the customer support tool"</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Show problem-finding</div>
+                <div class="raci-card__label">Tell the origin story</div>
+                <ul>
+                  <li>Tell stories: you entered a messy AI workflow and found the real bottleneck</li>
+                  <li>Detail the traces, the metric that moved, the intervention</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Highlight last-mile wins</div>
+                <div class="raci-card__label">Demo-ware → trustworthy</div>
+                <ul>
+                  <li>Took an LLM/agent POC from demo-ware to trustworthy</li>
+                  <li>Better prompts · evals · UX · guardrails · monitoring</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Talk in cross-team channels</div>
+                <div class="raci-card__label">Career xG lives in orbit</div>
+                <ul>
+                  <li>Explain how you chose bets that maximized career xG</li>
+                  <li>Ambitious agent problems on frontier-ish teams</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Final CTA -->
+          <div class="apply-callout apply-callout--dark">
+            <div class="apply-callout__title">The one-line test.</div>
+            <p>Over time, are you becoming the person who can find the right AI problem, solve it well, and make the result trustworthy enough for real users? If yes, you're AI-native. If not, the daily moves above are how you get there.</p>
+            <a class="apply-callout__link" href="#/ai-native-pm/practice">→ Score yourself in Practice</a>
+          </div>
+
+        </div>
+      </div>
 
       <!-- ===== EVAL 101 · LEARN (real content) ===== -->
       <div class="track-panel js-track-panel" data-track="eval-101" data-mode="learn" hidden>
