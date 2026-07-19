@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Skills Lab — learn & practice AI evals, observability, and harness skills</title>
+  <title>AI PM Skills Lab — foundations, agent teams, evals, and beyond for the modern PM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
@@ -22,23 +22,41 @@
     <div class="landing__container">
       <header class="landing__header">
         <div class="landing__label">Seven tracks · Learn, Practice, Apply</div>
-        <h1 class="landing__title">AI <span>Skills Lab</span></h1>
-        <p class="landing__subtitle">Learn and practice AI evals, observability, and harness skills — end-to-end, in the browser, with real grader code.</p>
+        <h1 class="landing__title">AI PM <span>Skills Lab</span></h1>
+        <p class="landing__subtitle">Foundations, agent teams, evals, observability, and adoption — end-to-end skills for the modern AI PM, in the browser, with real builders.</p>
       </header>
 
       <div class="landing__grid">
-        <a class="landing__tile" style="--accent:#3b82f6" href="#/eval-101/learn" data-track="eval-101">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
+        <a class="landing__tile" style="--accent:#3b82f6" href="#/ai-native-pm/learn" data-track="ai-native-pm">
+          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
           <div class="landing__tile-num">Track 01</div>
+          <div class="landing__tile-title">How to Become an AI-Native PM</div>
+          <div class="landing__tile-question">What does it take to be a PM in the age of AI?</div>
+          <div class="landing__tile-desc">Foundations for the modern PM. <strong>Learn:</strong> what AI-Native means, the AI PM Operating System, self-assessment against the PM skill map, and how to improve with an AI coach. <strong>Practice:</strong> score yourself, get a personalized skill-building plan. <em>Coming next.</em></div>
+          <div class="landing__tile-arrow">→</div>
+        </a>
+
+        <a class="landing__tile" style="--accent:#dc2626" href="#/pm-agent-team/learn" data-track="pm-agent-team">
+          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
+          <div class="landing__tile-num">Track 02</div>
+          <div class="landing__tile-title">AI PM Agent Team</div>
+          <div class="landing__tile-question">What does a PM look like in the age of agents?</div>
+          <div class="landing__tile-desc">Your AI PM team: Research, PRD, Prototype, Feedback Synthesis, and Customer Success agents — a shared workspace where they collaborate. <strong>Learn:</strong> the shift, the archetypes, the working loop. <strong>Practice:</strong> the Team Builder — author your own PM agent org chart and export it as a spec.</div>
+          <div class="landing__tile-arrow">→</div>
+        </a>
+
+        <a class="landing__tile" style="--accent:#34d399" href="#/eval-101/learn" data-track="eval-101">
+          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
+          <div class="landing__tile-num">Track 03</div>
           <div class="landing__tile-title">Eval 101</div>
           <div class="landing__tile-question">How do you build, run, and scale AI evals?</div>
           <div class="landing__tile-desc">A full course in three parts. <strong>Learn:</strong> 9 core concepts + 4 hands-on labs. <strong>Practice:</strong> 4 exercises, a rubric builder, a FAQ, and a week-one recipe. <strong>Apply:</strong> maturity ladder, RACI, reliability contract, dashboard spec, Go/No-Go.</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
-        <a class="landing__tile" style="--accent:#34d399" href="#/eval-201/learn" data-track="eval-201">
+        <a class="landing__tile" style="--accent:#f59e0b" href="#/eval-201/learn" data-track="eval-201">
           <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 02</div>
+          <div class="landing__tile-num">Track 04</div>
           <div class="landing__tile-title">Eval 201</div>
           <div class="landing__tile-question">How do evals scale to production AI systems and across an org?</div>
           <div class="landing__tile-desc">Multi-agent, voice, and long-running agent evals. Trust / governance / resilience. Judge alignment. Framework comparison (LangSmith, Langfuse, Arize, Harbor, Braintrust). Trace analysis at scale, release gates tied to KPIs, and the roadmap for org-wide eval discipline.</div>
@@ -47,46 +65,28 @@
 
         <a class="landing__tile" style="--accent:#d29922" href="#/obs-101/learn" data-track="obs-101">
           <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
-          <div class="landing__tile-num">Track 03</div>
-          <div class="landing__tile-title">Observability 101</div>
-          <div class="landing__tile-question">What is your agent actually doing?</div>
-          <div class="landing__tile-desc">Traces, spans, tool calls, prompts, tokens. Instrumenting an agent so you can debug it when a real user complains.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#bc8cff" href="#/obs-201/learn" data-track="obs-201">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
-          <div class="landing__tile-num">Track 04</div>
-          <div class="landing__tile-title">Observability 201</div>
-          <div class="landing__tile-question">Which sessions matter, and why?</div>
-          <div class="landing__tile-desc">Cost attribution, drift detection, root-cause replay, and turning millions of sessions into a short list worth investigating.</div>
+          <div class="landing__tile-num">Track 05</div>
+          <div class="landing__tile-title">Observability</div>
+          <div class="landing__tile-question">What is your agent actually doing — and can you trust it in prod?</div>
+          <div class="landing__tile-desc">Multi-agent observability and a control tower for prod monitoring. Traces, spans, tool calls, prompts, tokens. Security &amp; trust — agent identity, permissions, controls. <em>Coming next.</em></div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
         <a class="landing__tile" style="--accent:#f85149" href="#/harness-101/learn" data-track="harness-101">
           <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
-          <div class="landing__tile-num">Track 05</div>
-          <div class="landing__tile-title">Harness 101</div>
-          <div class="landing__tile-question">How do evals run every deploy?</div>
-          <div class="landing__tile-desc">Wire your evals into CI. Fixtures, harness runners, thresholds, gate rules — the plumbing that makes a score a shared reference point.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#22d3ee" href="#/harness-201/learn" data-track="harness-201">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
           <div class="landing__tile-num">Track 06</div>
-          <div class="landing__tile-title">Harness 201</div>
-          <div class="landing__tile-question">How do you scale a harness across teams?</div>
-          <div class="landing__tile-desc">Multi-suite orchestration, dashboards, cost budgets, and rollout gates. The layer that turns evals into a product-wide discipline.</div>
+          <div class="landing__tile-title">Harness</div>
+          <div class="landing__tile-question">What are the moving parts inside a real agent?</div>
+          <div class="landing__tile-desc">The plumbing that makes agents work. ADLC (skills, MCP, APIs), enterprise context brain &amp; memory management, agent goals + loops + graphs, and the self-optimization loop. <em>Coming next.</em></div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
-        <a class="landing__tile" style="--accent:#dc2626" href="#/pm-agent-team/learn" data-track="pm-agent-team">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
+        <a class="landing__tile" style="--accent:#22d3ee" href="#/adoption-roi/learn" data-track="adoption-roi">
+          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
           <div class="landing__tile-num">Track 07</div>
-          <div class="landing__tile-title">My PM Agent Team</div>
-          <div class="landing__tile-question">What does a PM look like in the age of agents?</div>
-          <div class="landing__tile-desc">The mindset shift: the modern PM leads a team of AI specialists — Design, Engineer, QA, Deploy — and ships in loops. <strong>Learn:</strong> the shift, the archetypes, the working loop. <strong>Practice:</strong> the Team Builder — author your own PM agent org chart and export it as a spec.</div>
+          <div class="landing__tile-title">Adoption and ROI</div>
+          <div class="landing__tile-question">Do people actually use it — and does it pay for itself?</div>
+          <div class="landing__tile-desc">The last-mile track. How to drive adoption and find adoption blockers, cost optimization (model routing, token optimization), pricing &amp; packaging, monetization strategies, and growth loops. <em>Coming next.</em></div>
           <div class="landing__tile-arrow">→</div>
         </a>
       </div>

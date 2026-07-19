@@ -4,8 +4,8 @@
 //  Routes:
 //    #/                          → landing (tile grid)
 //    #/<track>/<mode>            → track page with sub-tab active
-//      track: eval-101 | eval-201 | obs-101 | obs-201 | harness-101 | harness-201
-//      mode:  learn  | practice | test
+//      track: ai-native-pm | pm-agent-team | eval-101 | eval-201 | obs-101 | harness-101 | adoption-roi
+//      mode:  learn  | practice | apply
 //
 //  Content:
 //    - Eval 101 · Learn:    all four labs + wrap-up (real).
@@ -22,13 +22,13 @@ import { mountPractice } from './practice.js';
 const LAB_IDS = ['lab-01', 'lab-02', 'lab-03', 'lab-04'];
 
 const TRACKS = {
-  'eval-101':    { number: '01', title: 'Eval 101',          accent: '#3b82f6', modes: { learn: 'real', practice: 'real', apply: 'real' } },
-  'eval-201':    { number: '02', title: 'Eval 201',          accent: '#34d399', modes: { learn: 'real', practice: 'real', apply: 'real' } },
-  'obs-101':     { number: '03', title: 'Observability 101', accent: '#d29922', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
-  'obs-201':     { number: '04', title: 'Observability 201', accent: '#bc8cff', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
-  'harness-101': { number: '05', title: 'Harness 101',       accent: '#f85149', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
-  'harness-201': { number: '06', title: 'Harness 201',       accent: '#22d3ee', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
-  'pm-agent-team': { number: '07', title: 'My PM Agent Team', accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'stub' } },
+  'ai-native-pm':  { number: '01', title: 'How to Become an AI-Native PM', accent: '#3b82f6', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'pm-agent-team': { number: '02', title: 'AI PM Agent Team',              accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'stub' } },
+  'eval-101':      { number: '03', title: 'Eval 101',                      accent: '#34d399', modes: { learn: 'real', practice: 'real', apply: 'real' } },
+  'eval-201':      { number: '04', title: 'Eval 201',                      accent: '#f59e0b', modes: { learn: 'real', practice: 'real', apply: 'real' } },
+  'obs-101':       { number: '05', title: 'Observability',                 accent: '#d29922', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'harness-101':   { number: '06', title: 'Harness',                       accent: '#f85149', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'adoption-roi':  { number: '07', title: 'Adoption and ROI',              accent: '#22d3ee', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
 };
 
 const MODES = ['learn', 'practice', 'apply'];
