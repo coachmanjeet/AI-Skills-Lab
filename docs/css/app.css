@@ -2986,6 +2986,10 @@ body {
 .landing__tile:nth-child(4) { animation-delay: 0.20s; }
 .landing__tile:nth-child(5) { animation-delay: 0.25s; }
 .landing__tile:nth-child(6) { animation-delay: 0.30s; }
+.landing__tile:nth-child(7) { animation-delay: 0.35s; }
+
+.mas-node--pm { border-color: #dc2626; background: #fef2f2; }
+.mas-node--pm-lead { border-color: #dc2626; background: #fee2e2; border-width: 2px; }
 .landing__tile::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;

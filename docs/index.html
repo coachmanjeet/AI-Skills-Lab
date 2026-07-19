@@ -21,7 +21,7 @@
 
     <div class="landing__container">
       <header class="landing__header">
-        <div class="landing__label">Six tracks · Learn, Practice, Test</div>
+        <div class="landing__label">Seven tracks · Learn, Practice, Apply</div>
         <h1 class="landing__title">AI <span>Skills Lab</span></h1>
         <p class="landing__subtitle">Learn and practice AI evals, observability, and harness skills — end-to-end, in the browser, with real grader code.</p>
       </header>
@@ -78,6 +78,15 @@
           <div class="landing__tile-title">Harness 201</div>
           <div class="landing__tile-question">How do you scale a harness across teams?</div>
           <div class="landing__tile-desc">Multi-suite orchestration, dashboards, cost budgets, and rollout gates. The layer that turns evals into a product-wide discipline.</div>
+          <div class="landing__tile-arrow">→</div>
+        </a>
+
+        <a class="landing__tile" style="--accent:#dc2626" href="#/pm-agent-team/learn" data-track="pm-agent-team">
+          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
+          <div class="landing__tile-num">Track 07</div>
+          <div class="landing__tile-title">My PM Agent Team</div>
+          <div class="landing__tile-question">What does a PM look like in the age of agents?</div>
+          <div class="landing__tile-desc">The mindset shift: the modern PM leads a team of AI specialists — Design, Engineer, QA, Deploy — and ships in loops. <strong>Learn:</strong> the shift, the archetypes, the working loop. <strong>Practice:</strong> the Team Builder — author your own PM agent org chart and export it as a spec.</div>
           <div class="landing__tile-arrow">→</div>
         </a>
       </div>
@@ -2347,6 +2356,254 @@
           </div>
 
         </section>
+      </div>
+
+      <!-- ============================================================
+           TRACK 07 · MY PM AGENT TEAM · LEARN
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="pm-agent-team" data-mode="learn" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 07 · My PM Agent Team</div>
+          <h2 class="chapter__title">The modern PM in the age of agents.</h2>
+          <p class="chapter__lede">You used to write a spec and hand it off. Now you build with a team of agents — and the shape of the PM job changes with it. This track walks the shift, names the roles, and lets you draft your own team.</p>
+        </section>
+
+        <div class="chapter-group">
+
+          <!-- Ch 1 · The shift -->
+          <section class="chapter chapter--sub" id="pm-shift">
+            <div class="chapter__eyebrow">Chapter 1 · The shift</div>
+            <h3 class="chapter__title" style="font-size:22px">Old PM vs new PM</h3>
+            <p class="chapter__lede">The job used to be about writing the right document. Now it's about running the right loop.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Old model</div>
+                <div class="two-kinds__title">Write it. Hand it off.</div>
+                <div class="two-kinds__q"><strong>Shape:</strong> PM figures out what to build → writes a spec → engineers build it → PM reviews → iterate.</div>
+                <ul class="two-kinds__list">
+                  <li>Weeks between "idea" and "seeing it"</li>
+                  <li>Handoff is where meaning gets lost</li>
+                  <li>PM is a bottleneck, not a builder</li>
+                  <li>Feedback cycle: measured in sprints</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Failure mode:</strong> a beautifully written PRD that ships as something no one wanted.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">New model</div>
+                <div class="two-kinds__title">Build with agents. Ship in loops.</div>
+                <div class="two-kinds__q"><strong>Shape:</strong> PM figures out what to build → PM builds it with agents → PM evaluates → iterate quickly → hand to engineers to go live in prod.</div>
+                <ul class="two-kinds__list">
+                  <li>Hours between "idea" and "seeing it"</li>
+                  <li>PM is closer to the artifact than ever</li>
+                  <li>Engineers get a working prototype, not a doc</li>
+                  <li>Feedback cycle: measured in coffee breaks</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Superpower:</strong> ten PMs, ten agent teams, ten shippable prototypes by Friday.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Why it matters:</strong> the PMs who win this decade won't be the ones who write the tidiest specs. They'll be the ones who run the tightest loops — and a team of agents is what makes that loop possible.</p>
+          </section>
+
+          <!-- Ch 2 · What's an agent team? -->
+          <section class="chapter chapter--sub" id="pm-agent-team-concept">
+            <div class="chapter__eyebrow">Chapter 2 · The team</div>
+            <h3 class="chapter__title" style="font-size:22px">What's an agent team?</h3>
+            <p class="chapter__lede">Think of it as a small org chart. A lead PM agent runs the project. Specialist agents do the work. You work with the PM, not the implementers.</p>
+
+            <div class="mas-diagram" aria-label="PM agent team org chart" style="flex-wrap:wrap;justify-content:center;gap:14px">
+              <div class="mas-node mas-node--pm-lead">
+                <div class="mas-node__label">My PM Agent</div>
+                <div class="mas-node__meta">leads the build</div>
+              </div>
+            </div>
+            <div class="mas-diagram" aria-label="Specialist agents" style="flex-wrap:wrap;justify-content:center;gap:14px;margin-top:14px">
+              <div class="mas-node mas-node--pm">
+                <div class="mas-node__label">Design</div>
+                <div class="mas-node__meta">mocks + flows</div>
+              </div>
+              <div class="mas-node mas-node--pm">
+                <div class="mas-node__label">Engineer</div>
+                <div class="mas-node__meta">prototype code</div>
+              </div>
+              <div class="mas-node mas-node--pm">
+                <div class="mas-node__label">QA</div>
+                <div class="mas-node__meta">tests + evals</div>
+              </div>
+              <div class="mas-node mas-node--pm">
+                <div class="mas-node__label">Deploy</div>
+                <div class="mas-node__meta">preview + ship</div>
+              </div>
+              <div class="mas-node mas-node--pm">
+                <div class="mas-node__label">Research</div>
+                <div class="mas-node__meta">users + competitors</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The PM agent runs the project. The specialists do the work. You work with the PM, not the implementers.</strong> That's the whole idea. You don't need to prompt five agents — you brief one, and it delegates.</p>
+
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">What it is</div>
+                <div class="concept-block__value">A small set of role-scoped agents — each with a mission, a set of tools, and guardrails — coordinated by a lead agent that owns the project state.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">How it works</div>
+                <div class="concept-block__value">You brief the lead. It splits the work, delegates to specialists, aggregates results, flags decisions back to you. You decide direction; it moves the pieces.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">"Explore adding one-tap refunds." → Research pulls competitor patterns → Design drafts 3 mocks → Engineer prototypes the top one → QA writes 5 test cases → Deploy pushes a preview. All while you get coffee.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">One agent can help. A team of agents can ship. The shift from "AI as autocomplete" to "AI as team" is what closes the loop between idea and working prototype.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ch 3 · Specialist archetypes -->
+          <section class="chapter chapter--sub" id="pm-specialists">
+            <div class="chapter__eyebrow">Chapter 3 · The archetypes</div>
+            <h3 class="chapter__title" style="font-size:22px">Six agents worth having on the team</h3>
+            <p class="chapter__lede">These are the roles that keep showing up in real PM agent teams. Not every project needs all six — but every project needs the lead.</p>
+            <div class="raci-grid">
+              <div class="raci-card">
+                <div class="raci-card__role">Lead PM Agent</div>
+                <div class="raci-card__label">Runs the project</div>
+                <ul>
+                  <li>Turns your brief into a plan</li>
+                  <li>Delegates to specialists</li>
+                  <li>Surfaces decisions back to you</li>
+                  <li>Owns project state + context</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> project tracker, brief templates, agent-to-agent messaging.</p>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Design Agent</div>
+                <div class="raci-card__label">Draws the pictures</div>
+                <ul>
+                  <li>Turns intent into wireframes + mocks</li>
+                  <li>Iterates on flow + copy</li>
+                  <li>Produces exportable design specs</li>
+                  <li>Flags UX debt vs. new patterns</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> Figma, image gen, component libraries, style tokens.</p>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Engineer Agent</div>
+                <div class="raci-card__label">Writes the prototype</div>
+                <ul>
+                  <li>Scaffolds working code from a mock</li>
+                  <li>Wires APIs, data, state</li>
+                  <li>Ships preview builds</li>
+                  <li>Names risks + tradeoffs</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> code repo, LLM coding tools, sandbox runtime, package installers.</p>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">QA Agent</div>
+                <div class="raci-card__label">Breaks it on purpose</div>
+                <ul>
+                  <li>Generates test cases + fixtures</li>
+                  <li>Runs evals against agent output</li>
+                  <li>Reports failures with repro steps</li>
+                  <li>Suggests regression coverage</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> test runners, eval harness, browser automation.</p>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Deploy Agent</div>
+                <div class="raci-card__label">Ships the preview</div>
+                <ul>
+                  <li>Cuts branches, opens PRs</li>
+                  <li>Pushes preview builds to a URL</li>
+                  <li>Rolls back on failure</li>
+                  <li>Handles config + env vars</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> git, CI/CD, cloud console, feature flags.</p>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Research Agent</div>
+                <div class="raci-card__label">Feeds the loop</div>
+                <ul>
+                  <li>Scans competitor patterns</li>
+                  <li>Reads user interviews, support tickets</li>
+                  <li>Surfaces relevant PRDs + docs</li>
+                  <li>Writes tight briefs from raw input</li>
+                </ul>
+                <p style="font-size:13px;color:#5b6272;margin:8px 0 0"><strong>Tools:</strong> web search, transcript reader, doc search, CRM.</p>
+              </div>
+            </div>
+            <p class="section-note"><strong>Small team?</strong> Start with three: Lead + Engineer + one of {Design, Research}. Add the others as bottlenecks surface. The <em>roles</em> matter, not the headcount — same as any org chart.</p>
+          </section>
+
+          <!-- Ch 4 · How you work with them -->
+          <section class="chapter chapter--sub" id="pm-loop">
+            <div class="chapter__eyebrow">Chapter 4 · The loop</div>
+            <h3 class="chapter__title" style="font-size:22px">How you actually work with an agent team</h3>
+            <p class="chapter__lede">Five phases, tight cycle. The whole point is speed — from "idea" to "seeing something real" measured in hours, not sprints.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">1 · Brief</div>
+                <div class="concept-block__value">Tell the lead PM agent what you want to explore. One paragraph. Success criteria in plain English. No bullet lists of edge cases — that comes later.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">2 · Delegate</div>
+                <div class="concept-block__value">Let the lead split the work and dispatch specialists. Watch which agents it picks — that tells you how it read your brief.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">3 · Review</div>
+                <div class="concept-block__value">Look at what came back. Talk to the PM agent, not the specialists — corrections at the top propagate down. Read traces if something feels off.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">4 · Iterate</div>
+                <div class="concept-block__value">Steer, don't rewrite. A one-line direction change to the lead beats redoing three specialist outputs by hand. Do this loop 3–5 times.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">5 · Ship</div>
+                <div class="concept-block__value">When you like it, hand it to real engineers to productionize. The agent output is the prototype + spec — not the shipped feature. That's where the human loop begins.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Watch for:</strong> PMs who try to prompt every specialist directly. That's back to being the bottleneck. If you're doing that, your PM agent isn't scoped well enough — fix its mission, not the specialist outputs.</p>
+          </section>
+
+          <!-- Ch 5 · CTA -->
+          <div class="apply-callout apply-callout--dark">
+            <div class="apply-callout__title">Now build your own team.</div>
+            <p>The Team Builder in Practice walks you through it — pick your lead PM agent, choose specialists, define the workflow, export the spec. Ten minutes → a team you can paste into your next PM tool.</p>
+            <a class="apply-callout__link" href="#/pm-agent-team/practice">→ Head to Practice · Team Builder</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 07 · MY PM AGENT TEAM · PRACTICE
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="pm-agent-team" data-mode="practice" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 07 · Practice</div>
+          <h2 class="chapter__title">Draft your own PM agent team.</h2>
+          <p class="chapter__lede">One stepped builder. Pick your lead PM agent, choose specialists, define the workflow, export the spec as JSON + Markdown. Everything auto-saves in your browser — no accounts, no cloud.</p>
+        </section>
+
+        <div class="chapter-group">
+          <section class="chapter chapter--sub exercise" id="ex-team-builder">
+            <div class="chapter__eyebrow">Applied work · ~10 min</div>
+            <h3 class="chapter__title" style="font-size:22px">Team Builder</h3>
+            <p class="chapter__lede">A five-stage flow: name your lead → pick specialists → confirm the org chart → set a workflow → export. Same shape as every other builder in this lab.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">Applied work · ~10 min</div>
+              <h3 class="builder-launcher__title">Author your PM agent team</h3>
+              <p class="builder-launcher__body">Walks you through: name a lead PM agent → pick from six specialist archetypes (Design, Engineer, QA, Deploy, Research, Growth, Data) → confirm the org chart → pick a starter workflow (New feature · Bug triage · Launch prep) → export as JSON + Markdown. Nothing to install; state persists in your browser.</p>
+              <a class="builder-launcher__cta" href="./pm-agent-team/team-builder.html" target="_blank" rel="noopener">
+                Open Team Builder <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a shareable team spec — paste into your PM tool (MindStudio, Claude Projects, ChatGPT Team, etc.) or attach to a PRD. Not a running agent — a document. The agent runtime is a future track.</p>
+          </section>
+        </div>
       </div>
 
     </main>

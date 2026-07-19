@@ -28,6 +28,7 @@ const TRACKS = {
   'obs-201':     { number: '04', title: 'Observability 201', accent: '#bc8cff', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
   'harness-101': { number: '05', title: 'Harness 101',       accent: '#f85149', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
   'harness-201': { number: '06', title: 'Harness 201',       accent: '#22d3ee', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'pm-agent-team': { number: '07', title: 'My PM Agent Team', accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'stub' } },
 };
 
 const MODES = ['learn', 'practice', 'apply'];
