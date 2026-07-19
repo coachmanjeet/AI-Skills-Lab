@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "Grading the path, not the output",
+      "tell": "Your grader fails an agent that got the right answer via a different tool sequence than expected.",
+      "fix": "Grade the final outcome (was the ticket resolved?), not the trajectory. Reserve path checks for cases where a specific step is genuinely required (e.g., 'verify_identity must be called before process_refund')."
+    },
+    {
+      "title": "Class-imbalanced data",
+      "tell": "Your safety eval has 20 harmful prompts and zero benign ones. Now you can't tell if the model over-refuses.",
+      "fix": "Include both sides. Test where the behavior should happen AND where it shouldn't. A one-sided eval produces one-sided optimization."
+    },
+    {
+      "title": "Rigid string match on numeric answers",
+      "tell": "Expected '96.124991…', model returned '96.12'. Grader marks it wrong. The model was right.",
+      "fix": "Use tolerance for numbers (abs diff < epsilon). For open-ended text, use LLM-as-judge with a rubric rather than exact-match."
+    },
+    {
+      "title": "Never reading transcripts",
+      "tell": "Score dropped 5 points. You retrain, tune prompts, chase ghosts — but you never opened a single failed transcript.",
+      "fix": "Sample ~10 failed transcripts per eval run. Half the time the grader is wrong, not the model. The other half you learn something a metric can't tell you."
+    }
+  ]
+}

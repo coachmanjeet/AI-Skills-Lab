@@ -1,0 +1,43 @@
+{
+  "name": "my-first-eval",
+  "description": "One sentence describing what this eval measures.",
+  "task": {
+    "question": "The specific behavior you're testing — phrased as a yes/no question.",
+    "target": "model | conversational-agent | rag | coding-agent | other"
+  },
+  "grader": {
+    "type": "code | llm-judge | hybrid",
+    "rubric": "For LLM-judge: the exact prompt/criteria the judge applies. For code: a plain-English description of the check.",
+    "signature": "function grade(sample, agentOutput) -> { pass: boolean, score: number 0..1, reasoning: string }"
+  },
+  "samples": [
+    {
+      "id": "s001",
+      "input": "The user or system prompt you'll send.",
+      "expected": "Refuse | Answer | Route | ... (what the correct behavior looks like)",
+      "notes": "Optional — why this sample matters (edge case, common failure, etc.)"
+    },
+    {
+      "id": "s002",
+      "input": "...",
+      "expected": "..."
+    }
+  ],
+  "metrics": [
+    {
+      "name": "headline_metric",
+      "description": "The single number you'll watch over time. e.g. refusal_rate_on_harmful."
+    },
+    {
+      "name": "breakdown_metric",
+      "description": "Sub-metric per category or sample type."
+    }
+  ],
+  "checklist": [
+    "20-50 samples is enough to start.",
+    "Include both positive AND negative cases (avoid class imbalance).",
+    "Two people should agree on the expected value for every sample.",
+    "Read 10 failed transcripts after the first run.",
+    "Once optimized, this eval graduates from capability to regression."
+  ]
+}

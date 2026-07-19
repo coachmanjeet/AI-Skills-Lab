@@ -1,0 +1,123 @@
+{
+  "id": "lab-04",
+  "number": 4,
+  "target": "Coding agent",
+  "title": "Bug-fix — does the patch actually fix it?",
+  "task": {
+    "question": "Given a bug report and a failing test, does the agent's patch make the test pass without breaking others?",
+    "why": "Coding is the eval type where code-based grading shines. There's a real answer: either the failing test passes after the patch, or it doesn't. No LLM judge needed. This is why coding benchmarks like SWE-bench Verified jumped from 40% to 80%+ in one year — the signal is clean."
+  },
+  "grader": {
+    "type": "code",
+    "typeLabel": "Code-based (test runner)",
+    "why": "The bug report ships with tests that were failing. A correct patch makes them pass. A correct patch also doesn't introduce new failures elsewhere. That's a binary check code can make deterministically. For this lab, we don't run Python in the browser — each testCase declares text-level assertions (must_contain, must_not_contain) that the patch must satisfy. Same shape as a real test runner, just checkable in JS.",
+    "rubric": "N/A — code-based grader has no rubric prompt. Rules are:\n\nFor each testCase:\n  - Every `must_contain` string must appear in the patch\n  - No `must_not_contain` string may appear in the patch\n  - `must_match` regex must match if provided\n\nSample passes iff every testCase passes.",
+    "codePreview": "function codeTestRunner(patch, testCases) {\n  const results = testCases.map(tc => {\n    const missing  = (tc.must_contain     || []).filter(s => !patch.includes(s));\n    const forbid   = (tc.must_not_contain || []).filter(s =>  patch.includes(s));\n    const regexOk  = tc.must_match ? new RegExp(tc.must_match, 'm').test(patch) : true;\n    const pass = missing.length === 0 && forbid.length === 0 && regexOk;\n    return { name: tc.name, pass, missing, forbid, regexOk };\n  });\n  return {\n    pass: results.every(r => r.pass),\n    passedCount: results.filter(r => r.pass).length,\n    totalCount: results.length,\n    details: results\n  };\n}"
+  },
+  "samples": [
+    {
+      "id": "s01",
+      "bugReport": "Auth bypass: an empty-string password passes login when the user's stored password is also empty. Reject empty passwords regardless.",
+      "patch": "def verify_password(stored, given):\n    if not given or not stored:\n        return False\n    return hmac.compare_digest(stored.encode(), given.encode())",
+      "testCases": [
+        {
+          "name": "test_empty_password_rejected",
+          "must_contain": ["if not given", "return False"],
+          "must_not_contain": ["stored == given", "== \"\""]
+        },
+        {
+          "name": "test_uses_constant_time_compare",
+          "must_contain": ["hmac.compare_digest"]
+        }
+      ],
+      "stepsTaken": 4,
+      "tokensUsed": 1820
+    },
+    {
+      "id": "s02",
+      "bugReport": "Off-by-one in pagination: last page's `next_cursor` should be None, not a valid cursor pointing past the end.",
+      "patch": "def paginate(items, cursor, limit):\n    page = items[cursor:cursor + limit]\n    next_cursor = cursor + limit if cursor + limit < len(items) else None\n    return { 'items': page, 'next_cursor': next_cursor }",
+      "testCases": [
+        {
+          "name": "test_last_page_returns_none_cursor",
+          "must_contain": ["if cursor + limit < len(items) else None"]
+        },
+        {
+          "name": "test_no_off_by_one",
+          "must_not_contain": ["cursor + limit <= len(items)"]
+        }
+      ],
+      "stepsTaken": 3,
+      "tokensUsed": 1210
+    },
+    {
+      "id": "s03",
+      "bugReport": "The agent's patch fails the failing test — it swapped the comparison direction instead of fixing the logic.",
+      "patch": "def is_expired(token, now):\n    return token.expires_at < now",
+      "testCases": [
+        {
+          "name": "test_expired_when_past_expiry",
+          "must_contain": ["token.expires_at < now"]
+        },
+        {
+          "name": "test_not_expired_when_future",
+          "must_not_contain": ["token.expires_at > now"]
+        },
+        {
+          "name": "test_handles_none_expires_at",
+          "must_contain": ["expires_at is None"]
+        }
+      ],
+      "stepsTaken": 2,
+      "tokensUsed": 640
+    },
+    {
+      "id": "s04",
+      "bugReport": "SQL injection: user-supplied `order_by` parameter is concatenated into the query string.",
+      "patch": "ALLOWED_ORDER = {'created_at', 'updated_at', 'name'}\ndef list_users(order_by='created_at'):\n    if order_by not in ALLOWED_ORDER:\n        raise ValueError('invalid order_by')\n    query = 'SELECT * FROM users ORDER BY ' + order_by\n    return db.execute(query)",
+      "testCases": [
+        {
+          "name": "test_rejects_injection_payload",
+          "must_contain": ["ALLOWED_ORDER", "not in ALLOWED_ORDER", "raise"]
+        },
+        {
+          "name": "test_no_string_concat_of_user_input",
+          "must_not_contain": ["+ user_input", "% order_by"]
+        }
+      ],
+      "stepsTaken": 5,
+      "tokensUsed": 2450
+    },
+    {
+      "id": "s05",
+      "bugReport": "Race condition: two concurrent 'redeem coupon' requests can both succeed. Add a per-coupon lock.",
+      "patch": "def redeem_coupon(user_id, code):\n    with coupon_lock(code):\n        coupon = fetch_coupon(code)\n        if coupon.redeemed:\n            raise CouponAlreadyRedeemed()\n        mark_redeemed(coupon, user_id)\n        return coupon",
+      "testCases": [
+        {
+          "name": "test_uses_lock",
+          "must_contain": ["with coupon_lock(code)"]
+        },
+        {
+          "name": "test_rechecks_after_lock",
+          "must_contain": ["if coupon.redeemed", "raise"]
+        }
+      ],
+      "stepsTaken": 6,
+      "tokensUsed": 3120
+    }
+  ],
+  "metrics": {
+    "headline": {
+      "label": "Resolve rate",
+      "unit": "%",
+      "goodDirection": "up",
+      "target": 100
+    },
+    "breakdown": [
+      { "label": "Resolve rate", "compute": "resolved / total" },
+      { "label": "Avg steps per resolution", "compute": "mean(steps) for resolved" },
+      { "label": "Avg tokens per resolution", "compute": "mean(tokens) for resolved" }
+    ]
+  },
+  "insight": "Coding evals give you two free axes beyond pass/fail: efficiency (steps, tokens) and confidence (does the same patch pass on retry?). Cheap, fast, deterministic — the ideal grader when the outcome is objective."
+}

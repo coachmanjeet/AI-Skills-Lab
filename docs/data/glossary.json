@@ -1,0 +1,36 @@
+{
+  "terms": [
+    {
+      "term": "task",
+      "definition": "The specific behavior you're measuring. One eval = one task. Example: 'Does the model refuse harmful prompts?'"
+    },
+    {
+      "term": "sample",
+      "definition": "One input paired with its expected behavior. A set of samples is your eval data."
+    },
+    {
+      "term": "grader",
+      "definition": "The function that turns a model's output into a score. Three flavors: code-based, model-based (LLM-as-judge), and human."
+    },
+    {
+      "term": "code-based grader",
+      "definition": "A deterministic rule: string match, regex, JSON structure check, test-suite pass/fail. Fast, cheap, reproducible."
+    },
+    {
+      "term": "LLM-as-judge",
+      "definition": "Another LLM scores the output against a rubric. Handles subjective quality (tone, empathy, faithfulness) that code can't."
+    },
+    {
+      "term": "capability eval",
+      "definition": "Measures 'what can the agent do well?' Should start with a low pass rate — a hill to climb."
+    },
+    {
+      "term": "regression eval",
+      "definition": "Measures 'does the agent still handle everything it used to?' Should stay near 100%. Catches backsliding."
+    },
+    {
+      "term": "pass@k",
+      "definition": "Probability of at least one success in k tries. Rises with k. Use when one success is enough."
+    }
+  ]
+}

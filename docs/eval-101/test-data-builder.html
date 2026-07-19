@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test Data — Eval 101 · Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../eval-201/rubric-builder.css">
+</head>
+<body class="rb-body">
+
+  <header class="rb-topbar">
+    <div class="rb-topbar__inner">
+      <a class="rb-topbar__back" href="../index.html#/eval-101/practice">← Back to Eval 101 · Practice</a>
+      <div class="rb-topbar__title">
+        <span class="rb-topbar__eyebrow">Exercise 1</span>
+        <span class="rb-topbar__name">Test Data Builder</span>
+      </div>
+      <div class="rb-topbar__actions">
+        <span class="rb-topbar__save" data-role="save-indicator" aria-live="polite"></span>
+        <button class="rb-btn rb-btn--ghost" data-role="reset">Start over</button>
+      </div>
+    </div>
+    <div class="rb-stepper" role="tablist" aria-label="Builder stages">
+      <div class="rb-stepper__inner" data-role="stepper"></div>
+    </div>
+  </header>
+
+  <main class="rb-main">
+    <div class="rb-shell">
+      <section class="rb-stage" data-role="stage-mount" aria-live="polite"></section>
+      <aside class="rb-side" data-role="side-mount"></aside>
+    </div>
+
+    <nav class="rb-nav">
+      <button class="rb-btn rb-btn--ghost" data-role="back">← Back</button>
+      <div class="rb-nav__hint" data-role="nav-hint"></div>
+      <button class="rb-btn rb-btn--primary" data-role="next">Next →</button>
+    </nav>
+  </main>
+
+  <script type="module" src="./test-data-builder.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automated Scoring — Eval 101 · Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../eval-201/rubric-builder.css">
+  <style>
+    /* Wrapper for the existing inline mountPractice UI so it lives comfortably
+       inside the standalone rb-body shell. */
+    .as-launch-shell { max-width: 1200px; margin: 0 auto; padding: 24px 24px 60px; }
+    .as-launch-shell .js-practice-mount { min-height: 640px; }
+  </style>
+</head>
+<body class="rb-body">
+
+  <header class="rb-topbar">
+    <div class="rb-topbar__inner">
+      <a class="rb-topbar__back" href="../index.html#/eval-101/practice">← Back to Eval 101 · Practice</a>
+      <div class="rb-topbar__title">
+        <span class="rb-topbar__eyebrow">Exercise 4</span>
+        <span class="rb-topbar__name">Automated Scoring Builder</span>
+      </div>
+      <div class="rb-topbar__actions">
+        <span class="rb-topbar__save" aria-live="polite" data-role="save-hint">Auto-saves locally</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="rb-main">
+    <div class="as-launch-shell">
+      <div class="js-practice-mount"></div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { mountPractice } from '../js/practice.js';
+
+    async function boot() {
+      const mount = document.querySelector('.js-practice-mount');
+      if (!mount) return;
+      const res = await fetch('../data/practice-examples.json');
+      const examples = res.ok ? await res.json() : null;
+      await mountPractice(mount, examples);
+    }
+    boot();
+  </script>
+</body>
+</html>

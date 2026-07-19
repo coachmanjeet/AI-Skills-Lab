@@ -1,0 +1,583 @@
+/* ============================================================================
+ * Rubric Builder — standalone page styles.
+ * Layered on top of ../css/app.css (SLDS tokens + Blue Tide palette).
+ * ========================================================================== */
+
+:root {
+  --rb-accent: #34d399;
+  --rb-accent-dark: #059669;
+  --rb-accent-soft: #d1fae5;
+  --rb-border: #d5dce6;
+  --rb-border-strong: #b5bcc9;
+  --rb-ink: #111827;
+  --rb-ink-2: #374151;
+  --rb-ink-3: #6b7280;
+  --rb-bg: #f6f8fb;
+  --rb-card: #ffffff;
+  --rb-radius: 10px;
+  --rb-radius-sm: 6px;
+  --rb-shadow-1: 0 1px 2px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04);
+  --rb-shadow-2: 0 4px 10px rgba(15,23,42,0.06), 0 10px 24px rgba(15,23,42,0.06);
+}
+
+.rb-body {
+  background: var(--rb-bg);
+  color: var(--rb-ink);
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ---------- Topbar + stepper ---------- */
+.rb-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--rb-card);
+  border-bottom: 1px solid var(--rb-border);
+}
+.rb-topbar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.rb-topbar__back {
+  color: var(--rb-ink-3);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.rb-topbar__back:hover { color: var(--rb-accent-dark); }
+.rb-topbar__title { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.rb-topbar__eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-accent-dark);
+}
+.rb-topbar__name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rb-ink);
+}
+.rb-topbar__actions { display: flex; align-items: center; gap: 12px; }
+.rb-topbar__save {
+  font-size: 11px;
+  color: var(--rb-ink-3);
+  font-style: italic;
+  min-width: 90px;
+  text-align: right;
+}
+
+.rb-stepper {
+  border-top: 1px solid var(--rb-border);
+  background: #fbfcfe;
+}
+.rb-stepper__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.rb-step {
+  border: 1px solid var(--rb-border);
+  background: var(--rb-card);
+  border-radius: var(--rb-radius-sm);
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.12s, border-color 0.12s;
+  font-family: inherit;
+}
+.rb-step:hover { border-color: var(--rb-border-strong); }
+.rb-step[disabled] { cursor: not-allowed; opacity: 0.5; }
+.rb-step.is-current { border-color: var(--rb-accent); background: var(--rb-accent-soft); }
+.rb-step.is-done { border-color: var(--rb-accent-dark); }
+.rb-step__num {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--rb-ink-3);
+  text-transform: uppercase;
+}
+.rb-step.is-current .rb-step__num { color: var(--rb-accent-dark); }
+.rb-step.is-done .rb-step__num { color: var(--rb-accent-dark); }
+.rb-step__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rb-ink);
+  margin-top: 2px;
+}
+.rb-step__check { color: var(--rb-accent-dark); font-weight: 800; margin-right: 4px; }
+
+/* ---------- Layout ---------- */
+.rb-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.rb-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
+}
+.rb-stage {
+  background: var(--rb-card);
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  padding: 28px 32px;
+  box-shadow: var(--rb-shadow-1);
+  min-height: 400px;
+}
+.rb-side {
+  position: sticky;
+  top: 130px;
+  background: #f9fbfd;
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  padding: 18px 20px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--rb-ink-2);
+}
+.rb-side__eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rb-accent-dark);
+  margin-bottom: 8px;
+}
+.rb-side__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--rb-ink);
+}
+.rb-side__block { margin-top: 14px; }
+.rb-side__block-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rb-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.rb-side__list { padding-left: 18px; margin: 0; }
+.rb-side__list li { margin-bottom: 6px; }
+.rb-side__quote {
+  font-style: italic;
+  padding: 10px 12px;
+  border-left: 3px solid var(--rb-accent);
+  background: var(--rb-card);
+  border-radius: 0 var(--rb-radius-sm) var(--rb-radius-sm) 0;
+  margin-top: 8px;
+  font-size: 12.5px;
+}
+
+/* ---------- Stage typography ---------- */
+.rb-stage__eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-accent-dark);
+  margin-bottom: 8px;
+}
+.rb-stage__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--rb-ink);
+  margin: 0 0 10px;
+}
+.rb-stage__lede {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--rb-ink-2);
+  margin: 0 0 22px;
+  max-width: 640px;
+}
+
+/* ---------- Buttons ---------- */
+.rb-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: var(--rb-radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+.rb-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.rb-btn--primary {
+  background: var(--rb-accent-dark);
+  color: white;
+}
+.rb-btn--primary:not(:disabled):hover { background: #047857; }
+.rb-btn--ghost {
+  background: transparent;
+  color: var(--rb-ink-2);
+  border-color: var(--rb-border);
+}
+.rb-btn--ghost:not(:disabled):hover {
+  background: var(--rb-card);
+  border-color: var(--rb-border-strong);
+  color: var(--rb-ink);
+}
+
+/* ---------- Nav ---------- */
+.rb-nav {
+  max-width: 1200px;
+  margin: 20px auto 40px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.rb-nav__hint {
+  flex: 1;
+  font-size: 12.5px;
+  color: var(--rb-ink-3);
+  font-style: italic;
+}
+
+/* ---------- Stage 1 — Feature picker ---------- */
+.rb-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.rb-feature-card {
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  padding: 16px 18px;
+  cursor: pointer;
+  background: var(--rb-card);
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.12s, background 0.12s, transform 0.12s;
+}
+.rb-feature-card:hover {
+  border-color: var(--rb-accent);
+  transform: translateY(-1px);
+}
+.rb-feature-card.is-selected {
+  border-color: var(--rb-accent-dark);
+  background: var(--rb-accent-soft);
+}
+.rb-feature-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--rb-ink);
+  margin-bottom: 4px;
+}
+.rb-feature-card__desc {
+  font-size: 13px;
+  color: var(--rb-ink-2);
+  line-height: 1.45;
+}
+.rb-feature-custom {
+  border: 1px dashed var(--rb-border-strong);
+  border-radius: var(--rb-radius);
+  padding: 16px 18px;
+  background: #fbfcfe;
+}
+.rb-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rb-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.rb-input,
+.rb-textarea {
+  width: 100%;
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius-sm);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--rb-ink);
+  background: var(--rb-card);
+  box-sizing: border-box;
+}
+.rb-input:focus,
+.rb-textarea:focus {
+  outline: none;
+  border-color: var(--rb-accent);
+  box-shadow: 0 0 0 3px var(--rb-accent-soft);
+}
+.rb-textarea { min-height: 90px; resize: vertical; line-height: 1.5; }
+.rb-help {
+  font-size: 12px;
+  color: var(--rb-ink-3);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ---------- Stage 2 — Dimensions ---------- */
+.rb-dim-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.rb-dim-card {
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  padding: 16px 18px;
+  cursor: pointer;
+  background: var(--rb-card);
+  text-align: left;
+  font-family: inherit;
+  transition: border-color 0.12s, background 0.12s;
+  position: relative;
+}
+.rb-dim-card:hover { border-color: var(--rb-border-strong); }
+.rb-dim-card.is-selected {
+  border-color: var(--rb-accent-dark);
+  background: var(--rb-accent-soft);
+}
+.rb-dim-card.is-disabled { opacity: 0.4; cursor: not-allowed; }
+.rb-dim-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--rb-accent-dark);
+  color: white;
+  display: none;
+}
+.rb-dim-card.is-selected .rb-dim-card__badge { display: inline-block; }
+.rb-dim-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--rb-ink);
+  margin-bottom: 4px;
+}
+.rb-dim-card__example {
+  font-size: 12.5px;
+  color: var(--rb-ink-3);
+  line-height: 1.45;
+  font-style: italic;
+}
+.rb-counter {
+  font-size: 12px;
+  color: var(--rb-ink-3);
+  text-align: right;
+  margin-bottom: 12px;
+}
+.rb-counter strong { color: var(--rb-ink); font-weight: 700; }
+
+/* ---------- Stage 3 — Trace codes ---------- */
+.rb-trace-block {
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  background: var(--rb-card);
+}
+.rb-trace-block__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.rb-trace-block__num {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--rb-accent-dark);
+  font-family: 'Poppins', sans-serif;
+}
+.rb-trace-block__label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rb-ink);
+}
+.rb-trace-block__category {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rb-accent-dark);
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--rb-accent-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.rb-trace-block__field { margin-bottom: 14px; }
+.rb-trace-block__field:last-child { margin-bottom: 0; }
+.rb-scorer-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.rb-scorer-btn {
+  border: 1px solid var(--rb-border);
+  background: var(--rb-card);
+  padding: 8px 10px;
+  border-radius: var(--rb-radius-sm);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--rb-ink-2);
+  text-align: center;
+}
+.rb-scorer-btn:hover { border-color: var(--rb-border-strong); }
+.rb-scorer-btn.is-selected {
+  border-color: var(--rb-accent-dark);
+  background: var(--rb-accent-soft);
+  color: var(--rb-accent-dark);
+}
+
+/* ---------- Stage 4 — Preview ---------- */
+.rb-preview {
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  background: var(--rb-card);
+}
+.rb-preview__head {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr;
+  background: #f0f4f9;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--rb-ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 16px;
+  gap: 16px;
+}
+.rb-preview__row {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr;
+  padding: 14px 16px;
+  border-top: 1px solid var(--rb-border);
+  gap: 16px;
+  font-size: 13px;
+  color: var(--rb-ink);
+  line-height: 1.5;
+}
+.rb-preview__what strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.rb-preview__cat {
+  font-size: 11px;
+  color: var(--rb-ink-3);
+}
+.rb-preview__scorer {
+  font-size: 12px;
+  color: var(--rb-accent-dark);
+  font-weight: 600;
+}
+.rb-preview__missing {
+  color: var(--rb-ink-3);
+  font-style: italic;
+}
+
+.rb-header-summary {
+  background: #f9fbfd;
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: var(--rb-ink-2);
+  line-height: 1.5;
+}
+.rb-header-summary strong { color: var(--rb-ink); }
+
+/* ---------- Stage 5 — Export ---------- */
+.rb-export-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.rb-export-card {
+  border: 1px solid var(--rb-border);
+  border-radius: var(--rb-radius);
+  background: var(--rb-card);
+  overflow: hidden;
+}
+.rb-export-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rb-border);
+  background: #f9fbfd;
+}
+.rb-export-card__title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--rb-ink);
+}
+.rb-export-card__body {
+  padding: 14px 16px;
+  max-height: 340px;
+  overflow: auto;
+}
+.rb-code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--rb-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+}
+
+.rb-export-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.rb-done-card {
+  border: 1px solid var(--rb-accent);
+  background: var(--rb-accent-soft);
+  border-radius: var(--rb-radius);
+  padding: 16px 18px;
+  font-size: 13.5px;
+  color: var(--rb-ink);
+  line-height: 1.55;
+}
+.rb-done-card strong { color: var(--rb-accent-dark); }
+
+/* ---------- Narrow layout — no side panel below 900px ---------- */
+@media (max-width: 900px) {
+  .rb-shell { grid-template-columns: 1fr; }
+  .rb-side { position: static; }
+  .rb-stepper__inner { grid-template-columns: repeat(2, 1fr); }
+  .rb-feature-grid, .rb-dim-grid, .rb-export-grid { grid-template-columns: 1fr; }
+}

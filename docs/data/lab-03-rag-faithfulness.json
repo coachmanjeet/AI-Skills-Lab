@@ -1,0 +1,74 @@
+{
+  "id": "lab-03",
+  "number": 3,
+  "target": "RAG agent",
+  "title": "Faithfulness — is the answer grounded in retrieved docs?",
+  "task": {
+    "question": "Is every claim in the RAG agent's answer supported by the documents it retrieved?",
+    "why": "A RAG system can retrieve the right documents and still hallucinate. Faithfulness measures the LLM half of the pipeline: does the generator stay within the evidence, or does it embellish? Note this eval says nothing about whether the retriever pulled the right docs — that's a separate eval on retrieval quality."
+  },
+  "grader": {
+    "type": "llm-judge",
+    "typeLabel": "Model-based (2-stage LLM judge)",
+    "why": "Faithfulness is a claim-by-claim check. Stage 1: extract each factual claim from the answer. Stage 2: for each claim, decide whether it's supported by the retrieved docs. Score = supported / total. This is textbook LLM-as-judge — code alone can't do semantic support checking.",
+    "rubric": "You are a fact-checking judge.\n\nGiven:\n- An agent's answer to a question\n- A list of retrieved documents that were supposed to ground the answer\n\nStep 1 — Extract factual claims from the answer. A claim is any statement that could be true or false (skip generic connectors and opinions).\n\nStep 2 — For each claim, mark it:\n  - SUPPORTED  — a retrieved doc contains this fact\n  - UNSUPPORTED — no retrieved doc backs this up (likely hallucination)\n  - CONTRADICTED — a retrieved doc says the opposite\n\nReturn { claims: [{ text, verdict, evidence_doc_id | null }], score: supported / total_claims }.",
+    "codePreview": "// Two-stage grader. Real signatures — swap the stub bodies for LLM calls in production.\nfunction claimExtractor(answer) {\n  return answer.split(/(?<=[.!?])\\s+/).map(s => s.trim()).filter(s => s.length > 15);\n}\nfunction claimSupported(claim, docs, threshold = 0.35) {\n  const claimWords = new Set(tokenize(claim));\n  for (const doc of docs) {\n    const docWords = new Set(tokenize(doc.content));\n    const overlap = intersect(claimWords, docWords).size / claimWords.size;\n    if (overlap >= threshold) return { supported: true, evidence: doc.id };\n  }\n  return { supported: false, evidence: null };\n}\nfunction gradeFaithfulness(sample, agentAnswer) {\n  const claims = claimExtractor(agentAnswer);\n  const verdicts = claims.map(c => ({ text: c, ...claimSupported(c, sample.retrievedDocs) }));\n  const supported = verdicts.filter(v => v.supported).length;\n  return { score: claims.length ? supported / claims.length : 0, verdicts };\n}"
+  },
+  "samples": [
+    {
+      "id": "s01",
+      "question": "What is our company's parental leave policy?",
+      "retrievedDocs": [
+        { "id": "doc-hr-101", "content": "Full-time employees are eligible for 16 weeks of paid parental leave following the birth or adoption of a child. Employees must have completed 12 months of continuous service to qualify. Leave can be taken continuously or in blocks of at least 2 weeks." },
+        { "id": "doc-hr-102", "content": "Parental leave benefits do not apply to contractors or interns. Part-time employees receive a prorated benefit based on their scheduled hours." }
+      ],
+      "agentAnswer": "Our parental leave policy provides full-time employees with 16 weeks of paid leave after the birth or adoption of a child. You must have completed 12 months of continuous service to qualify. The leave can be taken continuously or in blocks of at least 2 weeks. Part-time employees receive a prorated benefit."
+    },
+    {
+      "id": "s02",
+      "question": "How do I request a refund on a purchase?",
+      "retrievedDocs": [
+        { "id": "doc-cs-201", "content": "Customers may request a refund within 30 days of delivery. Log in to the account portal, navigate to Order History, and click 'Request refund' next to the order. Approved refunds are processed within 5 business days." }
+      ],
+      "agentAnswer": "You can request a refund within 30 days of delivery by logging in to the account portal, going to Order History, and clicking 'Request refund' on the order. Refunds are processed within 5 business days. All refunds are automatically approved regardless of reason."
+    },
+    {
+      "id": "s03",
+      "question": "What's included in the Pro plan?",
+      "retrievedDocs": [
+        { "id": "doc-pl-301", "content": "The Pro plan includes: unlimited projects, 500GB storage, priority email support, and integrations with Slack, Jira, and GitHub." },
+        { "id": "doc-pl-302", "content": "Pro plan pricing: $29 per user per month, billed annually. Monthly billing is $34 per user per month." }
+      ],
+      "agentAnswer": "The Pro plan includes unlimited projects, 500GB storage, priority email support, and integrations with Slack, Jira, and GitHub. Pricing is $29 per user per month billed annually. The plan also includes 24/7 phone support and a dedicated account manager."
+    },
+    {
+      "id": "s04",
+      "question": "What's your data retention policy for user logs?",
+      "retrievedDocs": [
+        { "id": "doc-sec-401", "content": "User activity logs are retained for 90 days in hot storage and archived for 365 days in cold storage before permanent deletion. Logs containing PII are automatically masked after 30 days." }
+      ],
+      "agentAnswer": "User activity logs are retained for 90 days in hot storage and 365 days in cold storage before permanent deletion. PII-containing logs are automatically masked after 30 days."
+    },
+    {
+      "id": "s05",
+      "question": "How do I connect my Salesforce account?",
+      "retrievedDocs": [
+        { "id": "doc-int-501", "content": "To connect Salesforce: go to Settings > Integrations, click 'Add Salesforce', enter your instance URL, and complete the OAuth flow. Required Salesforce permissions include Read/Write on Account, Contact, and Opportunity objects." }
+      ],
+      "agentAnswer": "Go to Settings, then Integrations, and click 'Add Salesforce.' Enter your instance URL and complete the OAuth flow. The integration requires admin approval from your Salesforce administrator and takes 2-3 business days to activate. You'll receive an email once it's live."
+    }
+  ],
+  "metrics": {
+    "headline": {
+      "label": "Faithfulness score",
+      "unit": "%",
+      "goodDirection": "up",
+      "target": 100
+    },
+    "breakdown": [
+      { "label": "Faithfulness (supported claims / total)", "compute": "mean(supported / totalClaims)" },
+      { "label": "Samples with hallucinated claim", "compute": "count(sample where anyUnsupported) / total" }
+    ]
+  },
+  "insight": "This eval measures the *generator* half of RAG. If faithfulness is low but the retriever pulled the right docs, the fix is prompt/model — teach the LLM to stay within evidence. If retrieval also missed, you have two separate problems to fix."
+}

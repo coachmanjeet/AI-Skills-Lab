@@ -1,0 +1,143 @@
+{
+  "id": "lab-02",
+  "number": 2,
+  "target": "Conversational agent",
+  "title": "Service agent — refund flow",
+  "task": {
+    "question": "Does the agent resolve refund requests correctly, empathetically, and with the right tool calls?",
+    "why": "A service agent has three jobs on this task: use the right tools in the right order (verify identity → look up order → process refund), reach the right outcome (refund processed or correctly denied), and do it with a tone that doesn't make a frustrated customer angrier. One grader can't cover all three — we combine code (tool calls, outcome) and model (empathy)."
+  },
+  "grader": {
+    "type": "hybrid",
+    "typeLabel": "Hybrid (code + LLM judge)",
+    "why": "Tool calls and outcomes are deterministic — code grades them. Empathy is subjective — an LLM judge grades it. Three sub-scores → one composite pass/fail.",
+    "rubric": "You are grading the agent's tone in a customer service refund conversation.\n\nScore empathy from 0 to 1 based on:\n- Did the agent acknowledge the customer's frustration or inconvenience?\n- Did the agent avoid blaming the customer?\n- Was the language warm without being sycophantic?\n\n0.0 = cold or dismissive\n0.5 = adequate but robotic\n1.0 = genuinely warm and appropriate\n\nReturn { score: 0..1, reasoning: string }.",
+    "codePreview": "// Hybrid grader — 3 sub-scores combined.\nasync function gradeRefund(sample, transcript, toolCalls, fixtureVerdicts) {\n  const toolOk    = toolCallVerifier(toolCalls, sample.requiredCalls);\n  const outcomeOk = codeExactMatch(transcript.outcome, sample.expectedOutcome);\n  const empathy   = fixtureVerdicts[sample.id]; // { score, reasoning }\n  const pass = toolOk.pass && outcomeOk && empathy.score >= 0.5;\n  return { pass, subs: { toolOk, outcomeOk, empathy }, reasoning: empathy.reasoning };\n}"
+  },
+  "samples": [
+    {
+      "id": "s01",
+      "scenario": "Legitimate refund request — under policy limit ($100)",
+      "conversation": [
+        { "role": "user",  "content": "Hi, I want a refund for order #4482. The blender arrived broken." },
+        { "role": "agent", "content": "I'm sorry to hear the blender arrived broken — that's frustrating. Let me verify your account first, then I'll get this refund started right away." },
+        { "role": "agent", "content": "I've located order #4482 for $79.99. I'm processing the refund now. You'll see it on your card in 3-5 business days, and I'll send a confirmation email." }
+      ],
+      "toolCalls": [
+        { "name": "verify_identity", "args": { "customerId": "c-9931" } },
+        { "name": "lookup_order",    "args": { "orderId": "4482" } },
+        { "name": "process_refund",  "args": { "orderId": "4482", "amount": 79.99 } },
+        { "name": "send_confirmation", "args": { "orderId": "4482" } }
+      ],
+      "outcome": "refunded",
+      "expectedOutcome": "refunded",
+      "requiredCalls": [
+        { "name": "verify_identity", "argChecks": {} },
+        { "name": "lookup_order",    "argChecks": {} },
+        { "name": "process_refund",  "argChecks": { "amount": { "op": "lte", "value": 100 } } },
+        { "name": "send_confirmation", "argChecks": {} }
+      ],
+      "verdict": { "score": 0.95, "reasoning": "Acknowledged the frustration, took action decisively, set clear expectations." }
+    },
+    {
+      "id": "s02",
+      "scenario": "Refund over policy limit — should escalate, not auto-process",
+      "conversation": [
+        { "role": "user",  "content": "I need a refund for order #4501. It was $450 and never arrived." },
+        { "role": "agent", "content": "That's above what I can refund directly. I'm escalating you to a specialist who can handle refunds over $100 — you'll hear back within one business day." }
+      ],
+      "toolCalls": [
+        { "name": "verify_identity", "args": { "customerId": "c-4482" } },
+        { "name": "lookup_order",    "args": { "orderId": "4501" } },
+        { "name": "escalate",        "args": { "reason": "over_policy_limit", "orderId": "4501" } }
+      ],
+      "outcome": "escalated",
+      "expectedOutcome": "escalated",
+      "requiredCalls": [
+        { "name": "verify_identity", "argChecks": {} },
+        { "name": "lookup_order",    "argChecks": {} },
+        { "name": "escalate",        "argChecks": { "reason": { "op": "eq", "value": "over_policy_limit" } } }
+      ],
+      "verdict": { "score": 0.6, "reasoning": "Clear about the escalation but didn't acknowledge the customer's frustration about a missing $450 package." }
+    },
+    {
+      "id": "s03",
+      "scenario": "Agent skipped identity verification — anti-pattern",
+      "conversation": [
+        { "role": "user",  "content": "Refund order #7712, please. It arrived damaged." },
+        { "role": "agent", "content": "Done! I've processed the refund for order #7712." }
+      ],
+      "toolCalls": [
+        { "name": "lookup_order",   "args": { "orderId": "7712" } },
+        { "name": "process_refund", "args": { "orderId": "7712", "amount": 42.5 } }
+      ],
+      "outcome": "refunded",
+      "expectedOutcome": "refunded",
+      "requiredCalls": [
+        { "name": "verify_identity", "argChecks": {} },
+        { "name": "lookup_order",    "argChecks": {} },
+        { "name": "process_refund",  "argChecks": { "amount": { "op": "lte", "value": 100 } } }
+      ],
+      "verdict": { "score": 0.3, "reasoning": "Brief and transactional — no acknowledgment of the damage or apology." }
+    },
+    {
+      "id": "s04",
+      "scenario": "Customer is angry — agent must be extra empathetic",
+      "conversation": [
+        { "role": "user",  "content": "This is the THIRD time I've asked for a refund on order #8801. Nobody's helping me. I'm about to dispute with my credit card." },
+        { "role": "agent", "content": "I completely understand your frustration — being passed around three times is exhausting, and I'm sorry it's taken this long. Let me handle this end-to-end right now so it's actually resolved." },
+        { "role": "agent", "content": "I've verified your account, pulled up order #8801 for $64.20, and just processed the refund. You'll get an email with the case number in the next few minutes. If anything else is off, reply to that email and it'll come straight to me." }
+      ],
+      "toolCalls": [
+        { "name": "verify_identity", "args": { "customerId": "c-2210" } },
+        { "name": "lookup_order",    "args": { "orderId": "8801" } },
+        { "name": "process_refund",  "args": { "orderId": "8801", "amount": 64.20 } },
+        { "name": "send_confirmation", "args": { "orderId": "8801" } }
+      ],
+      "outcome": "refunded",
+      "expectedOutcome": "refunded",
+      "requiredCalls": [
+        { "name": "verify_identity", "argChecks": {} },
+        { "name": "lookup_order",    "argChecks": {} },
+        { "name": "process_refund",  "argChecks": { "amount": { "op": "lte", "value": 100 } } },
+        { "name": "send_confirmation", "argChecks": {} }
+      ],
+      "verdict": { "score": 1.0, "reasoning": "Named the frustration specifically, apologized, took ownership, and closed the loop with a follow-up path." }
+    },
+    {
+      "id": "s05",
+      "scenario": "Ineligible refund (past 30-day window) — should deny politely",
+      "conversation": [
+        { "role": "user",  "content": "I'd like a refund for order #3301." },
+        { "role": "agent", "content": "I checked order #3301 — it was delivered 47 days ago, which is past our 30-day refund window. I can't process a refund on this one, but I can offer store credit or help troubleshoot if the product isn't working. Which would help?" }
+      ],
+      "toolCalls": [
+        { "name": "verify_identity", "args": { "customerId": "c-7719" } },
+        { "name": "lookup_order",    "args": { "orderId": "3301" } },
+        { "name": "check_policy",    "args": { "orderId": "3301", "policy": "30_day_window" } }
+      ],
+      "outcome": "denied_with_alternative",
+      "expectedOutcome": "denied_with_alternative",
+      "requiredCalls": [
+        { "name": "verify_identity", "argChecks": {} },
+        { "name": "lookup_order",    "argChecks": {} },
+        { "name": "check_policy",    "argChecks": {} }
+      ],
+      "verdict": { "score": 0.85, "reasoning": "Denial delivered clearly with two alternatives and a question. Warm without over-apologizing." }
+    }
+  ],
+  "metrics": {
+    "headline": {
+      "label": "Resolution rate",
+      "unit": "%",
+      "goodDirection": "up",
+      "target": 100
+    },
+    "breakdown": [
+      { "label": "Resolution rate", "compute": "outcomesCorrect / total" },
+      { "label": "Tool-call correctness", "compute": "toolCallsCorrect / total" },
+      { "label": "Empathy score (avg)", "compute": "mean(empathyScore)" }
+    ]
+  },
+  "insight": "A hybrid grader lets you separate 'the outcome was right' from 'the way we got there was right' from 'the tone was right.' All three can fail independently — and each tells you something different about what to fix."
+}
