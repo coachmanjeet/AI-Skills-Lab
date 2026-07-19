@@ -2939,31 +2939,31 @@ body {
   position: relative; z-index: 1;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 72px 40px 80px;
+  padding: 36px 40px 60px;
 }
 
-.landing__header { text-align: center; margin-bottom: 56px; animation: fadeUp 0.8s ease both; }
+.landing__header { text-align: center; margin-bottom: 28px; animation: fadeUp 0.8s ease both; }
 .landing__label {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
   font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--sf-brand-700); margin-bottom: 20px;
+  color: var(--sf-brand-700); margin-bottom: 14px;
   background: var(--sf-brand-50); border: 1px solid var(--sf-brand-100);
   padding: 6px 18px; border-radius: 20px;
 }
 .landing__title {
   font-family: 'Poppins', sans-serif;
-  font-size: 52px; font-weight: 900; color: var(--sf-brand-800); line-height: 1.1;
-  margin: 0 0 16px;
+  font-size: 44px; font-weight: 900; color: var(--sf-brand-800); line-height: 1.1;
+  margin: 0 0 10px;
 }
 .landing__title span { color: #3b82f6; }
 .landing__subtitle {
-  font-size: 18px; color: var(--sf-neutral-700); max-width: 620px; margin: 0 auto; line-height: 1.6;
+  font-size: 16px; color: var(--sf-neutral-700); max-width: 620px; margin: 0 auto; line-height: 1.55;
 }
 
 .landing__flow {
-  margin: 0 auto 56px;
-  padding: 22px 24px;
+  margin: 0 auto 28px;
+  padding: 16px 20px;
   background: var(--sf-neutral-0);
   border: 1px solid var(--sf-neutral-200);
   border-radius: 20px;
@@ -3023,14 +3023,13 @@ body {
   position: relative;
   background: var(--sf-neutral-0);
   border: 1px solid var(--sf-neutral-200);
-  border-radius: 20px;
-  padding: 32px 28px 60px;
+  border-radius: 16px;
+  padding: 20px 22px 48px;
   text-decoration: none;
   color: inherit;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   animation: fadeUp 0.6s ease both;
-  min-height: 240px;
   display: block;
   box-shadow: var(--shadow-1);
 }
@@ -3062,36 +3061,36 @@ body {
 .landing__tile-badge {
   display: inline-block;
   font-family: 'Poppins', sans-serif;
-  padding: 3px 10px;
+  padding: 2px 9px;
   border-radius: 999px;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 .landing__tile-badge--ready { background: #E6F7EF; color: #0B7A3E; border: 1px solid #A6E4C4; }
 .landing__tile-badge--soon  { background: var(--sf-neutral-100); color: var(--sf-neutral-700); border: 1px solid var(--sf-neutral-200); }
 
 .landing__tile-num {
   font-family: 'Poppins', sans-serif;
-  font-size: 12px; font-weight: 800; color: var(--accent);
-  letter-spacing: 0.10em; margin-bottom: 6px;
+  font-size: 11px; font-weight: 800; color: var(--accent);
+  letter-spacing: 0.10em; margin-bottom: 4px;
   opacity: 0.95;
 }
 .landing__tile-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 26px; font-weight: 800; color: var(--sf-brand-800);
-  margin-bottom: 6px; line-height: 1.2;
+  font-size: 22px; font-weight: 800; color: var(--sf-brand-800);
+  margin-bottom: 4px; line-height: 1.2;
 }
-.landing__tile-question { font-size: 14px; color: var(--sf-brand-700); font-weight: 600; margin-bottom: 10px; font-style: italic; }
-.landing__tile-desc { font-size: 13.5px; color: var(--sf-neutral-700); line-height: 1.55; }
+.landing__tile-question { font-size: 13px; color: var(--sf-brand-700); font-weight: 600; margin-bottom: 6px; font-style: italic; line-height: 1.35; }
+.landing__tile-desc { font-size: 13px; color: var(--sf-neutral-700); line-height: 1.5; }
 .landing__tile-arrow {
-  position: absolute; bottom: 20px; right: 22px;
-  width: 34px; height: 34px; border-radius: 50%;
+  position: absolute; bottom: 14px; right: 16px;
+  width: 30px; height: 30px; border-radius: 50%;
   background: var(--sf-neutral-100); border: 1px solid var(--sf-neutral-200);
   display: flex; align-items: center; justify-content: center;
-  font-size: 16px; color: var(--sf-neutral-600);
+  font-size: 15px; color: var(--sf-neutral-600);
   transition: all 0.3s;
 }
 .landing__tile:hover .landing__tile-arrow {
