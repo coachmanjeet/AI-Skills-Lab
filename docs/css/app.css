@@ -2937,7 +2937,7 @@ body {
 
 .landing__container {
   position: relative; z-index: 1;
-  max-width: 1080px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 72px 40px 80px;
 }
@@ -2959,6 +2959,59 @@ body {
 .landing__title span { color: #3b82f6; }
 .landing__subtitle {
   font-size: 18px; color: var(--sf-neutral-700); max-width: 620px; margin: 0 auto; line-height: 1.6;
+}
+
+.landing__flow {
+  margin: 0 auto 56px;
+  padding: 22px 24px;
+  background: var(--sf-neutral-0);
+  border: 1px solid var(--sf-neutral-200);
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  animation: fadeUp 0.8s ease 0.05s both;
+}
+.landing__flow-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sf-neutral-600); text-align: center; margin-bottom: 14px;
+}
+.landing__flow-steps {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; align-items: stretch; justify-content: space-between; gap: 8px;
+}
+.landing__flow-step {
+  flex: 1 1 0; min-width: 0;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 12px 10px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: var(--sf-neutral-50);
+  border-top: 3px solid var(--accent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.landing__flow-step:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(3,45,96,0.08);
+}
+.landing__flow-icon {
+  font-size: 26px; line-height: 1; margin-bottom: 8px;
+}
+.landing__flow-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 800; color: var(--sf-brand-800);
+  margin-bottom: 4px; letter-spacing: 0.02em;
+}
+.landing__flow-sub {
+  font-size: 12px; color: var(--sf-neutral-700); line-height: 1.35;
+}
+.landing__flow-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: 22px; font-weight: 700;
+  color: var(--sf-neutral-400);
+  padding: 0 2px;
+  user-select: none;
 }
 
 .landing__grid {
@@ -3061,11 +3114,15 @@ body {
 @media (max-width: 900px) {
   .landing__grid { grid-template-columns: repeat(2, 1fr); }
   .landing__title { font-size: 40px; }
+  .landing__flow-steps { flex-wrap: wrap; }
+  .landing__flow-step { flex-basis: calc(50% - 8px); }
+  .landing__flow-arrow { display: none; }
 }
 @media (max-width: 620px) {
   .landing__grid { grid-template-columns: 1fr; }
   .landing__container { padding: 48px 20px 60px; }
   .landing__title { font-size: 32px; }
+  .landing__flow-step { flex-basis: 100%; }
 }
 
 
