@@ -27,7 +27,7 @@ const TRACKS = {
   'eval-101':      { number: '03', title: 'Eval 101',                      accent: '#34d399', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'eval-201':      { number: '04', title: 'Eval 201',                      accent: '#f59e0b', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'obs-101':       { number: '05', title: 'Observability',                 accent: '#d29922', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
-  'harness-101':   { number: '06', title: 'Harness',                       accent: '#f85149', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'harness-101':   { number: '06', title: 'Harness',                       accent: '#f85149', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'adoption-roi':  { number: '07', title: 'Adoption and ROI',              accent: '#22d3ee', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
 };
 

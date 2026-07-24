@@ -107,11 +107,11 @@
         </a>
 
         <a class="landing__tile" style="--accent:#f85149" href="#/harness-101/learn" data-track="harness-101">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
+          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
           <div class="landing__tile-num">Track 06</div>
           <div class="landing__tile-title">Harness</div>
-          <div class="landing__tile-question">What are the moving parts inside a real agent?</div>
-          <div class="landing__tile-desc">The plumbing that makes agents work. ADLC (skills, MCP, APIs), enterprise context brain &amp; memory management, agent goals + loops + graphs, and the self-optimization loop. <em>Coming next.</em></div>
+          <div class="landing__tile-question">How do you make agents reliable in production?</div>
+          <div class="landing__tile-desc">2026 is the year of harnesses. <strong>Learn:</strong> what a harness is (everything except the model weights), the six components — tools · model · context · guardrails · loop · <em>verify</em> — and why "engineer the environment" beats "prompt harder." <strong>Practice:</strong> the Harness Designer — sketch a harness for one agent workflow you own. <strong>Apply:</strong> five daily moves to catch failures with a better harness, not a better prompt.</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
@@ -638,6 +638,498 @@
             <div class="apply-callout__title">The one-line test.</div>
             <p>Over time, are you becoming the person who can find the right AI problem, solve it well, and make the result trustworthy enough for real users? If yes, you're AI-native. If not, the daily moves above are how you get there.</p>
             <a class="apply-callout__link" href="#/ai-native-pm/practice">→ Score yourself in Practice</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 06 · HARNESS · LEARN
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="harness-101" data-mode="learn" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 06 · Harness</div>
+          <h2 class="chapter__title">The scaffolding that makes rented models reliable.</h2>
+          <p class="chapter__lede">2025 was the year of agents. 2026 is the year of harnesses. A harness is <em>everything except the model weights</em> — the tools, context, guardrails, loop, and verify step wrapped around an LLM so it can actually do work. This track walks the two meanings of "harness," names the six components every agent harness has, and shows why "engineer the environment" beats "prompt harder" every time.</p>
+        </section>
+
+        <div class="chapter-group">
+
+          <!-- Ch 1 · Why 2026 is the year of harnesses -->
+          <section class="chapter chapter--sub" id="hn-why">
+            <div class="chapter__eyebrow">Chapter 1 · Why now</div>
+            <h3 class="chapter__title" style="font-size:22px">The model you rent is a black box. The harness is yours.</h3>
+            <p class="chapter__lede">You pay $20/month for Claude Pro. Or you burn tokens on someone else's inference. Either way, the model is rented — the vendor could serve you Sonnet even when the UI says Opus, and you'd never know. Reliability is not going to come from the model. It comes from the thing you wrap around it.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Rent the model</div>
+                <div class="two-kinds__title">Non-deterministic. Black box. Bounded.</div>
+                <ul class="two-kinds__list">
+                  <li>Context windows are capped. Costs rise with tokens.</li>
+                  <li>Vendor swaps models silently — no version guarantee.</li>
+                  <li>Same prompt, different day: different output.</li>
+                  <li>You cannot audit the weights. You cannot fix the model.</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Failure mode:</strong> agent "worked in the demo" — different behavior next week, no idea why.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Own the harness</div>
+                <div class="two-kinds__title">Deterministic. Legible. Yours.</div>
+                <ul class="two-kinds__list">
+                  <li>You define the tools the agent can reach.</li>
+                  <li>You control what enters context, and what gets trimmed.</li>
+                  <li>You set the guardrails: max steps, max cost, forbidden tools.</li>
+                  <li>You write the verify step that decides "is the answer actually right?"</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Superpower:</strong> swap the model with one string change. The harness carries the reliability.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The rule of thumb for 2026:</strong> when an agent fails, you engineer the environment so it can't fail that way again. You do not tweak the prompt harder. The harness is the moat; the model is a commodity.</p>
+          </section>
+
+          <!-- Ch 2 · What a harness is -->
+          <section class="chapter chapter--sub" id="hn-def">
+            <div class="chapter__eyebrow">Chapter 2 · What a harness is</div>
+            <h3 class="chapter__title" style="font-size:22px">Everything except the model weights.</h3>
+            <p class="chapter__lede">Mountain climbers wear harnesses so they can't drift too far from a stable anchor. Dogs wear harnesses so they don't bankrupt you in the park. LLMs need the same thing — an anchor to a stable, deterministic environment that the black-box model can operate inside. That anchor is the AI harness.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">The one-liner</div>
+                <div class="concept-block__value">An AI harness is everything <em>around</em> the model that gives it grounding in reality — the tools, the context management, the guardrails, the loop, and the verify. If the weights are the muscle, the harness is the skeleton, the nervous system, and the parole officer.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What harnessed agents look like today</div>
+                <div class="concept-block__value">Claude Code, Cursor, Codex, ChatGPT with tools — all harnessed coding or task agents. Each has a tool registry, a context manager, guardrails, and a loop. The model is swappable. The scaffolding is not.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">The name game</div>
+                <div class="concept-block__value">Anthropic calls the Claude Agent SDK a "general-purpose agent harness." OpenAI calls the same idea "orchestration." Anthropic separately calls the context layer "context engineering." Different names, same practice. In this track we use "harness" — the term that has stuck.</div>
+              </div>
+            </div>
+            <p class="section-note">Do not conflate "harness" with "loop." The loop is one component of the harness. There can be another loop <em>around</em> the agent loop, running N attempts, verifying, retrying. That outer loop is also part of the harness.</p>
+          </section>
+
+          <!-- Ch 3 · The two meanings -->
+          <section class="chapter chapter--sub" id="hn-two">
+            <div class="chapter__eyebrow">Chapter 3 · Stop conflating them</div>
+            <h3 class="chapter__title" style="font-size:22px">Two "harnesses" — eval harness and agent harness.</h3>
+            <p class="chapter__lede">If a PM says "we need a harness" and an ML engineer hears "we need a harness," they may be talking about different things. The word has been used two ways for years. Pin it down before the conversation goes sideways.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Eval harness (2021, ML)</div>
+                <div class="two-kinds__title">A glorified test suite for models.</div>
+                <ul class="two-kinds__list">
+                  <li><strong>Origin:</strong> EleutherAI's LM Evaluation Harness — few-shot evaluation of autoregressive models.</li>
+                  <li><strong>Purpose:</strong> measure model quality against known answers.</li>
+                  <li><strong>Input:</strong> fixed dataset of test cases.</li>
+                  <li><strong>Output:</strong> scores, pass/fail, side-by-side comparisons.</li>
+                  <li><strong>Loop:</strong> one call per test case. Stateless.</li>
+                  <li><strong>Tools:</strong> none. <strong>Guardrails:</strong> not needed.</li>
+                </ul>
+                <div class="two-kinds__ex">This is what Track 03 (Eval 101) and Track 04 (Eval 201) teach.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Agent harness (2026, agentic engineering)</div>
+                <div class="two-kinds__title">The scaffolding that lets a model do work.</div>
+                <ul class="two-kinds__list">
+                  <li><strong>Origin:</strong> named as a discipline by Mitchell Hashimoto in early 2026.</li>
+                  <li><strong>Purpose:</strong> enable a model to act in the real world, reliably.</li>
+                  <li><strong>Input:</strong> open-ended task.</li>
+                  <li><strong>Output:</strong> a completed job + a log of tool calls.</li>
+                  <li><strong>Loop:</strong> iterates until done or a guardrail fires. Stateful across turns.</li>
+                  <li><strong>Tools:</strong> yes — the whole point. <strong>Guardrails:</strong> essential.</li>
+                </ul>
+                <div class="two-kinds__ex">This is what Track 06 is about.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Rule:</strong> when someone in your org says "harness," ask which one they mean. The eval harness scores a model. The agent harness runs a model. Both matter; they are not the same thing.</p>
+          </section>
+
+          <!-- Ch 4 · Six components -->
+          <section class="chapter chapter--sub" id="hn-components">
+            <div class="chapter__eyebrow">Chapter 4 · The anatomy</div>
+            <h3 class="chapter__title" style="font-size:22px">Six components every agent harness has.</h3>
+            <p class="chapter__lede">If you can name these six, you can review any agent implementation and tell whether it's harnessed or held together with tape. When something breaks in production, one of these six is the answer.</p>
+            <div class="raci-grid">
+              <div class="raci-card">
+                <div class="raci-card__role">1 · Tool registry</div>
+                <div class="raci-card__label">Bounded, environment-bound</div>
+                <ul>
+                  <li>Every tool is declared: name, description, parameters, execute function.</li>
+                  <li>Tools are bound to the harness's environment (browser, sandbox, DB) — not globals they reach into.</li>
+                  <li>You add a tool → the agent gets a new capability. You remove one → the capability is gone.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">2 · Model client</div>
+                <div class="raci-card__label">Swappable with one string</div>
+                <ul>
+                  <li>The interface to whatever model you're renting.</li>
+                  <li>You should be able to switch from GPT-4o-mini to Claude Sonnet to Qwen with a config change.</li>
+                  <li>If your code has the model name hardcoded across ten files, that's a harness smell.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">3 · Context / state</div>
+                <div class="raci-card__label">Prevent context rot</div>
+                <ul>
+                  <li>Builds the initial context: system prompt, user task, seed data.</li>
+                  <li>Trims stale messages as the loop grows. Compresses on overflow.</li>
+                  <li>Keeps subtasks isolated so one agent's noise doesn't pollute another's context.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">4 · Guardrails</div>
+                <div class="raci-card__label">Composable safety checks</div>
+                <ul>
+                  <li>Run <em>before</em> every loop iteration. If a rule fires, the loop kills the run.</li>
+                  <li>Common: max iterations, max messages, max cost, max latency, forbidden tools, human-approval-required actions.</li>
+                  <li>Guardrails catch <em>structural</em> failures ("agent looped 30 times"). They do not catch <em>wrong answers</em>.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">5 · Agent loop</div>
+                <div class="raci-card__label">Call → tool → feed back → repeat</div>
+                <ul>
+                  <li>Call the model. If it emits a tool call, execute it. Push result into context. Call again.</li>
+                  <li>Stop when the model answers or a guardrail fires.</li>
+                  <li>Every iteration adds to a trace so you can audit later.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">6 · Verify step</div>
+                <div class="raci-card__label">The under-taught one</div>
+                <ul>
+                  <li>Runs <em>after</em> the loop stops. Deterministic. Not the model judging itself.</li>
+                  <li>Reflects on the trace: was the intended side-effect done? Does the answer contain the expected shape?</li>
+                  <li>Guardrails catch structural failures; verify catches wrong answers. You need both.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="section-note"><strong>The insight most teams miss:</strong> an agent can stop without hitting a guardrail and still be wrong. If the loop exits and the model says "I upvoted the post" but the harness never observed a successful click event, the verify step is what catches the lie. No verify = your logs will tell you it worked.</p>
+          </section>
+
+          <!-- Ch 5 · Owns the environment -->
+          <section class="chapter chapter--sub" id="hn-env">
+            <div class="chapter__eyebrow">Chapter 5 · The architectural point</div>
+            <h3 class="chapter__title" style="font-size:22px">The harness owns the environment. Tools do not.</h3>
+            <p class="chapter__lede">This is the design decision that separates a real harness from "a loop with tools." The environment — the browser session, the sandbox, the database connection — is opened by the harness and closed by the harness. Tools receive the environment; they never manage its lifecycle.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">The lifecycle</div>
+                <div class="concept-block__value"><strong>runHarness()</strong> opens the environment → creates tools bound to that environment → builds context for the task → runs the loop inside the environment → verifies the result → closes the environment, <em>always</em>, even on error.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">If tools own the browser, they leak sessions across runs, credentials cross-contaminate, and a crashed tool leaves half-open windows draining memory. If the harness owns it, every run is a clean environment. The agent can't corrupt state it doesn't have access to.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">The story arc</div>
+                <div class="concept-block__value">Naive loop → agent lies about success → add guardrails to kill runaway loops → add verify step to catch the lie → add a login handler in the harness (not the agent) that deterministically fills credentials when the browser lands on a login page → agent now succeeds using an intentionally weak model. Same prompt throughout. The harness changed the outcome.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Payoff:</strong> a good harness lets you run a cheap or old model reliably. That is the whole economic case. You do not need to rent Opus if your harness is doing the work.</p>
+          </section>
+
+          <!-- Ch 6 · Three legs -->
+          <section class="chapter chapter--sub" id="hn-legs">
+            <div class="chapter__eyebrow">Chapter 6 · The three legs</div>
+            <h3 class="chapter__title" style="font-size:22px">Context, constraints, verify — the stool sits on three.</h3>
+            <p class="chapter__lede">The six components (Chapter 4) roll up into three disciplines that a harness engineer actually works on day-to-day. Miss any leg and the stool tips over.</p>
+            <div class="raci-grid">
+              <div class="raci-card">
+                <div class="raci-card__role">Context engineering</div>
+                <div class="raci-card__label">What goes into the model, and when</div>
+                <ul>
+                  <li><strong>Isolation:</strong> keep subtasks separate so one agent's noise doesn't pollute another's context.</li>
+                  <li><strong>Reduction:</strong> drop stale messages before they cause context rot.</li>
+                  <li><strong>Retrieval:</strong> inject fresh docs, search results, or DB records at the moment they're needed — not upfront in one giant blob.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Architectural constraints</div>
+                <div class="raci-card__label">The rules the model cannot bypass</div>
+                <ul>
+                  <li>Guardrails on iterations, cost, latency, tools, actions.</li>
+                  <li>Deterministic linters and structural tests that run outside the model.</li>
+                  <li>If the rule lives only in the prompt, the model will violate it. If the rule lives in the harness code, it can't.</li>
+                </ul>
+              </div>
+              <div class="raci-card">
+                <div class="raci-card__role">Verification &amp; feedback loops</div>
+                <div class="raci-card__label">Did it actually work?</div>
+                <ul>
+                  <li>The harness checks outputs after the loop. Programmatically. Not by asking the model.</li>
+                  <li>If something is wrong, surface the failure so the next iteration — or the human — can fix it.</li>
+                  <li>This is where evals from Track 03/04 plug in as one component of the harness — the offline dataset that grades a shipped harness.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Reflex: prompt harder</div>
+                <div class="two-kinds__title">Dead end.</div>
+                <ul class="two-kinds__list">
+                  <li>"Add a line to the system prompt telling it not to do that."</li>
+                  <li>Model ignores it 5% of the time. That 5% ships to users.</li>
+                  <li>Prompt grows. Context bloats. Reliability drops.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Discipline: engineer the environment</div>
+                <div class="two-kinds__title">The Hashimoto rule.</div>
+                <ul class="two-kinds__list">
+                  <li>Whenever an agent makes a mistake, you engineer the environment so it can't make that mistake again.</li>
+                  <li>Add a guardrail, a verify, a tool, a context reducer — whatever makes the failure structurally impossible.</li>
+                  <li>The prompt stays clean. The harness accretes.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="section-note"><strong>OpenAI's discipline (internal beta product, ~1M lines of agent-written code, five months, zero manually-written source):</strong> when something failed, the question was never "try harder." It was "what capability is missing, and how do we make it both legible and enforceable for the agent?" That question is the whole job.</p>
+          </section>
+
+          <!-- Ch 7 · Harness engineering for PMs -->
+          <section class="chapter chapter--sub" id="hn-pm">
+            <div class="chapter__eyebrow">Chapter 7 · The PM's job</div>
+            <h3 class="chapter__title" style="font-size:22px">Harness engineering is the new PM discipline.</h3>
+            <p class="chapter__lede">In the bell curve from Track 01, the peak of the Agent Era is taste + judgment + problem shaping + agent orchestration. Harness engineering is where all four converge. It's the answer to "problem solving (agent-first)" — the second of the two tests every AI-native PM must pass. Design the graph. Name the metrics. Bound the failure modes. That's a harness.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">The shift for PMs</div>
+                <div class="concept-block__value">You are no longer writing PRDs that describe features an engineer builds. You are designing environments in which agents can succeed — tools, context boundaries, guardrails, verify steps. The spec is the harness.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it's the moat</div>
+                <div class="concept-block__value">Anyone can rent a model. Only your team knows the domain well enough to write the verify step for your product. Only your team can name the guardrail that matches your users' expectations. The harness is where PM taste becomes durable code.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What's coming next</div>
+                <div class="concept-block__value"><strong>Dynamic harnesses.</strong> Instead of hand-authoring the harness, the agent generates one before starting the task — chooses its tools, sets its own guardrails, defines its own verify step, then does the work. Plan mode on steroids. Self-aware. This is the next logical step, and probably where 2027 heads.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Ch 8 · CTA -->
+          <div class="apply-callout apply-callout--dark">
+            <div class="apply-callout__title">Design a harness for one agent you actually own.</div>
+            <p>The Harness Designer in Practice walks you through the six components — agent &amp; environment, tool registry, context strategy, guardrails, verify step, export. Pick one agent workflow at your day job. Sketch its harness. Export the spec. Share it with an engineer.</p>
+            <a class="apply-callout__link" href="#/harness-101/practice">→ Open the Harness Designer</a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 06 · HARNESS · PRACTICE
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="harness-101" data-mode="practice" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 06 · Practice</div>
+          <h2 class="chapter__title">Design a harness for one real agent workflow.</h2>
+          <p class="chapter__lede">A stepped builder. Six stages walk you through every component of an agent harness — the agent &amp; environment, the tool registry, the context strategy, the guardrails, the verify step, and the export. Pick one live or planned agent from your product. Sketch its harness end-to-end. Export the spec as JSON + Markdown to paste into a PRD or share with an engineer.</p>
+        </section>
+
+        <div class="chapter-group">
+          <section class="chapter chapter--sub exercise" id="ex-harness-designer">
+            <div class="chapter__eyebrow">Applied work · ~15 min</div>
+            <h3 class="chapter__title" style="font-size:22px">Harness Designer</h3>
+            <p class="chapter__lede">Six stages: Agent &amp; environment · Tool registry · Context strategy · Guardrails · Verify · Export. Presets at every stage so you're not starting from a blank page. State auto-saves to your browser. Come back next week and iterate.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">Applied work · ~15 min</div>
+              <h3 class="builder-launcher__title">Sketch the harness · export the spec</h3>
+              <p class="builder-launcher__body">Walks you through: name the agent and its environment → pick tools from the registry preset → choose context tactics (isolation, reduction, retrieval) → compose guardrails (max iterations, max cost, forbidden tools) → design the verify step → export as JSON + Markdown. Nothing to install; everything auto-saves locally.</p>
+              <a class="builder-launcher__cta" href="./harness-101/harness-designer.html" target="_blank" rel="noopener">
+                Open Harness Designer <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a shareable harness spec (JSON + Markdown) — attach it to a PRD, hand it to an engineer, or keep it as your team's playbook for turning agent ideas into reliable systems.</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 06 · HARNESS · APPLY
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="harness-101" data-mode="apply" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Track 06 · Apply</div>
+          <h2 class="chapter__title">Five moves. One Friday review. One test.</h2>
+          <p class="chapter__lede">Five compounding moves that turn "harness engineering" from an abstract discipline into a weekly habit. Plus a Friday self-review to keep you honest. Do these for a month and you'll be the person on your team who catches agent failures with better environments, not louder prompts.</p>
+        </section>
+
+        <div class="chapter-group">
+
+          <!-- Move 1 -->
+          <section class="chapter chapter--sub" id="hn-apply-1">
+            <div class="chapter__eyebrow">Move 1 · 30 min / week</div>
+            <h3 class="chapter__title" style="font-size:22px">Sketch the harness of one production agent.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Map the six components</div>
+                <ul class="two-kinds__list">
+                  <li>Pick one live agent your team ships. Any one.</li>
+                  <li>On paper, name each component: tools · model · context · guardrails · loop · verify.</li>
+                  <li>Flag the empty cells — the components that don't exist yet.</li>
+                  <li>Bring the sketch to your next standup.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Empty cells = your roadmap</div>
+                <ul class="two-kinds__list">
+                  <li>Every empty cell is a reliability bug waiting to happen.</li>
+                  <li>The Verify column is empty for most agents in prod today — that alone gives you a quarter of work.</li>
+                  <li>Turns "we should improve the agent" into a specific, prioritized backlog.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 2 -->
+          <section class="chapter chapter--sub" id="hn-apply-2">
+            <div class="chapter__eyebrow">Move 2 · every occurrence</div>
+            <h3 class="chapter__title" style="font-size:22px">Catch every "prompt harder" moment.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Rename the reflex</div>
+                <ul class="two-kinds__list">
+                  <li>When someone says "let's tweak the prompt" — pause.</li>
+                  <li>Ask the two questions: what capability is missing, and how do we make it legible and enforceable?</li>
+                  <li>Convert the prompt change into a harness change (tool · guardrail · verify · context rule).</li>
+                  <li>Log the swap. Track how often the harness fix works when the prompt fix would not have.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Cultural, not technical</div>
+                <ul class="two-kinds__list">
+                  <li>"Prompt harder" is the AI-native equivalent of "add more logging" — comforting, rarely fixes the bug.</li>
+                  <li>The people who name the pattern get quoted in postmortems.</li>
+                  <li>Repeated enough, this shifts your team's whole default from prompt-first to environment-first.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 3 -->
+          <section class="chapter chapter--sub" id="hn-apply-3">
+            <div class="chapter__eyebrow">Move 3 · 1 per week</div>
+            <h3 class="chapter__title" style="font-size:22px">Ship one verify step to an agent that lacks one.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Find the lie</div>
+                <ul class="two-kinds__list">
+                  <li>Pick one agent that "reports success" without proof.</li>
+                  <li>Write the verify criterion: what deterministic check confirms the intended side-effect happened?</li>
+                  <li>Ship it. Not a big deal — a five-line check often does it.</li>
+                  <li>Watch the false-success rate collapse in your metrics.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Directly cuts silent failures</div>
+                <ul class="two-kinds__list">
+                  <li>Most agents in production have guardrails but no verify.</li>
+                  <li>The system "looks fine" — until a customer notices it wasn't.</li>
+                  <li>One verify step per week compounds into a much more trustworthy agent surface in a quarter.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 4 -->
+          <section class="chapter chapter--sub" id="hn-apply-4">
+            <div class="chapter__eyebrow">Move 4 · 15 min / day</div>
+            <h3 class="chapter__title" style="font-size:22px">Instrument and trim context.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Watch context rot happen</div>
+                <ul class="two-kinds__list">
+                  <li>Log message count per turn on one agent workflow you own.</li>
+                  <li>Read a real trace where the context grew to 40+ messages.</li>
+                  <li>Circle every message that added no signal.</li>
+                  <li>Write one reduction rule. Ship it. Measure token spend before / after.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Cost drops. Quality rises.</div>
+                <ul class="two-kinds__list">
+                  <li>Context rot is invisible until you graph it. Then it's obvious.</li>
+                  <li>Every message dropped is tokens saved and noise removed from the model's attention.</li>
+                  <li>You will find that "smaller context" beats "bigger model" more often than you expect.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Move 5 -->
+          <section class="chapter chapter--sub" id="hn-apply-5">
+            <div class="chapter__eyebrow">Move 5 · one experiment</div>
+            <h3 class="chapter__title" style="font-size:22px">Prototype one dynamic harness.</h3>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">The practice</div>
+                <div class="two-kinds__title">Let the agent design its harness</div>
+                <ul class="two-kinds__list">
+                  <li>Pick a task. Before starting, ask the agent to <em>generate</em> its harness — tools it needs, guardrails, verify step.</li>
+                  <li>Review the generated spec. Adjust. Run the task.</li>
+                  <li>Compare against a hand-authored harness on the same task.</li>
+                  <li>Any Claude Code plan-mode session already qualifies. Start there.</li>
+                </ul>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">Why it beats blockers</div>
+                <div class="two-kinds__title">Skate to where the puck is</div>
+                <ul class="two-kinds__list">
+                  <li>Dynamic harnesses are the next step toward reliable open-ended agents.</li>
+                  <li>Being the person on your team who has done one — even a small one — puts you ahead of the curve.</li>
+                  <li>The experience translates: once you've seen an agent generate a plan, you get much better at authoring harnesses by hand.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Weekly review -->
+          <section class="chapter chapter--sub" id="hn-apply-review">
+            <div class="chapter__eyebrow">Weekly self-review · Friday</div>
+            <h3 class="chapter__title" style="font-size:22px">Five questions to ask yourself every Friday.</h3>
+            <p class="chapter__lede">If you can't answer one clearly, that's next week's harness gap.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">What agent failure this week could a better harness have caught?</div>
+                <div class="concept-block__value">Name the failure, name the missing component (guardrail · verify · context rule · tool boundary).</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Did I catch myself reaching for "prompt harder" and stop?</div>
+                <div class="concept-block__value">Every catch counts. Every miss is one to name next week.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What did I trim from context that I didn't need?</div>
+                <div class="concept-block__value">Even one message. Even one field. It compounds.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What verify step did I add that would have saved someone downstream?</div>
+                <div class="concept-block__value">If none, that's your Move 3 for next week.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">What harness pattern from this week could go into a team playbook?</div>
+                <div class="concept-block__value">Codify it. Share it. Turn one-off wisdom into shared discipline.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Closer -->
+          <div class="apply-callout apply-callout--dark">
+            <div class="apply-callout__title">The one-line test.</div>
+            <p>Am I designing environments that make failure structurally impossible, or am I still tweaking prompts and hoping? If it's the first, you're a harness engineer. If it's the second, the daily moves above are how you get there.</p>
+            <a class="apply-callout__link" href="#/harness-101/practice">→ Open the Harness Designer</a>
           </div>
 
         </div>

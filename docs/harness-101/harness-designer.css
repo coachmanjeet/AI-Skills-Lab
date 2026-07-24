@@ -1,0 +1,233 @@
+/* ==========================================================================
+   harness-designer.css — Track 06 · Harness Designer
+   Piggybacks on ../eval-201/rubric-builder.css for stepper/nav/buttons.
+   Only overrides accent tokens + adds builder-specific card variants.
+   Track 06 accent: #f85149
+   ========================================================================== */
+
+.hd-theme {
+  --rb-accent: #f85149;
+  --rb-accent-tint: #fee2e2;
+  --rb-accent-hover: #e33232;
+}
+
+/* Retune shared primitives to the harness accent */
+.hd-theme .rb-topbar__eyebrow { color: #f85149; }
+.hd-theme .rb-step.is-current .rb-step__num,
+.hd-theme .rb-step.is-current .rb-step__label { color: #f85149; }
+.hd-theme .rb-step.is-current { border-bottom-color: #f85149; }
+.hd-theme .rb-step.is-done .rb-step__check { background: #f85149; color: #fff; }
+.hd-theme .rb-stage__eyebrow { color: #f85149; }
+.hd-theme .rb-label { color: #f85149; }
+.hd-theme .rb-btn--primary { background: #f85149; }
+.hd-theme .rb-btn--primary:hover:not(:disabled) { background: #e33232; }
+.hd-theme .rb-btn--primary:disabled { background: #fca5a1; }
+.hd-theme .rb-feature-card.is-selected {
+  border-color: #f85149;
+  background: #fff5f4;
+  box-shadow: 0 0 0 2px rgba(248, 81, 73, 0.15);
+}
+.hd-theme .rb-scorer-btn.is-selected {
+  background: #f85149;
+  color: #fff;
+  border-color: #f85149;
+}
+.hd-theme .rb-side__eyebrow { color: #f85149; }
+.hd-theme .rb-side__quote { border-left-color: #f85149; }
+.hd-theme .rb-done-card {
+  background: #fff5f4;
+  border-left: 4px solid #f85149;
+}
+.hd-theme .rb-input:focus,
+.hd-theme .rb-textarea:focus {
+  border-color: #f85149;
+  box-shadow: 0 0 0 3px rgba(248, 81, 73, 0.15);
+  outline: none;
+}
+.hd-theme .rb-topbar__back { color: #f85149; }
+
+/* Builder-specific pieces */
+.hd-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.hd-row__toggle { flex-shrink: 0; }
+.hd-row__body { flex: 1; min-width: 0; }
+.hd-row__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #032e61;
+  margin-bottom: 2px;
+}
+.hd-row__desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+.hd-row__field {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hd-row__field .rb-input {
+  flex: 1;
+  min-width: 160px;
+}
+.hd-row__prefix {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  min-width: 68px;
+}
+.hd-row__suffix {
+  font-size: 12px;
+  color: #6b7280;
+}
+.hd-row.is-on {
+  border-color: #f85149;
+  background: #fff5f4;
+}
+
+.hd-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.hd-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 10px;
+  border-radius: 999px;
+  background: #fff5f4;
+  color: #b91c1c;
+  border: 1px solid #f85149;
+  font-size: 12px;
+  font-weight: 600;
+}
+.hd-tag__x {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #b91c1c;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+
+.hd-preview {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.hd-preview__section {
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+.hd-preview__section:last-child { border-bottom: none; }
+.hd-preview__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #f85149;
+  margin-bottom: 6px;
+}
+.hd-preview__value {
+  font-size: 14px;
+  color: #032e61;
+  line-height: 1.5;
+}
+.hd-preview__value strong { color: #032e61; }
+.hd-preview__list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #374151;
+}
+
+.hd-checkbox-block {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.hd-checkbox-block.is-on {
+  border-color: #f85149;
+  background: #fff5f4;
+}
+.hd-checkbox-block__mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.hd-checkbox-block.is-on .hd-checkbox-block__mark {
+  background: #f85149;
+  border-color: #f85149;
+}
+.hd-checkbox-block__body { flex: 1; }
+.hd-checkbox-block__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #032e61;
+  margin-bottom: 2px;
+}
+.hd-checkbox-block__desc {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.hd-diagram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 14px 0 22px;
+}
+@media (max-width: 720px) {
+  .hd-diagram { grid-template-columns: 1fr 1fr; }
+}
+.hd-diagram__node {
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+}
+.hd-diagram__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #f85149;
+  margin-bottom: 4px;
+}
+.hd-diagram__value {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.4;
+}
