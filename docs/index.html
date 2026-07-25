@@ -84,7 +84,7 @@
           <div class="landing__tile-num">Track 03</div>
           <div class="landing__tile-title">Eval 101</div>
           <div class="landing__tile-question">How do you build, run, and scale AI evals?</div>
-          <div class="landing__tile-desc">A full course in three parts. <strong>Learn:</strong> 9 core concepts + 4 hands-on labs. <strong>Practice:</strong> 4 exercises, a rubric builder, a FAQ, and a week-one recipe. <strong>Apply:</strong> maturity ladder, RACI, reliability contract, dashboard spec, Go/No-Go.</div>
+          <div class="landing__tile-desc">A full course in three parts. <strong>Learn:</strong> 9 core concepts + 4 hands-on labs. <strong>Practice:</strong> 4 exercises, a rubric builder, a FAQ, and a week-one recipe. <strong>Apply:</strong> maturity ladder, RACI, reliability contract, dashboard spec, Go/No-Go. <strong>Hands-on code:</strong> <a href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">basically-ai-evals</a> (runnable TypeScript companion).</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
@@ -93,7 +93,7 @@
           <div class="landing__tile-num">Track 04</div>
           <div class="landing__tile-title">Eval 201</div>
           <div class="landing__tile-question">How do evals scale to production AI systems and across an org?</div>
-          <div class="landing__tile-desc">Multi-agent, voice, and long-running agent evals. Trust / governance / resilience. Judge alignment. Framework comparison (LangSmith, Langfuse, Arize, Harbor, Braintrust). Trace analysis at scale, release gates tied to KPIs, and the roadmap for org-wide eval discipline.</div>
+          <div class="landing__tile-desc">Multi-agent, voice, and long-running agent evals. Trust / governance / resilience. Judge alignment. Framework comparison (LangSmith, Langfuse, Arize, Harbor, Braintrust). Trace analysis at scale, release gates tied to KPIs, and the roadmap for org-wide eval discipline. <strong>Hands-on code:</strong> <a href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">basically-ai-evals</a> (runnable TypeScript companion).</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
@@ -111,7 +111,7 @@
           <div class="landing__tile-num">Track 06</div>
           <div class="landing__tile-title">Harness</div>
           <div class="landing__tile-question">How do you make agents reliable in production?</div>
-          <div class="landing__tile-desc">2026 is the year of harnesses. <strong>Learn:</strong> what a harness is (everything except the model weights), the six components — tools · model · context · guardrails · loop · <em>verify</em> — and why "engineer the environment" beats "prompt harder." <strong>Practice:</strong> the Harness Designer — sketch a harness for one agent workflow you own. <strong>Apply:</strong> five daily moves to catch failures with a better harness, not a better prompt.</div>
+          <div class="landing__tile-desc">2026 is the year of harnesses. <strong>Learn:</strong> what a harness is (everything except the model weights), the six components — tools · model · context · guardrails · loop · <em>verify</em> — and why "engineer the environment" beats "prompt harder." <strong>Practice:</strong> the Harness Designer — sketch a harness for one agent workflow you own. <strong>Apply:</strong> five daily moves to catch failures with a better harness, not a better prompt. <strong>Hands-on code:</strong> <a href="https://github.com/coachmanjeet/basically-ai-harness" target="_blank" rel="noopener">basically-ai-harness</a> (runnable TypeScript companion — eval harness + agent harness, side by side).</div>
           <div class="landing__tile-arrow">→</div>
         </a>
 
@@ -927,11 +927,29 @@
           <div class="chapter__eyebrow">Track 06 · Practice</div>
           <h2 class="chapter__title">Design a harness for one real agent workflow.</h2>
           <p class="chapter__lede">A stepped builder. Six stages walk you through every component of an agent harness — the agent &amp; environment, the tool registry, the context strategy, the guardrails, the verify step, and the export. Pick one live or planned agent from your product. Sketch its harness end-to-end. Export the spec as JSON + Markdown to paste into a PRD or share with an engineer.</p>
+          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and use the Harness Designer below, or open a terminal and clone the CLI companion — same concepts, different medium. Pick whichever fits how you like to work.</p>
         </section>
 
         <div class="chapter-group">
+          <section class="chapter chapter--sub exercise" id="ex-harness-cli">
+            <div class="chapter__eyebrow">Lane 2 · In your terminal</div>
+            <h3 class="chapter__title" style="font-size:22px">Clone the harness in ~200 lines of TypeScript</h3>
+            <p class="chapter__lede">A runnable walkthrough of both meanings of "harness" side by side: an <em>eval</em> harness (dataset → model → scorer) and an <em>agent</em> harness (tools + context + guardrails + loop + verify). Numbered files so you read them in order. No build step — <code>tsx</code> runs each file directly.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">CLI companion · ~15 min</div>
+              <h3 class="builder-launcher__title">basically-ai-harness · clone, edit, run</h3>
+              <p class="builder-launcher__body"><code>git clone</code> → <code>npm install</code> → <code>npm run eval</code> to compare three models against a trap-answer dataset, or <code>npm run agent</code> to watch a Playwright-driven agent read a live page and verify the answer. Swap the model, swap the task, change the guardrails — everything you sketched in the Harness Designer, but running.</p>
+              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-harness" target="_blank" rel="noopener">
+                Open basically-ai-harness on GitHub <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-ai-harness.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a local copy of a minimal harness you can extend for your own agent — same six components as the Designer, but as code you can commit.</p>
+          </section>
+
           <section class="chapter chapter--sub exercise" id="ex-harness-designer">
-            <div class="chapter__eyebrow">Applied work · ~15 min</div>
+            <div class="chapter__eyebrow">Lane 1 · In the browser · ~15 min</div>
             <h3 class="chapter__title" style="font-size:22px">Harness Designer</h3>
             <p class="chapter__lede">Six stages: Agent &amp; environment · Tool registry · Context strategy · Guardrails · Verify · Export. Presets at every stage so you're not starting from a blank page. State auto-saves to your browser. Come back next week and iterate.</p>
 
@@ -1436,6 +1454,25 @@
           <div class="chapter__eyebrow">Eval 101 · Practice</div>
           <h2 class="chapter__title">Four exercises, one builder, then you're running.</h2>
           <p class="chapter__lede"><strong>What you'll do:</strong> four short exercises that each build one skill (test data, golden set, error analysis, automated scoring), then a rubric builder for a feature you own, then a FAQ, then a one-page recipe for running your first eval. Take the Service Refund Agent as the running example — same feature across all exercises so the pieces stack.</p>
+          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and work through the four exercises + Rubric Builder below, or open a terminal and clone the CLI companion to see the same concepts as runnable code — dataset, judge, scoring, CI gate. Pick whichever fits how you like to work.</p>
+
+          <!-- ===== Lane 2: CLI companion ===== -->
+          <section class="chapter chapter--sub exercise" id="ex-eval-101-cli">
+            <div class="chapter__eyebrow">Lane 2 · In your terminal · ~20 min</div>
+            <h3 class="chapter__title" style="font-size:22px">Clone the eval pipeline in ~300 lines of TypeScript</h3>
+            <p class="chapter__lede">A runnable 7-step build-along of LLM-as-judge evaluation: naive judge → position-swap fix → rubric with ground truth → judge/human calibration → deterministic probes → dataset run → CI gate. Every step is one small numbered file. Ships with a MOCK_MODE so you can run the whole thing offline before wiring up a real API key.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">CLI companion · MOCK_MODE included</div>
+              <h3 class="builder-launcher__title">basically-ai-evals · clone, edit, run</h3>
+              <p class="builder-launcher__body"><code>git clone</code> → <code>npm install</code> → <code>MOCK_MODE=true npx tsx 01-judge/01-naive.ts</code> and watch a naive judge crown the confidently-wrong answer. Then swap positions, add a rubric, run the dataset, watch the CI gate block a regression. The same seven ideas the browser exercises teach — as code you can commit to your own repo.</p>
+              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">
+                Open basically-ai-evals on GitHub <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-agent-evals.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a runnable copy of a full eval pipeline for one feature — dataset, judge, scoring, CI gate — that you can point at your own agent.</p>
+          </section>
 
           <!-- ===== Exercise 1: How to create test data ===== -->
           <section class="chapter chapter--sub exercise" id="ex-test-data">
@@ -2804,6 +2841,25 @@
           <div class="chapter__eyebrow">Eval 201 · Practice</div>
           <h2 class="chapter__title">Four exercises. Then a rubric you own.</h2>
           <p class="chapter__lede"><strong>What Practice is:</strong> four hands-on exercises + the Rubric Builder + an FAQ. Each exercise mirrors what your team will run week-in / week-out once evals are live: annotate real traces, draft your own rubric with a judge prompt, do error analysis, wire up automated scoring. <strong>Time:</strong> ~30 min end-to-end. <strong>What you'll leave with:</strong> a rubric spec + a judge prompt + a mental model of the annotation ops loop.</p>
+          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and work through the four exercises + Rubric Builder below, or open a terminal and clone the CLI companion to feel how a real RAG eval and a live diagnostic console are wired end-to-end. Pick whichever fits how you like to work.</p>
+
+          <!-- ===== Lane 2: CLI companion ===== -->
+          <section class="chapter chapter--sub exercise" id="ex-eval-201-cli">
+            <div class="chapter__eyebrow">Lane 2 · In your terminal · ~30 min</div>
+            <h3 class="chapter__title" style="font-size:22px">Run a real RAG eval and a live diagnostic console</h3>
+            <p class="chapter__lede">The same repo that backs Eval 101, but with two 201-flavored pieces: a stage-blame RAG evaluator (retrieval vs generation failures, RAGAS-style) and a Vite + React + Express diagnostic console for demoing judge bias live. MOCK_MODE ships in the box so you can rehearse without burning API credits.</p>
+
+            <div class="builder-launcher">
+              <div class="builder-launcher__eyebrow">CLI companion · RAG + live console</div>
+              <h3 class="builder-launcher__title">basically-ai-evals · 02-rag + 03-console</h3>
+              <p class="builder-launcher__body"><code>git clone</code> → <code>MOCK_MODE=true npx tsx 02-rag/eval-openrag.ts</code> to see retrieval-vs-generation blame in a single trace. Then <code>cd 03-console &amp;&amp; npm run dev</code> for a dark diagnostic console with toy-scenario and RAG tabs — the same UI teachers use on stage to make an eval fail live.</p>
+              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">
+                Open basically-ai-evals on GitHub <span class="builder-launcher__arrow">↗</span>
+              </a>
+              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-agent-evals.</div>
+            </div>
+            <p class="section-note"><strong>What you leave with:</strong> a runnable RAG eval + a live console you can adapt into your team's demo rig — the code path from browser rubric → CLI test → dashboard the whole team watches.</p>
+          </section>
 
           <!-- =================================================================== -->
           <!-- Exercise 1 · Build & run evals on ADLC skills                        -->
