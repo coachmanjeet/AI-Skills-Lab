@@ -23,12 +23,12 @@ const LAB_IDS = ['lab-01', 'lab-02', 'lab-03', 'lab-04'];
 
 const TRACKS = {
   'ai-native-pm':  { number: '01', title: 'How to Become an AI-Native PM', accent: '#3b82f6', modes: { learn: 'real', practice: 'real', apply: 'real' } },
-  'pm-agent-team': { number: '02', title: 'AI PM Agent Team',              accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'stub' } },
+  'pm-agent-team': { number: '02', title: 'AI PM Agent Team',              accent: '#dc2626', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'eval-101':      { number: '03', title: 'Eval 101',                      accent: '#34d399', modes: { learn: 'real', practice: 'real', apply: 'real' } },
   'eval-201':      { number: '04', title: 'Eval 201',                      accent: '#f59e0b', modes: { learn: 'real', practice: 'real', apply: 'real' } },
-  'obs-101':       { number: '05', title: 'Observability',                 accent: '#d29922', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'obs-101':       { number: '05', title: 'Observability',                 accent: '#d29922', modes: { learn: 'stub', practice: 'real', apply: 'real' } },
   'harness-101':   { number: '06', title: 'Harness',                       accent: '#f85149', modes: { learn: 'real', practice: 'real', apply: 'real' } },
-  'adoption-roi':  { number: '07', title: 'Adoption and ROI',              accent: '#22d3ee', modes: { learn: 'stub', practice: 'stub', apply: 'stub' } },
+  'adoption-roi':  { number: '07', title: 'Adoption and ROI',              accent: '#22d3ee', modes: { learn: 'stub', practice: 'real', apply: 'real' } },
 };
 
 const MODES = ['learn', 'practice', 'apply'];
@@ -62,6 +62,7 @@ async function main() {
   // Router wiring (synchronous, unconditional)
   window.addEventListener('hashchange', route);
   wireTabClicks();
+  wirePracticeSegmented();
   route();
 
   // Content mounts (async, tolerant of individual failures)
@@ -108,7 +109,7 @@ async function main() {
 function route() {
   const parsed = parseHash();
   console.log('[router]', window.location.hash, '→', parsed);
-  const { view, track, mode } = parsed;
+  const { view, track, mode, exercise } = parsed;
   const landing = document.querySelector('[data-view="landing"]');
   const trackView = document.querySelector('[data-view="track"]');
   if (!landing || !trackView) {
@@ -155,11 +156,22 @@ function route() {
 
   const kind = meta.modes[modeKey] || 'stub';
   if (kind === 'real') {
-    const panel = document.querySelector(`.js-track-panel[data-track="${track}"][data-mode="${modeKey}"]`);
-    if (panel) {
-      panel.hidden = false; panel.style.display = '';
+    if (modeKey === 'practice' && exercise) {
+      const detail = document.querySelector(`.js-track-panel[data-track="${track}"][data-mode="practice"][data-exercise="${exercise}"]`);
+      if (detail) {
+        detail.hidden = false; detail.style.display = '';
+      } else {
+        const fallback = document.querySelector(`.js-track-panel[data-track="${track}"][data-mode="practice"]:not([data-exercise])`);
+        if (fallback) { fallback.hidden = false; fallback.style.display = ''; }
+        else showStub(stubMount, meta, modeKey);
+      }
     } else {
-      showStub(stubMount, meta, modeKey);
+      const panel = document.querySelector(`.js-track-panel[data-track="${track}"][data-mode="${modeKey}"]:not([data-exercise])`);
+      if (panel) {
+        panel.hidden = false; panel.style.display = '';
+      } else {
+        showStub(stubMount, meta, modeKey);
+      }
     }
   } else {
     showStub(stubMount, meta, modeKey);
@@ -174,8 +186,11 @@ function parseHash() {
   const parts = h.split('/').filter(Boolean);
   const track = parts[0];
   const mode = parts[1] || 'learn';
+  const seg3 = parts[2] || null;
   if (!TRACKS[track]) return { view: 'landing' };
-  return { view: 'track', track, mode };
+  const out = { view: 'track', track, mode };
+  if (seg3 && /^ex\d+$/i.test(seg3)) out.exercise = seg3.slice(2);
+  return out;
 }
 
 function wireTabClicks() {
@@ -184,6 +199,27 @@ function wireTabClicks() {
       const { track } = parseHash();
       const mode = btn.dataset.mode;
       window.location.hash = `#/${track || 'eval-101'}/${mode}`;
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
+//  Practice segmented control (In the browser / In the terminal)
+// ---------------------------------------------------------------------------
+function wirePracticeSegmented() {
+  document.querySelectorAll('.pr-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pr-toggle__btn');
+      if (!btn) return;
+      const view = btn.dataset.view;
+      if (!view) return;
+      toggle.querySelectorAll('.pr-toggle__btn').forEach(b => {
+        b.classList.toggle('is-active', b === btn);
+      });
+      const scope = toggle.closest('.pr-index') || document;
+      scope.querySelectorAll('.pr-grid[data-view]').forEach(g => {
+        g.hidden = g.dataset.view !== view;
+      });
     });
   });
 }

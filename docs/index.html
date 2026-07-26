@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
-  <link rel="stylesheet" href="./css/app.css?v=20260725a">
+  <link rel="stylesheet" href="./css/app.css?v=20260726a">
 </head>
 <body>
 
@@ -453,29 +453,24 @@
            TRACK 01 · AI-NATIVE PM · PRACTICE
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="ai-native-pm" data-mode="practice" hidden>
-        <section class="chapter">
-          <div class="chapter__eyebrow">Track 01 · Practice</div>
-          <h2 class="chapter__title">Score yourself across 8 readiness areas.</h2>
-          <p class="chapter__lede">A stepped self-assessment. Rate yourself 1/3/5 across the eight things AI-native PMs actually do. Get your gap map, your lowest 2 areas, and one concrete weekly action for each. Everything auto-saves in your browser — export as JSON + Markdown when you're done.</p>
-        </section>
-
-        <div class="chapter-group">
-          <section class="chapter chapter--sub exercise" id="ex-self-assessment">
-            <div class="chapter__eyebrow">Applied work · ~10 min</div>
-            <h3 class="chapter__title" style="font-size:22px">AI-Native PM Self-Assessment</h3>
-            <p class="chapter__lede">Eight areas from the practical playbook: Problem finding, Problem solving, Eval thinking, Observability, Product judgment, Speed to prototype, Trust &amp; safety, Influence &amp; adoption. Each with a 1 / 3 / 5 rubric so you can be honest with yourself. Output: your gap map + a weekly plan.</p>
-
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">Applied work · ~10 min</div>
-              <h3 class="builder-launcher__title">Grade yourself · get your weekly plan</h3>
-              <p class="builder-launcher__body">Walks you through: score all 8 areas → confirm your two lowest gaps → pick one small weekly action per gap → export the plan as JSON + Markdown. Same shape as every other builder in this lab. Nothing to install; state persists in your browser.</p>
-              <a class="builder-launcher__cta" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">
-                Open Self-Assessment <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
-            </div>
-            <p class="section-note"><strong>What you leave with:</strong> a shareable score report (JSON + Markdown) — attach to a growth doc, share with your manager, or keep as a private weekly ritual. Re-score every Friday; watch the numbers move.</p>
-          </section>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">AI-Native PM · Practice</div>
+          </div>
+          <div class="pr-exercises-label">1 Exercise</div>
+          <div class="pr-grid" style="grid-template-columns:1fr">
+            <a class="pr-card" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">
+              <div class="pr-card__eyebrow">Exercise 1 · ~10 min</div>
+              <div class="pr-card__title">Score yourself across 8 readiness areas</div>
+              <p class="pr-card__desc">The AI-Native PM self-assessment. Rate 1 / 3 / 5, get your gap map + weekly plan.</p>
+            </a>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">Continue: Exercise 1</div>
+            <div class="pr-continue__title">Grade yourself · get your weekly plan</div>
+            <p class="pr-continue__desc">Score 8 areas → confirm your two lowest gaps → pick one weekly action per gap → export as JSON + Markdown.</p>
+            <a class="pr-continue__cta" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">Open Self-Assessment ↗</a>
+          </div>
         </div>
       </div>
 
@@ -483,12 +478,52 @@
            TRACK 01 · AI-NATIVE PM · APPLY
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="ai-native-pm" data-mode="apply" hidden>
-        <section class="chapter">
-          <div class="chapter__eyebrow">Track 01 · Apply</div>
-          <h2 class="chapter__title">Five compounding moves. One weekly self-review.</h2>
-          <p class="chapter__lede">Five daily moves that compound over a year despite org drag — plus a weekly self-review to keep you honest. Do these consistently and you become the person in your org who "always has a working agent demo." That's how you become AI-native in a place that isn't quite there yet.</p>
-        </section>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">AI-Native PM · Apply</div>
+            <p class="ap-topbar__lede">Five compounding moves. One weekly self-review. Do these consistently and you become the person in your org who "always has a working agent demo."</p>
+          </div>
 
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Bell curve</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Two Tests</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Daily reps</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Weekly review</div></div>
+          </div>
+
+          <div class="ap-moves-label">This week's moves</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Run one daily agent experiment</div>
+              <p class="ap-move__desc">Pick one real workflow. Prototype planner → tools → answer. Capture what worked, what broke.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">2</div>
+              <div class="ap-move__title">Build a personal eval + observability gym</div>
+              <p class="ap-move__desc">Instrument outcome, reliability, safety. Review traces. Write one concrete change per day.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">3</div>
+              <div class="ap-move__title">Do one problem-finding rep per day</div>
+              <p class="ap-move__desc">Pick a live agent use case. Ask: where do users drop off? Write one short problem statement.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · 5 questions</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What real problem did I find this week that others missed?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What did I ship or design that used AI/agents meaningfully?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What did I measure before and after?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What failure did I understand from traces or data?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What org blocker did I reduce or route around?</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: all five moves + career signal</div>
         <div class="chapter-group">
 
           <!-- Move 1 -->
@@ -704,6 +739,7 @@
             <a class="apply-callout__link" href="#/ai-native-pm/practice">→ Score yourself in Practice</a>
           </div>
 
+        </div>
         </div>
       </div>
 
@@ -987,29 +1023,24 @@
            TRACK 06 · HARNESS · PRACTICE
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="harness-101" data-mode="practice" hidden>
-        <section class="chapter">
-          <div class="chapter__eyebrow">Track 06 · Practice</div>
-          <h2 class="chapter__title">Design a harness for one real agent workflow.</h2>
-          <p class="chapter__lede">A stepped builder. Six stages walk you through every component of an agent harness — the agent &amp; environment, the tool registry, the context strategy, the guardrails, the verify step, and the export. Pick one live or planned agent from your product. Sketch its harness end-to-end. Export the spec as JSON + Markdown to paste into a PRD or share with an engineer.</p>
-        </section>
-
-        <div class="chapter-group">
-          <section class="chapter chapter--sub exercise" id="ex-harness-designer">
-            <div class="chapter__eyebrow">Applied work · ~15 min</div>
-            <h3 class="chapter__title" style="font-size:22px">Harness Designer</h3>
-            <p class="chapter__lede">Six stages: Agent &amp; environment · Tool registry · Context strategy · Guardrails · Verify · Export. Presets at every stage so you're not starting from a blank page. State auto-saves to your browser. Come back next week and iterate.</p>
-
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">Applied work · ~15 min</div>
-              <h3 class="builder-launcher__title">Sketch the harness · export the spec</h3>
-              <p class="builder-launcher__body">Walks you through: name the agent and its environment → pick tools from the registry preset → choose context tactics (isolation, reduction, retrieval) → compose guardrails (max iterations, max cost, forbidden tools) → design the verify step → export as JSON + Markdown. Nothing to install; everything auto-saves locally.</p>
-              <a class="builder-launcher__cta" href="./harness-101/harness-designer.html" target="_blank" rel="noopener">
-                Open Harness Designer <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
-            </div>
-            <p class="section-note"><strong>What you leave with:</strong> a shareable harness spec (JSON + Markdown) — attach it to a PRD, hand it to an engineer, or keep it as your team's playbook for turning agent ideas into reliable systems.</p>
-          </section>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">Harness · Practice</div>
+          </div>
+          <div class="pr-exercises-label">1 Exercise</div>
+          <div class="pr-grid" style="grid-template-columns:1fr">
+            <a class="pr-card" href="./harness-101/harness-designer.html" target="_blank" rel="noopener">
+              <div class="pr-card__eyebrow">Exercise 1 · ~15 min</div>
+              <div class="pr-card__title">Design a harness for one real agent workflow</div>
+              <p class="pr-card__desc">Six stages — agent &amp; environment, tools, context, guardrails, verify, export.</p>
+            </a>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">Continue: Exercise 1</div>
+            <div class="pr-continue__title">Sketch the harness · export the spec</div>
+            <p class="pr-continue__desc">Pick one live or planned agent. Name it → pick tools → choose context tactics → compose guardrails → design verify → export as JSON + Markdown.</p>
+            <a class="pr-continue__cta" href="./harness-101/harness-designer.html" target="_blank" rel="noopener">Open Harness Designer ↗</a>
+          </div>
         </div>
       </div>
 
@@ -1017,12 +1048,52 @@
            TRACK 06 · HARNESS · APPLY
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="harness-101" data-mode="apply" hidden>
-        <section class="chapter">
-          <div class="chapter__eyebrow">Track 06 · Apply</div>
-          <h2 class="chapter__title">Five moves. One Friday review. One test.</h2>
-          <p class="chapter__lede">Five compounding moves that turn "harness engineering" from an abstract discipline into a weekly habit. Plus a Friday self-review to keep you honest. Do these for a month and you'll be the person on your team who catches agent failures with better environments, not louder prompts.</p>
-        </section>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">Harness · Apply</div>
+            <p class="ap-topbar__lede">Five compounding moves that turn "harness engineering" from an abstract discipline into a weekly habit. Do these for a month and you'll catch failures with better environments, not louder prompts.</p>
+          </div>
 
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Sketch</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Guardrails</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Verify</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Loop</div></div>
+          </div>
+
+          <div class="ap-moves-label">This week's moves</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Sketch the harness of one production agent</div>
+              <p class="ap-move__desc">Map the six components. Flag empty cells — they're the reliability bugs waiting to happen.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">2</div>
+              <div class="ap-move__title">Catch every "prompt harder" moment</div>
+              <p class="ap-move__desc">When someone says "let's tweak the prompt" — pause. Convert it into a harness change instead.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">3</div>
+              <div class="ap-move__title">Ship one verify step to an agent that lacks one</div>
+              <p class="ap-move__desc">Find the agent that reports success without proof. Add the deterministic check. Watch false-success collapse.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · 5 questions</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What agent failure this week could a better harness have caught?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Did I catch myself reaching for "prompt harder" and stop?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What did I trim from context that I didn't need?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What verify step did I add that would have saved someone downstream?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What harness pattern from this week could go into a team playbook?</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: all five moves + weekly review</div>
         <div class="chapter-group">
 
           <!-- Move 1 -->
@@ -1196,6 +1267,7 @@
             <a class="apply-callout__link" href="#/harness-101/practice">→ Open the Harness Designer</a>
           </div>
 
+        </div>
         </div>
       </div>
 
@@ -1496,6 +1568,53 @@
 
       <!-- ===== EVAL 101 · PRACTICE (exercises + builder + FAQ) ===== -->
       <div class="track-panel js-track-panel" data-track="eval-101" data-mode="practice" hidden>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">Eval 101 · Practice</div>
+            <div class="pr-toggle" role="tablist">
+              <button type="button" class="pr-toggle__btn is-active" data-view="browser">In the browser</button>
+              <button type="button" class="pr-toggle__btn" data-view="terminal">In the terminal</button>
+            </div>
+          </div>
+          <div class="pr-exercises-label">4 Exercises</div>
+
+          <div class="pr-grid" data-view="browser">
+            <a class="pr-card" href="#/eval-101/practice/ex1">
+              <div class="pr-card__eyebrow">Exercise 1 · ~5 min</div>
+              <div class="pr-card__title">Write test data that catches real bugs</div>
+              <p class="pr-card__desc">The 4-1-1 rule. 4 golden path · 1 edge · 1 adversarial.</p>
+            </a>
+            <a class="pr-card" href="#/eval-101/practice/ex2">
+              <div class="pr-card__eyebrow">Exercise 2 · ~10 min</div>
+              <div class="pr-card__title">Build a golden dataset</div>
+              <p class="pr-card__desc">A versioned regression fixture. Behavior, not text. Small, curated, in-repo.</p>
+            </a>
+            <a class="pr-card" href="#/eval-101/practice/ex3">
+              <div class="pr-card__eyebrow">Exercise 3 · ~10 min</div>
+              <div class="pr-card__title">Error analysis via trace reading</div>
+              <p class="pr-card__desc">20 failures + 10 passes. Tag, cluster, pick the top failure mode.</p>
+            </a>
+            <a class="pr-card" href="#/eval-101/practice/ex4">
+              <div class="pr-card__eyebrow">Exercise 4 · ~15 min</div>
+              <div class="pr-card__title">Build and run automated scoring</div>
+              <p class="pr-card__desc">Target → task → data → grader → run. End-to-end in six stages.</p>
+            </a>
+          </div>
+
+          <div class="pr-grid" data-view="terminal" hidden>
+            <div class="pr-empty">Terminal exercises are coming with the CLI eval pack. For now, all four exercises run in the browser.</div>
+          </div>
+
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">Continue: Exercise 1</div>
+            <div class="pr-continue__title">Write test data that catches real bugs</div>
+            <p class="pr-continue__desc">Bad fixtures make evals lie. The fix is deliberate diversity: the 4-1-1 rule (4 golden · 1 edge · 1 adversarial).</p>
+            <a class="pr-continue__cta" href="#/eval-101/practice/ex1">Open Exercise 1 ↗</a>
+          </div>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: all four exercises · FAQ · one-page recipe</div>
         <section class="chapter">
           <div class="chapter__eyebrow">Eval 101 · Practice</div>
           <h2 class="chapter__title">Four exercises, one builder, then you're running.</h2>
@@ -1790,10 +1909,186 @@
             <p class="section-note"><strong>The one metric that matters this week:</strong> can your team point to a number and argue about it? If yes, you have an eval. Everything else is refinement.</p>
           </section>
         </section>
+        </div>
+      </div>
+
+      <!-- ===== EVAL 101 · PRACTICE · EXERCISE DETAILS ===== -->
+      <div class="track-panel js-track-panel" data-track="eval-101" data-mode="practice" data-exercise="1" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-101/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 1 of 4</div>
+            <h2 class="pr-detail__title">Write test data that catches real bugs</h2>
+            <p class="pr-detail__lede">Bad fixtures make evals lie. A test set of 20 happy-path inputs will hit 100% on day one — and miss every real failure in prod. The fix is deliberate diversity: the 4-1-1 rule.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">4</div><div class="pr-stat__label">Golden path</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">1</div><div class="pr-stat__label">Edge case</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">Adversarial</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to the Refund Agent:</strong> 4 golden refund requests, 1 late-return edge case, 1 prompt-injection attempt. Every eval score is honest because every hard input is in the fixture.</div>
+            <a class="pr-detail__cta" href="./eval-101/test-data-builder.html" target="_blank" rel="noopener">Open Test Data Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Golden dataset</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">Automated scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-101" data-mode="practice" data-exercise="2" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-101/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 2 of 4</div>
+            <h2 class="pr-detail__title">Build a golden dataset (regression fixture)</h2>
+            <p class="pr-detail__lede">A versioned, curated fixture that defines "the AI is still doing what it did before." Building one is 80% deciding what NOT to include.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">3</div><div class="pr-stat__label">Sources</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">15–30</div><div class="pr-stat__label">Samples</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">Repo, versioned</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to the Refund Agent:</strong> 20 samples pulled from prod logs, synthetic edge inputs, and every prior refund incident. Committed to git; diffed on every PR.</div>
+            <a class="pr-detail__cta" href="./eval-101/golden-set-builder.html" target="_blank" rel="noopener">Open Golden Set Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Test data</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">Automated scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-101" data-mode="practice" data-exercise="3" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-101/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 3 of 4</div>
+            <h2 class="pr-detail__title">Error analysis — reading traces the right way</h2>
+            <p class="pr-detail__lede">A score of 73% is not "the AI is 73% good." To know what to fix, read the 27% — the actual transcripts, all the way through.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">10</div><div class="pr-stat__label">Passes</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">20</div><div class="pr-stat__label">Failures</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">4–8</div><div class="pr-stat__label">Failure modes</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to the Refund Agent:</strong> 30 traces read end-to-end. Tags clustered into 6 failure modes. Top one — "skipped identity check" — becomes the next fixture add.</div>
+            <a class="pr-detail__cta" href="./eval-101/trace-analysis-builder.html" target="_blank" rel="noopener">Open Trace Analysis Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Test data</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Golden dataset</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">Automated scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-101" data-mode="practice" data-exercise="4" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-101/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 4 of 4</div>
+            <h2 class="pr-detail__title">Automated scoring — build & run one end-to-end</h2>
+            <p class="pr-detail__lede">Now the pieces stack. You have samples, expected behavior, a fixture, and named failure modes. Wire them into a running eval.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">6</div><div class="pr-stat__label">Stages</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">1</div><div class="pr-stat__label">Grader</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">CI-ready spec</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to the Refund Agent:</strong> pick target → task → 20-sample fixture → code grader for tool order → run → export spec. Ready to paste into a PRD or wire into CI.</div>
+            <a class="pr-detail__cta" href="./eval-101/automated-scoring-builder.html" target="_blank" rel="noopener">Open Automated Scoring Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Test data</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Golden dataset</div></a>
+                <a class="pr-upnext__item" href="#/eval-101/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
       </div>
 
       <!-- ===== EVAL 101 · APPLY (roadmap to scale) ===== -->
       <div class="track-panel js-track-panel" data-track="eval-101" data-mode="apply" hidden>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">Eval 101 · Apply</div>
+            <p class="ap-topbar__lede">From one eval to an eval program. Where every AI ship is gated by a number, and every prod failure feeds back into the fixture.</p>
+          </div>
+
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Vibes</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Offline regression</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Trace-driven</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Offline + Online loop</div></div>
+          </div>
+
+          <div class="ap-moves-label">This week's moves</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Ship one number for one feature</div>
+              <p class="ap-move__desc">Pick one AI feature. 10 samples + code grader. Get it running. That's Level 2. Argue about the number, not the vibes.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">2</div>
+              <div class="ap-move__title">Read 30 prod traces this week</div>
+              <p class="ap-move__desc">20 failures + 10 passes. Tag failure modes. Top mode becomes next week's fixture add. That's how you get to Level 3.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">3</div>
+              <div class="ap-move__title">Wire the eval into CI as a gate</div>
+              <p class="ap-move__desc">Threshold below which the build fails. Every PR touching model / prompt / retrieval runs it. Ship gate makes the eval load-bearing.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · 5 questions</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Can my team point to a number and argue about it?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Did any prod failure this week become a new fixture row?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Did any PR get blocked by the eval gate?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What's my current eval maturity level? What's one step to the next?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What did I read in traces that surprised me?</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: maturity ladder · ownership · confidence UX · dashboard · Go/No-Go</div>
         <section class="chapter">
           <div class="chapter__eyebrow">Eval 101 · Apply</div>
           <h2 class="chapter__title">Roadmap for scale — from one eval to an eval program.</h2>
@@ -2117,6 +2412,7 @@
             <a class="apply-callout__link" href="#/eval-201/learn">Head to Eval 201 →</a>
           </div>
         </section>
+        </div>
       </div>
 
       <!-- ===== EVAL 201 · LEARN (concepts for advanced eval systems) ===== -->
@@ -2864,6 +3160,43 @@
 
       <!-- ===== EVAL 201 · PRACTICE (4 exercises + rubric builder + FAQ) ===== -->
       <div class="track-panel js-track-panel" data-track="eval-201" data-mode="practice" hidden>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">Eval 201 · Practice</div>
+          </div>
+          <div class="pr-exercises-label">4 Exercises</div>
+          <div class="pr-grid">
+            <a class="pr-card" href="#/eval-201/practice/ex1">
+              <div class="pr-card__eyebrow">Exercise 1 · ~10 min</div>
+              <div class="pr-card__title">Build & run evals on your Agent's skills</div>
+              <p class="pr-card__desc">Load 20 skill traces, annotate them, cluster into codes, draft a trace code.</p>
+            </a>
+            <a class="pr-card" href="#/eval-201/practice/ex2">
+              <div class="pr-card__eyebrow">Exercise 2 · ~10 min</div>
+              <div class="pr-card__title">Build your product's rubric + judge prompt</div>
+              <p class="pr-card__desc">Pick 2 dimensions, write binary trace codes, preview the rubric table.</p>
+            </a>
+            <a class="pr-card" href="#/eval-201/practice/ex3">
+              <div class="pr-card__eyebrow">Exercise 3 · ~10 min</div>
+              <div class="pr-card__title">Error analysis on multi-turn traces</div>
+              <p class="pr-card__desc">Where did the loop drift? Root-cause across turns, not just at the end.</p>
+            </a>
+            <a class="pr-card" href="#/eval-201/practice/ex4">
+              <div class="pr-card__eyebrow">Exercise 4 · ~10 min</div>
+              <div class="pr-card__title">Wire scoring into CI</div>
+              <p class="pr-card__desc">Judge prompt + fixture + threshold. Every merge gated on the number.</p>
+            </a>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">Continue: Exercise 1</div>
+            <div class="pr-continue__title">Build & run evals on your Agent's skills</div>
+            <p class="pr-continue__desc">Component-level skill evals catch failures that end-to-end evals hide. 20 traces → codes → first eval target.</p>
+            <a class="pr-continue__cta" href="#/eval-201/practice/ex1">Open Exercise 1 ↗</a>
+          </div>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: all four exercises · rubric builder · FAQ</div>
         <section class="chapter">
           <div class="chapter__eyebrow">Eval 201 · Practice</div>
           <h2 class="chapter__title">Four exercises. Then a rubric you own.</h2>
@@ -3145,10 +3478,186 @@
           </section>
 
         </section>
+        </div>
+      </div>
+
+      <!-- ===== EVAL 201 · PRACTICE · EXERCISE DETAILS ===== -->
+      <div class="track-panel js-track-panel" data-track="eval-201" data-mode="practice" data-exercise="1" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-201/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 1 of 4</div>
+            <h2 class="pr-detail__title">Build & run evals on your Agent's skills</h2>
+            <p class="pr-detail__lede">Every reusable skill needs its own eval. Load skill traces, annotate them, cluster into codes, and seed a new eval.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">20</div><div class="pr-stat__label">Skill traces</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">3–5</div><div class="pr-stat__label">Codes</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">First eval target</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to a real skill:</strong> pull 20 <code>process_refund</code> traces, annotate for 20 min, cluster into codes (wrong arg construction, silent failure, schema violation), pick the top code as your first eval.</div>
+            <a class="pr-detail__cta" href="./eval-201/skill-annotation-builder.html" target="_blank" rel="noopener">Open Skill Annotation Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Rubric + judge prompt</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">CI scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-201" data-mode="practice" data-exercise="2" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-201/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 2 of 4</div>
+            <h2 class="pr-detail__title">Build your product's rubric + judge prompt</h2>
+            <p class="pr-detail__lede">The rubric is what a human — or LLM judge — actually applies when scoring. Quality dimensions × binary trace codes × scorer.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">2</div><div class="pr-stat__label">Dimensions</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">2+</div><div class="pr-stat__label">Trace codes</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">Judge prompt</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to your product:</strong> pick a feature → 2 dimensions from Tone / Factual / Instruction / Task → one binary code per dimension → preview the rubric → export as JSON + Markdown ready to paste into a PRD.</div>
+            <a class="pr-detail__cta" href="./eval-201/rubric-builder.html" target="_blank" rel="noopener">Open Rubric Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Skill annotation</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">CI scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-201" data-mode="practice" data-exercise="3" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-201/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 3 of 4</div>
+            <h2 class="pr-detail__title">Error analysis on multi-turn traces</h2>
+            <p class="pr-detail__lede">Multi-turn systems drift. Where the loop broke matters more than the final outcome. Root-cause across turns, not just at the end.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">10+</div><div class="pr-stat__label">Multi-turn traces</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">1</div><div class="pr-stat__label">Failure mode / turn</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">1</div><div class="pr-stat__label">Root cause map</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to a multi-turn agent:</strong> pull 10 traces where the outcome failed, tag each turn, locate the drift point. Outcome-only evals miss conversational regressions; turn-level analysis catches them.</div>
+            <a class="pr-detail__cta" href="./eval-201/error-analysis-builder.html" target="_blank" rel="noopener">Open Error Analysis Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Skill annotation</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Rubric + judge prompt</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex4"><div class="pr-upnext__num">4</div><div class="pr-upnext__title">CI scoring</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="track-panel js-track-panel" data-track="eval-201" data-mode="practice" data-exercise="4" hidden>
+        <div class="pr-detail">
+          <div class="pr-detail__main">
+            <a class="pr-detail__back" href="#/eval-201/practice">← Back to Practice</a>
+            <div class="pr-detail__eyebrow">Exercise 4 of 4</div>
+            <h2 class="pr-detail__title">Wire scoring into CI</h2>
+            <p class="pr-detail__lede">Judge prompt + fixture + threshold. Every merge gated on the number. This is when evals become load-bearing.</p>
+            <div class="pr-stats">
+              <div class="pr-stat pr-stat--golden"><div class="pr-stat__num">1</div><div class="pr-stat__label">Threshold</div></div>
+              <div class="pr-stat pr-stat--edge"><div class="pr-stat__num">Every</div><div class="pr-stat__label">PR</div></div>
+              <div class="pr-stat pr-stat--adv"><div class="pr-stat__num">Auto</div><div class="pr-stat__label">Rollback signal</div></div>
+            </div>
+            <div class="pr-detail__story"><strong>Applied to your CI:</strong> pick the top rubric row → wire judge prompt → set threshold → gate every PR touching model / prompt / retrieval. The eval blocks bad merges automatically.</div>
+            <a class="pr-detail__cta" href="./eval-201/ci-scoring-builder.html" target="_blank" rel="noopener">Open CI Scoring Builder ↗</a>
+          </div>
+          <aside class="pr-detail__aside">
+            <div class="pr-upnext">
+              <div class="pr-upnext__label">Up next</div>
+              <div class="pr-upnext__list">
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex1"><div class="pr-upnext__num">1</div><div class="pr-upnext__title">Skill annotation</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex2"><div class="pr-upnext__num">2</div><div class="pr-upnext__title">Rubric + judge prompt</div></a>
+                <a class="pr-upnext__item" href="#/eval-201/practice/ex3"><div class="pr-upnext__num">3</div><div class="pr-upnext__title">Error analysis</div></a>
+              </div>
+            </div>
+            <div class="pr-log">
+              <div class="pr-log__label">Your log</div>
+              <div class="pr-log__empty">Nothing saved yet — exports appear here as you complete each exercise.</div>
+            </div>
+          </aside>
+        </div>
       </div>
 
       <!-- ===== EVAL 201 · APPLY (roadmap, standards, prod challenges, monitoring) ===== -->
       <div class="track-panel js-track-panel" data-track="eval-201" data-mode="apply" hidden>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">Eval 201 · Apply</div>
+            <p class="ap-topbar__lede">Scale evals from "one team runs them" to "the whole org runs them." Shared standards, CI harness, monitoring at scale.</p>
+          </div>
+
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Trust</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Governance</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Resilience</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">KPIs</div></div>
+          </div>
+
+          <div class="ap-moves-label">This week's moves</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Publish one shared rubric standard</div>
+              <p class="ap-move__desc">Take your team's best rubric. Add it to an internal Wiki. Get one adjacent team to adopt it this week.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">2</div>
+              <div class="ap-move__title">Wire an eval score into a business KPI</div>
+              <p class="ap-move__desc">CSAT · deflection · resolution rate. Show the eval score moves with the business metric. That's how evals stop being a PM side-project.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">3</div>
+              <div class="ap-move__title">Run one prod monitoring alert</div>
+              <p class="ap-move__desc">Pick one rubric row. Sample prod traffic. Alert when the score drops. Now you have online eval, not just offline.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · 5 questions</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Did another team adopt one of my rubric standards this week?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Is any eval score wired to a business KPI I can name?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Did my prod monitor fire, and did we act on it?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What Level are we on the scale ladder? What's the next milestone?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What one governance gap slowed us down?</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="ap-legacy">
+          <div class="ap-legacy__label">Deep read: roadmap · standards · prod challenges · monitoring</div>
         <section class="chapter">
           <div class="chapter__eyebrow">Eval 201 · Apply</div>
           <h2 class="chapter__title">Scale evals across your org.</h2>
@@ -3437,6 +3946,7 @@
           </div>
 
         </section>
+        </div>
       </div>
 
       <!-- ============================================================
@@ -3661,29 +4171,185 @@
            TRACK 07 · MY PM AGENT TEAM · PRACTICE
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="pm-agent-team" data-mode="practice" hidden>
-        <section class="chapter">
-          <div class="chapter__eyebrow">Track 07 · Practice</div>
-          <h2 class="chapter__title">Draft your own PM agent team.</h2>
-          <p class="chapter__lede">One stepped builder. Pick your lead PM agent, choose specialists, define the workflow, export the spec as JSON + Markdown. Everything auto-saves in your browser — no accounts, no cloud.</p>
-        </section>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">PM Agent Team · Practice</div>
+          </div>
+          <div class="pr-exercises-label">1 Exercise</div>
+          <div class="pr-grid" style="grid-template-columns:1fr">
+            <a class="pr-card" href="./pm-agent-team/team-builder.html" target="_blank" rel="noopener">
+              <div class="pr-card__eyebrow">Exercise 1 · ~10 min</div>
+              <div class="pr-card__title">Draft your own PM agent team</div>
+              <p class="pr-card__desc">Pick a lead PM agent, choose specialists, confirm the org chart, export as JSON + Markdown.</p>
+            </a>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">Continue: Exercise 1</div>
+            <div class="pr-continue__title">Author your PM agent team</div>
+            <p class="pr-continue__desc">Name a lead → pick specialists (Design, Engineer, QA, Deploy, Research, Growth, Data) → confirm the org chart → pick a starter workflow → export.</p>
+            <a class="pr-continue__cta" href="./pm-agent-team/team-builder.html" target="_blank" rel="noopener">Open Team Builder ↗</a>
+          </div>
+        </div>
+      </div>
 
-        <div class="chapter-group">
-          <section class="chapter chapter--sub exercise" id="ex-team-builder">
-            <div class="chapter__eyebrow">Applied work · ~10 min</div>
-            <h3 class="chapter__title" style="font-size:22px">Team Builder</h3>
-            <p class="chapter__lede">A five-stage flow: name your lead → pick specialists → confirm the org chart → set a workflow → export. Same shape as every other builder in this lab.</p>
+      <!-- ============================================================
+           TRACK 07 · MY PM AGENT TEAM · APPLY
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="pm-agent-team" data-mode="apply" hidden>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">PM Agent Team · Apply</div>
+            <p class="ap-topbar__lede">Three moves to turn a paper team spec into a working PM agent team you actually run every week.</p>
+          </div>
 
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">Applied work · ~10 min</div>
-              <h3 class="builder-launcher__title">Author your PM agent team</h3>
-              <p class="builder-launcher__body">Walks you through: name a lead PM agent → pick from six specialist archetypes (Design, Engineer, QA, Deploy, Research, Growth, Data) → confirm the org chart → pick a starter workflow (New feature · Bug triage · Launch prep) → export as JSON + Markdown. Nothing to install; state persists in your browser.</p>
-              <a class="builder-launcher__cta" href="./pm-agent-team/team-builder.html" target="_blank" rel="noopener">
-                Open Team Builder <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens in a new tab. Your work auto-saves locally.</div>
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Roles</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Loops</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Wiring</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Deploy</div></div>
+          </div>
+
+          <div class="ap-moves-label">This week's moves</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Wire one specialist into your daily workflow</div>
+              <p class="ap-move__desc">Pick one archetype from your team spec. Give it a real workflow this week — research, drafting, triage. Log what it did well.</p>
             </div>
-            <p class="section-note"><strong>What you leave with:</strong> a shareable team spec — paste into your PM tool (MindStudio, Claude Projects, ChatGPT Team, etc.) or attach to a PRD. Not a running agent — a document. The agent runtime is a future track.</p>
-          </section>
+            <div class="ap-move">
+              <div class="ap-move__num">2</div>
+              <div class="ap-move__title">Run one PRD through the full team loop</div>
+              <p class="ap-move__desc">Lead PM → Engineer review → QA edge cases → Design UX check. Compare the multi-agent output against solo output.</p>
+            </div>
+            <div class="ap-move">
+              <div class="ap-move__num">3</div>
+              <div class="ap-move__title">Rewrite one team role based on real usage</div>
+              <p class="ap-move__desc">Which specialist was noisiest? Which was silent? Update the spec. Ship v2. Track whether output quality moves.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · 5 questions</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Which specialist earned its seat this week?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Which was noise?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What did the team catch that I would have missed solo?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Where did the team hand-off break down?</span></label>
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>What's one wiring change for next week?</span></label>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 05 · OBSERVABILITY · PRACTICE (Coming soon)
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="obs-101" data-mode="practice" hidden>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">Observability · Practice</div>
+          </div>
+          <div class="pr-exercises-label">Coming soon</div>
+          <div class="pr-grid" style="grid-template-columns:1fr">
+            <div class="pr-empty">Practice exercises for observability — trace instrumentation, span design, tool-call inspection — are on the roadmap. In the meantime, jump into Eval 101 Practice to build the trace-reading muscles observability builds on.</div>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">In the meantime</div>
+            <div class="pr-continue__title">Warm up with trace analysis</div>
+            <p class="pr-continue__desc">The Trace Analysis Builder in Eval 101 uses the same skills observability practice will need — reading traces end-to-end, tagging failures, clustering into modes.</p>
+            <a class="pr-continue__cta" href="#/eval-101/practice/ex3">Open Eval 101 · Ex 3 ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 05 · OBSERVABILITY · APPLY (Coming soon)
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="obs-101" data-mode="apply" hidden>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">Observability · Apply</div>
+            <p class="ap-topbar__lede">The org-level playbook for shipping observability into every AI system — traces, spans, tool calls, security. Coming soon.</p>
+          </div>
+
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Traces</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Spans</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">Tool calls</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Security</div></div>
+          </div>
+
+          <div class="ap-moves-label">Coming soon</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Weekly moves</div>
+              <p class="ap-move__desc">This track is on the roadmap. Content is being drafted from real customer observability rollouts. Check back next release.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · placeholder</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Observability weekly review questions are coming in a future release.</span></label>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 07 · ADOPTION AND ROI · PRACTICE (Coming soon)
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="adoption-roi" data-mode="practice" hidden>
+        <div class="pr-index">
+          <div class="pr-topbar">
+            <div class="pr-topbar__eyebrow">Adoption and ROI · Practice</div>
+          </div>
+          <div class="pr-exercises-label">Coming soon</div>
+          <div class="pr-grid" style="grid-template-columns:1fr">
+            <div class="pr-empty">Practice exercises for adoption and ROI — activation cohorts, cost dashboards, ROI worksheets — are on the roadmap. In the meantime, the AI-Native PM self-assessment surfaces where adoption gaps live in your org.</div>
+          </div>
+          <div class="pr-continue">
+            <div class="pr-continue__eyebrow">In the meantime</div>
+            <div class="pr-continue__title">Score your adoption readiness</div>
+            <p class="pr-continue__desc">The AI-Native PM self-assessment rates you across influence and adoption — two of the eight readiness areas. Score there first, then this track will build on those gaps.</p>
+            <a class="pr-continue__cta" href="#/ai-native-pm/practice">Open self-assessment ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================
+           TRACK 07 · ADOPTION AND ROI · APPLY (Coming soon)
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="adoption-roi" data-mode="apply" hidden>
+        <div class="ap-index">
+          <div class="ap-topbar">
+            <div class="ap-topbar__eyebrow">Adoption and ROI · Apply</div>
+            <p class="ap-topbar__lede">Weekly moves and quarterly rituals that turn AI features into sustained adoption. Coming soon.</p>
+          </div>
+
+          <div class="ap-stages">
+            <div class="ap-stage"><div class="ap-stage__num">01</div><div class="ap-stage__title">Adoption</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">02</div><div class="ap-stage__title">Cost</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">03</div><div class="ap-stage__title">ROI</div></div>
+            <div class="ap-stage"><div class="ap-stage__num">04</div><div class="ap-stage__title">Growth</div></div>
+          </div>
+
+          <div class="ap-moves-label">Coming soon</div>
+          <div class="ap-moves">
+            <div class="ap-move">
+              <div class="ap-move__num">1</div>
+              <div class="ap-move__title">Weekly moves</div>
+              <p class="ap-move__desc">This track is on the roadmap. Content is being drafted from real customer adoption rollouts. Check back next release.</p>
+            </div>
+          </div>
+
+          <details class="ap-friday">
+            <summary class="ap-friday__summary">Friday self-review · placeholder</summary>
+            <div class="ap-friday__list">
+              <label class="ap-friday__item"><input type="checkbox" class="ap-friday__check"><span>Adoption + ROI weekly review questions are coming in a future release.</span></label>
+            </div>
+          </details>
         </div>
       </div>
 
