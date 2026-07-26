@@ -5,125 +5,189 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI PM Skills Lab — foundations, agent teams, evals, and beyond for the modern PM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
-  <link rel="stylesheet" href="./css/app.css?v=20260719d">
+  <link rel="stylesheet" href="./css/app.css?v=20260725a">
 </head>
 <body>
 
   <!-- ============================================================
-       LANDING (dark, tile grid) — visible when route === '#/' or ''
+       LANDING — editorial hero + track list — route === '#/' or ''
        ============================================================ -->
   <section class="landing js-view" data-view="landing">
-    <div class="landing__grain"></div>
-    <div class="landing__glow"></div>
-    <div class="landing__glow landing__glow--2"></div>
-
     <div class="landing__container">
-      <header class="landing__header">
-        <h1 class="landing__title">AI PM <span>Skills Lab</span></h1>
-        <p class="landing__subtitle">Foundations, agent teams, evals, observability, and adoption — end-to-end skills for the modern AI PM, in the browser, with real builders.</p>
+
+      <header class="landing__hero">
+        <div class="landing__eyebrow">Foundations · Agents · Evals · Observability · Adoption</div>
+        <h1 class="landing__title">Become the AI-Native PM who ships with agents.</h1>
+        <p class="landing__lede">Seven short tracks, built by a working PM. Score your gaps first — then learn exactly what closes them.</p>
+        <div class="landing__cta-row">
+          <a class="landing__cta-primary" href="#/ai-native-pm/practice">Take the readiness self-assessment →</a>
+          <a class="landing__cta-secondary" href="#tracks">or browse the 7 tracks ↓</a>
+        </div>
+
+        <nav class="landing__lifecycle" aria-label="AI PM lifecycle">
+          <a class="landing__lifecycle-step" href="#/ai-native-pm/learn">
+            <div class="landing__lifecycle-label">Learn</div>
+            <div class="landing__lifecycle-sub">Foundations</div>
+          </a>
+          <a class="landing__lifecycle-step" href="#/pm-agent-team/learn">
+            <div class="landing__lifecycle-label">Build</div>
+            <div class="landing__lifecycle-sub">Agent team</div>
+          </a>
+          <a class="landing__lifecycle-step" href="#/eval-101/learn">
+            <div class="landing__lifecycle-label">Evaluate</div>
+            <div class="landing__lifecycle-sub">Evals 101/201</div>
+          </a>
+          <a class="landing__lifecycle-step" href="#/harness-101/learn">
+            <div class="landing__lifecycle-label">Observe</div>
+            <div class="landing__lifecycle-sub">Harness</div>
+          </a>
+          <a class="landing__lifecycle-step" href="#/adoption-roi/learn">
+            <div class="landing__lifecycle-label">Adopt</div>
+            <div class="landing__lifecycle-sub">ROI</div>
+          </a>
+        </nav>
       </header>
 
-      <section class="landing__flow" aria-label="AI PM skills lifecycle">
-        <div class="landing__flow-title">The AI PM lifecycle</div>
-        <ol class="landing__flow-steps">
-          <li class="landing__flow-step" style="--accent:#3b82f6">
-            <div class="landing__flow-icon" aria-hidden="true">🧭</div>
-            <div class="landing__flow-label">Learn</div>
-            <div class="landing__flow-sub">AI-Native PM foundations</div>
+      <section class="landing__tracks" id="tracks" aria-label="All tracks">
+        <div class="landing__tracks-label">All tracks</div>
+        <ol class="landing__list">
+
+          <li class="landing__row">
+            <a class="landing__row-link" href="#/ai-native-pm/learn" data-track="ai-native-pm">
+              <div class="landing__row-num">01</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">How to Become an AI-Native PM</span>
+                  <span class="landing__row-badge landing__row-badge--ready">Ready</span>
+                </div>
+                <p class="landing__row-desc">What does it take to be a PM in the age of AI? Foundations for the modern PM.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> the shift &amp; the two tests</span>
+                  <span><strong>Practice:</strong> score yourself, 8 areas</span>
+                  <span><strong>Apply:</strong> 5 daily moves</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
           </li>
-          <li class="landing__flow-arrow" aria-hidden="true">→</li>
-          <li class="landing__flow-step" style="--accent:#dc2626">
-            <div class="landing__flow-icon" aria-hidden="true">🤖</div>
-            <div class="landing__flow-label">Build</div>
-            <div class="landing__flow-sub">Your AI PM agent team</div>
+
+          <li class="landing__row">
+            <a class="landing__row-link" href="#/pm-agent-team/learn" data-track="pm-agent-team">
+              <div class="landing__row-num">02</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">AI PM Agent Team</span>
+                  <span class="landing__row-badge landing__row-badge--ready">Ready</span>
+                </div>
+                <p class="landing__row-desc">Your AI PM team — Research, PRD, Prototype, Feedback, and CS agents in a shared workspace.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> archetypes &amp; the working loop</span>
+                  <span><strong>Practice:</strong> Team Builder — org chart</span>
+                  <span><strong>Apply:</strong> ship one brief this week</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
           </li>
-          <li class="landing__flow-arrow" aria-hidden="true">→</li>
-          <li class="landing__flow-step" style="--accent:#34d399">
-            <div class="landing__flow-icon" aria-hidden="true">🧪</div>
-            <div class="landing__flow-label">Evaluate</div>
-            <div class="landing__flow-sub">Eval 101 &amp; 201</div>
+
+          <li class="landing__row">
+            <a class="landing__row-link" href="#/eval-101/learn" data-track="eval-101">
+              <div class="landing__row-num">03</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">Eval 101</span>
+                  <span class="landing__row-badge landing__row-badge--ready">Ready</span>
+                </div>
+                <p class="landing__row-desc">Build, run, and scale AI evals. A full course in three parts.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> 9 concepts, 4 labs</span>
+                  <span><strong>Practice:</strong> 4 exercises &amp; rubric builder</span>
+                  <span><strong>Apply:</strong> maturity ladder, RACI, Go/No-Go</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
           </li>
-          <li class="landing__flow-arrow" aria-hidden="true">→</li>
-          <li class="landing__flow-step" style="--accent:#d29922">
-            <div class="landing__flow-icon" aria-hidden="true">📡</div>
-            <div class="landing__flow-label">Observe</div>
-            <div class="landing__flow-sub">Observability &amp; Harness</div>
+
+          <li class="landing__row">
+            <a class="landing__row-link" href="#/eval-201/learn" data-track="eval-201">
+              <div class="landing__row-num">04</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">Eval 201</span>
+                  <span class="landing__row-badge landing__row-badge--ready">Ready</span>
+                </div>
+                <p class="landing__row-desc">Evals at scale — multi-agent, voice, long-running agents, judge alignment.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> trust / governance / resilience</span>
+                  <span><strong>Practice:</strong> framework comparison</span>
+                  <span><strong>Apply:</strong> release gates tied to KPIs</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
           </li>
-          <li class="landing__flow-arrow" aria-hidden="true">→</li>
-          <li class="landing__flow-step" style="--accent:#22d3ee">
-            <div class="landing__flow-icon" aria-hidden="true">📈</div>
-            <div class="landing__flow-label">Adopt &amp; Grow</div>
-            <div class="landing__flow-sub">Adoption and ROI</div>
+
+          <li class="landing__row landing__row--soon">
+            <a class="landing__row-link" href="#/obs-101/learn" data-track="obs-101">
+              <div class="landing__row-num">05</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">Observability</span>
+                  <span class="landing__row-badge landing__row-badge--soon">Coming next</span>
+                </div>
+                <p class="landing__row-desc">What is your agent doing in prod? Traces, spans, tool calls, security.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> the control tower</span>
+                  <span><strong>Practice:</strong> read a real trace</span>
+                  <span><strong>Apply:</strong> agent identity &amp; permissions</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
+          </li>
+
+          <li class="landing__row">
+            <a class="landing__row-link" href="#/harness-101/learn" data-track="harness-101">
+              <div class="landing__row-num">06</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">Harness</span>
+                  <span class="landing__row-badge landing__row-badge--ready">Ready</span>
+                </div>
+                <p class="landing__row-desc">Make agents reliable — tools, context, guardrails, loop, verify. The Harness Designer.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> the six components</span>
+                  <span><strong>Practice:</strong> Harness Designer</span>
+                  <span><strong>Apply:</strong> five daily moves</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
+          </li>
+
+          <li class="landing__row landing__row--soon">
+            <a class="landing__row-link" href="#/adoption-roi/learn" data-track="adoption-roi">
+              <div class="landing__row-num">07</div>
+              <div class="landing__row-body">
+                <div class="landing__row-head">
+                  <span class="landing__row-title">Adoption and ROI</span>
+                  <span class="landing__row-badge landing__row-badge--soon">Coming next</span>
+                </div>
+                <p class="landing__row-desc">Drive adoption, cut cost, find ROI — the last-mile track.</p>
+                <p class="landing__row-meta">
+                  <span><strong>Learn:</strong> adoption blockers</span>
+                  <span><strong>Practice:</strong> pricing &amp; packaging</span>
+                  <span><strong>Apply:</strong> growth loops</span>
+                </p>
+              </div>
+              <div class="landing__row-arrow" aria-hidden="true">→</div>
+            </a>
           </li>
         </ol>
       </section>
-
-      <div class="landing__grid">
-        <a class="landing__tile" style="--accent:#3b82f6" href="#/ai-native-pm/learn" data-track="ai-native-pm">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 01</div>
-          <div class="landing__tile-title">How to Become an AI-Native PM</div>
-          <div class="landing__tile-question">What does it take to be a PM in the age of AI?</div>
-          <div class="landing__tile-desc">Foundations for the modern PM. <strong>Learn:</strong> the shift, the new skillset, the two tests every AI-native PM must pass. <strong>Practice:</strong> score yourself across 8 readiness areas, get a personalized weekly plan. <strong>Apply:</strong> the 5 daily moves + weekly self-review that compound over a year.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#dc2626" href="#/pm-agent-team/learn" data-track="pm-agent-team">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 02</div>
-          <div class="landing__tile-title">AI PM Agent Team</div>
-          <div class="landing__tile-question">What does a PM look like in the age of agents?</div>
-          <div class="landing__tile-desc">Your AI PM team: Research, PRD, Prototype, Feedback Synthesis, and Customer Success agents — a shared workspace where they collaborate. <strong>Learn:</strong> the shift, the archetypes, the working loop. <strong>Practice:</strong> the Team Builder — author your own PM agent org chart and export it as a spec.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#34d399" href="#/eval-101/learn" data-track="eval-101">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 03</div>
-          <div class="landing__tile-title">Eval 101</div>
-          <div class="landing__tile-question">How do you build, run, and scale AI evals?</div>
-          <div class="landing__tile-desc">A full course in three parts. <strong>Learn:</strong> 9 core concepts + 4 hands-on labs. <strong>Practice:</strong> 4 exercises, a rubric builder, a FAQ, and a week-one recipe. <strong>Apply:</strong> maturity ladder, RACI, reliability contract, dashboard spec, Go/No-Go.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#f59e0b" href="#/eval-201/learn" data-track="eval-201">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 04</div>
-          <div class="landing__tile-title">Eval 201</div>
-          <div class="landing__tile-question">How do evals scale to production AI systems and across an org?</div>
-          <div class="landing__tile-desc">Multi-agent, voice, and long-running agent evals. Trust / governance / resilience. Judge alignment. Framework comparison (LangSmith, Langfuse, Arize, Harbor, Braintrust). Trace analysis at scale, release gates tied to KPIs, and the roadmap for org-wide eval discipline.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#d29922" href="#/obs-101/learn" data-track="obs-101">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
-          <div class="landing__tile-num">Track 05</div>
-          <div class="landing__tile-title">Observability</div>
-          <div class="landing__tile-question">What is your agent actually doing — and can you trust it in prod?</div>
-          <div class="landing__tile-desc">Multi-agent observability and a control tower for prod monitoring. Traces, spans, tool calls, prompts, tokens. Security &amp; trust — agent identity, permissions, controls. <em>Coming next.</em></div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#f85149" href="#/harness-101/learn" data-track="harness-101">
-          <div class="landing__tile-badge landing__tile-badge--ready">Ready now</div>
-          <div class="landing__tile-num">Track 06</div>
-          <div class="landing__tile-title">Harness</div>
-          <div class="landing__tile-question">How do you make agents reliable in production?</div>
-          <div class="landing__tile-desc">2026 is the year of harnesses. <strong>Learn:</strong> what a harness is (everything except the model weights), the six components — tools · model · context · guardrails · loop · <em>verify</em> — and why "engineer the environment" beats "prompt harder." <strong>Practice:</strong> the Harness Designer — sketch a harness for one agent workflow you own. <strong>Apply:</strong> five daily moves to catch failures with a better harness, not a better prompt.</div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-
-        <a class="landing__tile" style="--accent:#22d3ee" href="#/adoption-roi/learn" data-track="adoption-roi">
-          <div class="landing__tile-badge landing__tile-badge--soon">Coming next</div>
-          <div class="landing__tile-num">Track 07</div>
-          <div class="landing__tile-title">Adoption and ROI</div>
-          <div class="landing__tile-question">Do people actually use it — and does it pay for itself?</div>
-          <div class="landing__tile-desc">The last-mile track. How to drive adoption and find adoption blockers, cost optimization (model routing, token optimization), pricing &amp; packaging, monetization strategies, and growth loops. <em>Coming next.</em></div>
-          <div class="landing__tile-arrow">→</div>
-        </a>
-      </div>
 
       <footer class="landing__footer">
         <div class="landing__footer-line"><strong>Created by</strong> Manjeet Singh</div>
@@ -927,29 +991,11 @@
           <div class="chapter__eyebrow">Track 06 · Practice</div>
           <h2 class="chapter__title">Design a harness for one real agent workflow.</h2>
           <p class="chapter__lede">A stepped builder. Six stages walk you through every component of an agent harness — the agent &amp; environment, the tool registry, the context strategy, the guardrails, the verify step, and the export. Pick one live or planned agent from your product. Sketch its harness end-to-end. Export the spec as JSON + Markdown to paste into a PRD or share with an engineer.</p>
-          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and use the Harness Designer below, or open a terminal and clone the CLI companion — same concepts, different medium. Pick whichever fits how you like to work.</p>
         </section>
 
         <div class="chapter-group">
-          <section class="chapter chapter--sub exercise" id="ex-harness-cli">
-            <div class="chapter__eyebrow">Lane 2 · In your terminal</div>
-            <h3 class="chapter__title" style="font-size:22px">Clone the harness in ~200 lines of TypeScript</h3>
-            <p class="chapter__lede">A runnable walkthrough of both meanings of "harness" side by side: an <em>eval</em> harness (dataset → model → scorer) and an <em>agent</em> harness (tools + context + guardrails + loop + verify). Numbered files so you read them in order. No build step — <code>tsx</code> runs each file directly.</p>
-
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">CLI companion · ~15 min</div>
-              <h3 class="builder-launcher__title">basically-ai-harness · clone, edit, run</h3>
-              <p class="builder-launcher__body"><code>git clone</code> → <code>npm install</code> → <code>npm run eval</code> to compare three models against a trap-answer dataset, or <code>npm run agent</code> to watch a Playwright-driven agent read a live page and verify the answer. Swap the model, swap the task, change the guardrails — everything you sketched in the Harness Designer, but running.</p>
-              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-harness" target="_blank" rel="noopener">
-                Open basically-ai-harness on GitHub <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-ai-harness.</div>
-            </div>
-            <p class="section-note"><strong>What you leave with:</strong> a local copy of a minimal harness you can extend for your own agent — same six components as the Designer, but as code you can commit.</p>
-          </section>
-
           <section class="chapter chapter--sub exercise" id="ex-harness-designer">
-            <div class="chapter__eyebrow">Lane 1 · In the browser · ~15 min</div>
+            <div class="chapter__eyebrow">Applied work · ~15 min</div>
             <h3 class="chapter__title" style="font-size:22px">Harness Designer</h3>
             <p class="chapter__lede">Six stages: Agent &amp; environment · Tool registry · Context strategy · Guardrails · Verify · Export. Presets at every stage so you're not starting from a blank page. State auto-saves to your browser. Come back next week and iterate.</p>
 
@@ -1454,25 +1500,6 @@
           <div class="chapter__eyebrow">Eval 101 · Practice</div>
           <h2 class="chapter__title">Four exercises, one builder, then you're running.</h2>
           <p class="chapter__lede"><strong>What you'll do:</strong> four short exercises that each build one skill (test data, golden set, error analysis, automated scoring), then a rubric builder for a feature you own, then a FAQ, then a one-page recipe for running your first eval. Take the Service Refund Agent as the running example — same feature across all exercises so the pieces stack.</p>
-          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and work through the four exercises + Rubric Builder below, or open a terminal and clone the CLI companion to see the same concepts as runnable code — dataset, judge, scoring, CI gate. Pick whichever fits how you like to work.</p>
-
-          <!-- ===== Lane 2: CLI companion ===== -->
-          <section class="chapter chapter--sub exercise" id="ex-eval-101-cli">
-            <div class="chapter__eyebrow">Lane 2 · In your terminal · ~20 min</div>
-            <h3 class="chapter__title" style="font-size:22px">Clone the eval pipeline in ~300 lines of TypeScript</h3>
-            <p class="chapter__lede">A runnable 7-step build-along of LLM-as-judge evaluation: naive judge → position-swap fix → rubric with ground truth → judge/human calibration → deterministic probes → dataset run → CI gate. Every step is one small numbered file. Ships with a MOCK_MODE so you can run the whole thing offline before wiring up a real API key.</p>
-
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">CLI companion · MOCK_MODE included</div>
-              <h3 class="builder-launcher__title">basically-ai-evals · clone, edit, run</h3>
-              <p class="builder-launcher__body"><code>git clone</code> → <code>npm install</code> → <code>MOCK_MODE=true npx tsx 01-judge/01-naive.ts</code> and watch a naive judge crown the confidently-wrong answer. Then swap positions, add a rubric, run the dataset, watch the CI gate block a regression. The same seven ideas the browser exercises teach — as code you can commit to your own repo.</p>
-              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">
-                Open basically-ai-evals on GitHub <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-agent-evals.</div>
-            </div>
-            <p class="section-note"><strong>What you leave with:</strong> a runnable copy of a full eval pipeline for one feature — dataset, judge, scoring, CI gate — that you can point at your own agent.</p>
-          </section>
 
           <!-- ===== Exercise 1: How to create test data ===== -->
           <section class="chapter chapter--sub exercise" id="ex-test-data">
@@ -2841,25 +2868,6 @@
           <div class="chapter__eyebrow">Eval 201 · Practice</div>
           <h2 class="chapter__title">Four exercises. Then a rubric you own.</h2>
           <p class="chapter__lede"><strong>What Practice is:</strong> four hands-on exercises + the Rubric Builder + an FAQ. Each exercise mirrors what your team will run week-in / week-out once evals are live: annotate real traces, draft your own rubric with a judge prompt, do error analysis, wire up automated scoring. <strong>Time:</strong> ~30 min end-to-end. <strong>What you'll leave with:</strong> a rubric spec + a judge prompt + a mental model of the annotation ops loop.</p>
-          <p class="chapter__lede"><strong>Two ways to practice:</strong> stay in the browser and work through the four exercises + Rubric Builder below, or open a terminal and clone the CLI companion to feel how a real RAG eval and a live diagnostic console are wired end-to-end. Pick whichever fits how you like to work.</p>
-
-          <!-- ===== Lane 2: CLI companion ===== -->
-          <section class="chapter chapter--sub exercise" id="ex-eval-201-cli">
-            <div class="chapter__eyebrow">Lane 2 · In your terminal · ~30 min</div>
-            <h3 class="chapter__title" style="font-size:22px">Run a real RAG eval and a live diagnostic console</h3>
-            <p class="chapter__lede">The same repo that backs Eval 101, but with two 201-flavored pieces: a stage-blame RAG evaluator (retrieval vs generation failures, RAGAS-style) and a Vite + React + Express diagnostic console for demoing judge bias live. MOCK_MODE ships in the box so you can rehearse without burning API credits.</p>
-
-            <div class="builder-launcher">
-              <div class="builder-launcher__eyebrow">CLI companion · RAG + live console</div>
-              <h3 class="builder-launcher__title">basically-ai-evals · 02-rag + 03-console</h3>
-              <p class="builder-launcher__body"><code>git clone</code> → <code>MOCK_MODE=true npx tsx 02-rag/eval-openrag.ts</code> to see retrieval-vs-generation blame in a single trace. Then <code>cd 03-console &amp;&amp; npm run dev</code> for a dark diagnostic console with toy-scenario and RAG tabs — the same UI teachers use on stage to make an eval fail live.</p>
-              <a class="builder-launcher__cta" href="https://github.com/coachmanjeet/basically-ai-evals" target="_blank" rel="noopener">
-                Open basically-ai-evals on GitHub <span class="builder-launcher__arrow">↗</span>
-              </a>
-              <div class="builder-launcher__hint">Opens GitHub in a new tab. TypeScript, MIT license, adapted from TejasQ/basically-agent-evals.</div>
-            </div>
-            <p class="section-note"><strong>What you leave with:</strong> a runnable RAG eval + a live console you can adapt into your team's demo rig — the code path from browser rubric → CLI test → dashboard the whole team watches.</p>
-          </section>
 
           <!-- =================================================================== -->
           <!-- Exercise 1 · Build & run evals on ADLC skills                        -->
