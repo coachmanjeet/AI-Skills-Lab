@@ -25,6 +25,7 @@ Every practice exercise is a **launchable builder** — a stepped authoring flow
 | 2 | Golden Set Builder | A 10–30 sample versioned fixture ready to commit |
 | 3 | Trace Analysis Builder | A triage report — 20 failures tagged, clustered, next eval target picked |
 | 4 | Automated Scoring Builder | An end-to-end eval spec (target · task · data · grader · run · export) |
+| 5 | Judge Calibration Game | A calibrated LLM judge: 12+ labels, kappa-scored, gold-checked |
 
 ### Eval 201 · Practice builders
 

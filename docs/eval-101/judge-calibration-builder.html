@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Judge Calibration Game — Eval 101 · Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system@2.25.5/assets/styles/salesforce-lightning-design-system.min.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../eval-201/rubric-builder.css">
+  <style>
+    .jc-shell { max-width: 960px; margin: 0 auto; padding: 24px 24px 80px; }
+    .jc-xp { height: 10px; border-radius: 999px; background: #e6e9f0; overflow: hidden; }
+    .jc-xp__fill { height: 100%; width: 0%; border-radius: 999px;
+      background: linear-gradient(90deg, #34d399, #22d3ee); transition: width .4s ease; }
+    .jc-card { background: #fff; border: 1px solid #e2e6ef; border-radius: 14px;
+      padding: 20px; margin: 16px 0; box-shadow: 0 2px 10px rgba(20,30,60,.05); }
+    .jc-card__who { font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #7b86a0; margin-bottom: 6px; }
+    .jc-card__text { font-size: 16px; line-height: 1.55; white-space: pre-wrap; }
+    .jc-choices { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+    .jc-note { width: 100%; margin-top: 12px; }
+    .jc-kbd { display: inline-block; border: 1px solid #c9d0e0; border-bottom-width: 2px;
+      border-radius: 6px; padding: 1px 8px; font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px; background: #f7f9fc; }
+    .jc-matrix { border-collapse: collapse; margin: 12px 0; }
+    .jc-matrix th, .jc-matrix td { border: 1px solid #d9dee9; padding: 8px 14px; text-align: center; font-size: 14px; }
+    .jc-matrix th { background: #f2f5fa; font-weight: 600; }
+    .jc-metric { display: inline-block; background: #f2f5fa; border-radius: 10px;
+      padding: 10px 16px; margin: 0 10px 10px 0; min-width: 120px; }
+    .jc-metric__v { font-size: 22px; font-weight: 700; font-family: 'Poppins', sans-serif; }
+    .jc-metric__l { font-size: 12px; color: #7b86a0; }
+    .jc-mismatch { border-left: 4px solid #e5484d; }
+    .jc-match { border-left: 4px solid #34d399; }
+    .jc-warn { background: #fff8e6; border: 1px solid #f0d98c; border-radius: 10px;
+      padding: 12px 16px; font-size: 13px; margin: 12px 0; }
+    .jc-error { background: #fdecec; border: 1px solid #f3b8bc; border-radius: 10px;
+      padding: 12px 16px; font-size: 13px; margin: 12px 0; color: #8f1d22; }
+    .jc-muted { color: #7b86a0; font-size: 13px; }
+    .jc-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .jc-field { margin: 10px 0; }
+    .jc-field label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .jc-input, .jc-select, .jc-textarea { width: 100%; border: 1px solid #c9d0e0; border-radius: 8px;
+      padding: 10px 12px; font-size: 14px; font-family: 'Lato', sans-serif; }
+    .jc-textarea { min-height: 170px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.5; }
+    .jc-progress { font-size: 13px; font-weight: 600; color: #42506b; }
+    @media (max-width: 640px) {
+      .jc-shell { padding: 16px 14px 70px; }
+      .jc-choices .rb-btn { flex: 1; }
+    }
+  </style>
+</head>
+<body class="rb-body">
+
+  <header class="rb-topbar">
+    <div class="rb-topbar__inner">
+      <a class="rb-topbar__back" href="../index.html#/eval-101/practice">← Back to Eval 101 · Practice</a>
+      <div class="rb-topbar__title">
+        <span class="rb-topbar__eyebrow">Exercise 5</span>
+        <span class="rb-topbar__name">Judge Calibration Game</span>
+      </div>
+      <div class="rb-topbar__actions">
+        <span class="rb-topbar__save" data-role="save-indicator" aria-live="polite"></span>
+        <button class="rb-btn rb-btn--ghost" data-role="reset">Start over</button>
+      </div>
+    </div>
+    <div class="rb-stepper" role="tablist" aria-label="Builder stages">
+      <div class="rb-stepper__inner" data-role="stepper"></div>
+    </div>
+  </header>
+
+  <main class="rb-main">
+    <div class="jc-shell">
+      <section class="rb-stage" data-role="stage-mount" aria-live="polite"></section>
+    </div>
+    <nav class="rb-nav">
+      <button class="rb-btn rb-btn--ghost" data-role="back">← Back</button>
+      <div class="rb-nav__hint" data-role="nav-hint"></div>
+      <button class="rb-btn rb-btn--primary" data-role="next">Next →</button>
+    </nav>
+  </main>
+
+  <script type="module" src="./judge-calibration-builder.js"></script>
+</body>
+</html>
