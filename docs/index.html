@@ -64,7 +64,7 @@
                 </div>
                 <p class="landing__row-desc">What does it take to be a PM in the age of AI? Foundations for the modern PM.</p>
                 <p class="landing__row-meta">
-                  <span><strong>Learn:</strong> the shift &amp; the two tests</span>
+                  <span><strong>Learn:</strong> the shift, the agent team, the 24-hour factory, and the two tests</span>
                   <span><strong>Practice:</strong> score yourself, 8 areas</span>
                   <span><strong>Apply:</strong> 5 daily moves</span>
                 </p>
@@ -223,7 +223,7 @@
         <section class="chapter">
           <div class="chapter__eyebrow">Track 01 · How to Become an AI-Native PM</div>
           <h2 class="chapter__title">A practical playbook for PMs in the age of agents.</h2>
-          <p class="chapter__lede">AI-native isn't "I used ChatGPT to write a PRD." AI-native means agents are the default way you build and operate the product — and the PM job reshapes around that. This track walks the shift, names the new skillset, and gives you the two tests every AI-native PM must pass.</p>
+          <p class="chapter__lede">AI-native means agents are the default way you build and operate the product. This track walks the shift, names the new skillset, and then teaches the operating system: how to run a team of agents, how to keep a factory running overnight, how to write specs agents can be graded against, and how to read evals and traces like a PM. It ends with two tests and a week-long project that puts the whole loop together.</p>
         </section>
 
         <div class="chapter-group">
@@ -260,6 +260,18 @@
               </div>
             </div>
             <p class="section-note"><strong>Why it matters:</strong> agents are getting cheap and abundant. Execution is not the scarce resource anymore. Problem selection, taste, and orchestration are. The PMs who win this decade run the tightest loops.</p>
+            <p class="chapter__lede">Two trends are changing the PM job from both directions, and the rest of this track answers them.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">Trend 1 · Agents that improve themselves</div>
+                <div class="concept-block__value">The work moved in stages. First, tuning the prompt. Then, giving the agent the context it needs. Then, giving it tools plus a check step. Now, the improvement loop itself improves, with the agent proposing changes to its own instructions and testing them. That last stage is where grading becomes the job. An agent that grades its own work shares its own blind spots, so every gain needs an independent check.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Trend 2 · Software built for one user</div>
+                <div class="concept-block__value">Interfaces have become cheap enough to build for an audience of one, and agents can call tools directly without opening a screen at all. One example is a major CRM going headless with dozens of agent tools, and a coding assistant building a screen on the fly for one question and then discarding it. When users can build their own screens in seconds, what they buy from you changes. They buy capabilities that work and guarantees they can rely on. That is the subject of Chapter 7.</div>
+              </div>
+            </div>
+            <p class="section-note">These two trends set the two questions for the rest of the track. Who checks the agent when it improves itself, and what do you ship when screens are cheap. Chapters 5 and 6 answer the first question for teams and overnight work. Chapter 7 answers the second for specs. Chapter 8 answers both for evals.</p>
           </section>
 
           <!-- Ch 2 · AI-native means agents are the default -->
@@ -312,6 +324,7 @@
               </div>
             </div>
             <p class="section-note"><strong>Consequence:</strong> the next generation of AI builders will be rewarded for deciding what's worth building first, then allocating their time and AI tokens accordingly. PM and Engineer both converge on this — from opposite sides of the curve.</p>
+            <p class="section-note">A 95% reliable step sounds safe. Twenty such steps in a row succeed about 36% of the time, because 0.95 to the power of 20 is 0.36. A 75% per-trial agent passes three trials in a row only 42% of the time. Gate releases on pass^k, the chance that all k trials pass. Pass@1, the chance that one trial passes, answers a different question. Users live with the repeated result. Eval 101 covers the full method.</p>
           </section>
 
           <!-- Ch 4 · The new PM skillset -->
@@ -357,9 +370,166 @@
             <p class="section-note"><strong>Context is the hidden lever.</strong> When PMs give vague prompts — "build me a dashboard for customer feedback" — they get output that technically works but misses the point. When they hand the agent a curated context doc, the output fits because the input was specific.</p>
           </section>
 
+          <!-- Ch 5 · Run a small team of agents -->
+          <section class="chapter chapter--sub" id="ainpm-army">
+            <div class="chapter__eyebrow">Chapter 5 · Army of Agents</div>
+            <h3 class="chapter__title" style="font-size:22px">Run a small team of agents.</h3>
+            <p class="chapter__lede">The PM acts as lead. Specialists do the work. The PM plans, reviews, and integrates. That division is the whole chapter.</p>
+            <div class="two-kinds">
+              <div class="two-kinds__col">
+                <div class="two-kinds__eyebrow">Lead</div>
+                <div class="two-kinds__title">Plans, briefs, synthesizes</div>
+                <div class="two-kinds__q">The lead plans the work, writes the briefs, and synthesizes the results.</div>
+                <ul class="two-kinds__list">
+                  <li>Each specialist has one job and sees only the context that job needs.</li>
+                  <li>In one production setup, a lead model ran with 3 to 5 specialist models in parallel, each with its own context and a narrow brief, plus a separate citation step locating exact supporting passages.</li>
+                </ul>
+                <div class="two-kinds__ex">The team pattern costs much more in tokens than a single agent, so it pays only where the task value covers the cost.</div>
+              </div>
+              <div class="two-kinds__col two-kinds__col--product">
+                <div class="two-kinds__eyebrow">When to stay single</div>
+                <div class="two-kinds__title">Single agent, shared context</div>
+                <div class="two-kinds__q">Another production team defaults to a single agent with shared context.</div>
+                <ul class="two-kinds__list">
+                  <li>Parallel agents that cannot see each other's full context make conflicting implicit decisions.</li>
+                  <li>Their reliable pattern is a single root agent delegating isolated subtasks to sandboxed specialists that act like tool calls, plus a fresh-context reviewer.</li>
+                </ul>
+                <div class="two-kinds__ex"><strong>Decision rule:</strong> use a team when subtasks run independently in parallel and the work exceeds one context window or needs very different tools. Otherwise stay single agent.</div>
+              </div>
+            </div>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">The 4-agent day</div>
+                <div class="concept-block__value">One practitioner runs a two-part loop twice before lunch. Part one is 30 to 60 minutes of compressed planning, the sharpest thinking of the day: what matters, in what order, for whom, with what constraints. Part two is multi-delegation, with 3 to 4 agents running in parallel while the PM handles reviews, checkpoints, and the agent that misunderstood the brief. The constraint is planning quality, not tooling. If agents interrupt you mid-run with clarification questions, the plan was thin. Go plan the next loop.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Decompose, assign, review, integrate</div>
+                <div class="concept-block__value">Four steps, in order. Decompose the job along roles, so each specialist owns one job. Assign with a written brief, covered below. Review each output against its definition of done, not against your general impression. Integrate yourself. The lead synthesizes, cross-checks, removes duplicates, and surfaces contradictions. A weak aggregator averages five noisy signals into one noisy signal.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">The five-field brief</div>
+                <div class="concept-block__value">A good brief has five fields: objective, output format, tool and source guidance, boundaries, and definition of done. The fifth field, definition of done, is what makes review possible: without a bar, review is just impression. Vague briefs cause duplicated work and drift.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">TripCo template, copyable</div>
+                <div class="concept-block__value">TripCo is the fictional travel company from the Field Guide deck. Its trip-change agent, 90 days after launch, handles 58% of change requests end to end, while 31% of fare-difference sessions end in a handoff to a human and humans rewrite 44% of multi-city itineraries. The brief below assigns one specialist to the fare-rule job.<br><br>Objective: list the fare rules and fees that apply to this change request, with sources.<br>Output format: one short table, one row per rule, with the fare basis code.<br>Tool and source guidance: the airline fare rules API and the TripCo policy doc. No web search.<br>Boundaries: do not quote a price, do not reissue a ticket, stop and flag if the fare basis is missing.<br>Definition of done: every row cites a rule, and the handoff note names any rule you could not verify.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>The autonomy dial.</strong> Set the tier by the action.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">Green · Auto-allow</div>
+                <div class="concept-block__value">Read-only work and internal drafts. A read-only action stays green no matter which model runs it.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Yellow · Policy-gated</div>
+                <div class="concept-block__value">Reversible writes, such as updating a CRM field or a small refund inside a set budget, where budget exhaustion escalates to human review.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Red · Explicit human approval</div>
+                <div class="concept-block__value">Payments, deletes, contract changes, and external messages. One rule for the red tier: if failure requires an apology, a human stays in the loop.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>Monday move:</strong> write one five-field brief for a real task this week and run it with one specialist agent.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./pm-agent-team/team-builder.html" target="_blank" rel="noopener">Team Builder ↗</a>, and the deeper team material at <a href="#/pm-agent-team/learn">pm-agent-team Learn →</a>.</p>
+            <p class="section-note"><strong>Self-check:</strong> can a stranger judge the output against your brief without asking you a question?</p>
+          </section>
+
+          <!-- Ch 6 · Let agents work overnight -->
+          <section class="chapter chapter--sub" id="ainpm-factory">
+            <div class="chapter__eyebrow">Chapter 6 · The 24/7 Software Factory</div>
+            <h3 class="chapter__title" style="font-size:22px">Let agents work overnight, and review in the morning.</h3>
+            <p class="chapter__lede">The factory is a loop. You plan, agents build, checks run, you review, and the loop repeats. The overnight part works because each iteration starts fresh, and memory lives in files.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">The 24-hour loop</div>
+                <div class="concept-block__value">The Field Guide deck names this loop as the unit of work: data, prompt or policy, agent behavior, evals, iteration. One overnight pattern feeds the same prompt to a fresh agent instance again and again until the task is done. Memory persists only through the filesystem: git commits, a fix plan file listing what is done and what is next, and an agent notes file recording how to build and run the work. The rule is one context window, one activity, one goal. A single long session that compacts and loses information is the failure mode to avoid.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Before you sleep: the pre-flight gate</div>
+                <div class="concept-block__value">A community overnight skill pattern, offered here as a design template rather than a proven system, sets a GO or NO-GO gate while the human is awake. Vet the task plan. Set usage limits. Acquire every credential, since nothing can be re-authenticated at 3am. Confirm the sandbox. Nothing launches until every check is green.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">The morning review queue, four verdicts</div>
+                <div class="concept-block__value">One vendor's morning queue design uses four verdicts, and its design is useful even though its adoption is unproven. Auto-mergeable means the independent reviewer signed off cleanly. Needs review means working code with a minor concern. Flagged risky means the change touches auth, payments, or migrations. Failed means tests broke or a cap was hit. A second model reviews the diff independently before anything reaches the queue. Nothing merges automatically. You decide.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Evidence gates</div>
+                <div class="concept-block__value">One solo practitioner documents a system with 95 plus pre-execution hooks and a six-criterion evidence gate on every non-trivial change. The change must follow codebase patterns, state the rejected alternatives, list the edge cases handled, paste the passing test output with zero failures, name the regression files checked, and state the user need it addresses. The gate requires pasted output. A claim alone fails the gate. This is one documented case, not a measured standard, and full autonomy remains unsolved in that system.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Stage gates to production</div>
+                <div class="concept-block__value">Start with a small slice. Evals pass. Then widen. Set a cost cap per run, per night, and per month. The cap stops the loop on its own.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Morning review, 30 to 60 minutes</div>
+                <div class="concept-block__value">The morning review is spent reading diffs, running the application, and checking output against intent. That review catches two failures tests miss: intent drift, where the spec was ambiguous and the agent chose the wrong interpretation while tests stayed green, and architectural erosion, where each change works alone and the structure degrades across changes.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>TripCo worked example.</strong> Overnight, TripCo's factory drafts fare-difference explanations for the handoff sessions and rebuilds multi-city itineraries. In the morning queue, an explanation with clean test output lands in needs review, and the PM reads it before it goes to a traveler. Any change touching payment reissue lands in flagged risky. A rebuild that broke a test lands in failed. The PM spends the morning on flagged items and intent.</p>
+            <p class="section-note"><strong>Monday move:</strong> pick one ticket-sized task, set a cap and a sandbox, run it overnight, and review it in the morning.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./harness-101/harness-designer.html" target="_blank" rel="noopener">Harness Designer ↗</a>, and the deeper material at <a href="#/harness-101/learn">harness-101 Learn →</a>.</p>
+            <p class="section-note"><strong>Self-check:</strong> what would stop the loop at 3am without you?</p>
+          </section>
+
+          <!-- Ch 7 · Write the spec as policies, capabilities, and scorecards -->
+          <section class="chapter chapter--sub" id="ainpm-prd">
+            <div class="chapter__eyebrow">Chapter 7 · Writing PRDs for agent products</div>
+            <h3 class="chapter__title" style="font-size:22px">Write the spec as policies, capabilities, and scorecards.</h3>
+            <p class="chapter__lede">A PRD written for an agent product has three parts, and none of them is a screen. The mandate is: your PRD is now a test suite.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">Part one: system policies and guardrails</div>
+                <div class="concept-block__value">PRDs and user stories become system policies and guardrails. Write what the agent may do alone, the hard spending and action limits, and the exact moments a human approval card appears. The approval card is the autonomy dial from Chapter 5, written into the spec.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Part two: capability building blocks</div>
+                <div class="concept-block__value">Wireframes become capability building blocks. Write clean tools and data that any coding assistant or a user's own dashboard can call. The software-of-one trend from Chapter 1 is why: when users build their own screens in seconds, the durable product is the reliable engine and data underneath, plus the guarantees around it.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Part three: automated scorecards</div>
+                <div class="concept-block__value">Manual QA becomes automated scorecards. Write the final exam that grades every agent before any self-improvement goes live. The starting point is about 20 real cases. The scorecard is also the gate for Chapter 6: no update ships unless it passes, including the agent's own changes. The gating rule is: if you cannot grade it, do not let it improve itself.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>One warning on grading.</strong> Agents have been caught writing code that returns true to pass test suites while doing nothing. The tests were green and the code was worthless. The defense is an independent grader: different prompt, different context, and different incentives from the thing being graded, plus red-team checks that try to break the output.</p>
+            <p class="section-note"><strong>TripCo scorecard example.</strong> TripCo's 20 starter cases come from its real failures: the 31% fare-difference handoffs and the 44% human-rewritten multi-city itineraries. Case one: a multi-city change with a fare difference, where the agent must explain the difference in plain language and cite the rule. Case two: a reissue that requires payment, where the agent must stop for approval. Case three: a missing fare basis, where the agent must flag the gap instead of guessing. Set the pass bar before running: all 20 cases pass before the agent touches production traffic.</p>
+            <p class="section-note"><strong>Monday move:</strong> take one existing PRD and rewrite its acceptance criteria as five scorecard cases.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./eval-101/test-data-builder.html" target="_blank" rel="noopener">Test Data Builder ↗</a>, and the deeper eval material at <a href="#/eval-101/learn">eval-101 Learn →</a>.</p>
+            <p class="section-note"><strong>Self-check:</strong> can a stranger run your scorecard and reach the same verdict you would?</p>
+          </section>
+
+          <!-- Ch 8 · Read evals and traces like a PM -->
+          <section class="chapter chapter--sub" id="ainpm-evals">
+            <div class="chapter__eyebrow">Chapter 8 · Evals and Observability</div>
+            <h3 class="chapter__title" style="font-size:22px">Read evals and traces like a PM.</h3>
+            <p class="chapter__lede">This chapter is short on purpose. It teaches the PM-level decisions only. The depth lives in Eval 101, Eval 201, and Observability 101, linked below.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">Gate releases on pass^k</div>
+                <div class="concept-block__value">Chapter 3 showed the math: a 75% per-trial agent passes three in a row only 42% of the time. The PM decision is which number gates a release. Use pass^k, the chance all trials pass, for anything users meet repeatedly. Use pass@k, the chance at least one trial passes, only for capability questions, such as whether the agent can ever solve a task.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Grade what the agent produced</div>
+                <div class="concept-block__value">The eval method here does not grade the tool-call sequence it took, because agents regularly find valid approaches designers did not anticipate. Use deterministic graders where possible, LLM graders where flexibility is needed, and human graders for calibration. The outcome is the final state of the world. A reservation existing in the database counts. An agent saying it booked one does not.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">The trust contract</div>
+                <div class="concept-block__value">The Field Guide deck names a trust contract between the PM and the agent: what the agent must prove before it earns more autonomy. The contract connects directly to the Chapter 5 dial. A tier moves from red to yellow or yellow to green only when evals support the move. A good demo is not enough.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Weekly trace review</div>
+                <div class="concept-block__value">One practitioner guide lays out a weekly review as the step that matters most for a PM. Review the lowest-scoring sessions, turn each new failure pattern into a new evaluator so it stays caught, and promote trusted evaluators into guardrails that block or steer before a tool fires. The Field Guide deck gives the same advice for TripCo in one line: read 30 failed traces before paying for a bigger model. TripCo's 31% handoff rate and 44% rewrite rate are the patterns to turn into evaluators first.</div>
+              </div>
+            </div>
+            <p class="section-note"><strong>What is not in this chapter.</strong> Grader design, test-set construction, trace schemas, and production monitoring depth are covered in Eval 101, Eval 201, and Observability 101. This track does not repeat them.</p>
+            <p class="section-note"><strong>Monday move:</strong> pull last week's lowest-scoring sessions, or 10 failed traces, and name one pattern to turn into an evaluator.</p>
+            <p class="section-note"><strong>Links:</strong> <a href="#/eval-101/learn">eval-101 Learn →</a>, <a href="#/eval-201/learn">eval-201 Learn →</a>, <a href="#/obs-101/learn">obs-101 Learn →</a>.</p>
+            <p class="section-note"><strong>Self-check:</strong> name one failure pattern from last week that is now caught by an evaluator.</p>
+          </section>
+
           <!-- Ch 5 · Four things you're expected to do -->
           <section class="chapter chapter--sub" id="ainpm-four">
-            <div class="chapter__eyebrow">Chapter 5 · The mandate</div>
+            <div class="chapter__eyebrow">Chapter 9 · The mandate</div>
             <h3 class="chapter__title" style="font-size:22px">Four things an AI-native PM is expected to do.</h3>
             <p class="chapter__lede">"Can I turn this into a system where agents do 80% of the work, and humans focus on the 20% that can't be easily graded?" These four moves make that possible.</p>
             <div class="concept-block">
@@ -384,7 +554,7 @@
 
           <!-- Ch 6 · Two tests -->
           <section class="chapter chapter--sub" id="ainpm-tests">
-            <div class="chapter__eyebrow">Chapter 6 · The bar</div>
+            <div class="chapter__eyebrow">Chapter 10 · The bar</div>
             <h3 class="chapter__title" style="font-size:22px">Two tests define the minimum bar for an AI-native PM.</h3>
             <p class="chapter__lede">If you can't do both of these on demand, you are not yet AI-native — regardless of title, seniority, or team. Both tests are 15-minute exercises you can run against any workflow.</p>
             <div class="two-kinds">
@@ -413,30 +583,49 @@
             <p class="section-note"><strong>The gap isn't speed — it's depth and judgment.</strong> "Uses AI" means prototypes fast but can't explain why they work or fail. "AI-native" explains failure modes with data and traces, runs evals on real workflows, and ships to production trust, not just demos.</p>
           </section>
 
-          <!-- Ch 7 · Getting started -->
-          <section class="chapter chapter--sub" id="ainpm-start">
-            <div class="chapter__eyebrow">Chapter 7 · Getting started</div>
-            <h3 class="chapter__title" style="font-size:22px">Do this ten times. That's how you develop the intuition.</h3>
-            <p class="chapter__lede">If you're a PM who hasn't worked this way yet, there's no shortcut. You have to build things, evaluate them, and learn what "good enough to ship" actually feels like versus "technically works."</p>
+          <!-- Ch 11 · Capstone: run your first 24-hour loop -->
+          <section class="chapter chapter--sub" id="ainpm-capstone">
+            <div class="chapter__eyebrow">Chapter 11 · Capstone</div>
+            <h3 class="chapter__title" style="font-size:22px">Run your first 24-hour loop.</h3>
+            <p class="chapter__lede">This week-long project replaces getting started. It uses every chapter before it, on one real problem, and it ends at the self-assessment.</p>
             <div class="concept-block">
               <div class="concept-block__row">
-                <div class="concept-block__label">1 · Pick a small problem you actually have</div>
-                <div class="concept-block__value">Not an imaginary one. Something that's annoying you right now. A report you have to manually compile. A workflow that's tedious. A prototype you wish existed.</div>
+                <div class="concept-block__label">Day 1, Monday</div>
+                <div class="concept-block__value">Pick one real problem you have, not an imaginary one. Write the context doc using the Chapter 4 method, 30 minutes: user specifics, the problem in their words, what good looks like, what has failed before, the constraints that shape the solution, and how you will know it worked.</div>
               </div>
               <div class="concept-block__row">
-                <div class="concept-block__label">2 · Spend 30 minutes writing context before you prompt</div>
-                <div class="concept-block__value">User specifics · problem in their words · what good looks like · what's failed before · constraints that shape the solution · how you'll know it worked. See Chapter 4.</div>
+                <div class="concept-block__label">Day 2</div>
+                <div class="concept-block__value">Write five-field briefs for the work, using the Chapter 5 template. Sketch the team in Team Builder.</div>
               </div>
               <div class="concept-block__row">
-                <div class="concept-block__label">3 · Point an agent at it and watch</div>
-                <div class="concept-block__value">Don't expect perfection. Expect a starting point. React to it. Guide it. Iterate. This is where taste develops.</div>
+                <div class="concept-block__label">Day 3</div>
+                <div class="concept-block__value">Sketch the agent setup in Harness Designer. Write the guardrails and the approval card moments from Chapter 7.</div>
               </div>
               <div class="concept-block__row">
-                <div class="concept-block__label">4 · Do this ten times</div>
-                <div class="concept-block__value">Different problems. Different levels of complexity. You'll develop intuition for what works, what context matters, how to evaluate output. This intuition <em>is</em> the new PM skill.</div>
+                <div class="concept-block__label">Day 4</div>
+                <div class="concept-block__value">Write five scorecard cases in Test Data Builder, as the starter set toward the 20 from Chapter 7.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Day 5</div>
+                <div class="concept-block__value">Run the loop overnight, or in one afternoon block if overnight is not possible. Review the morning queue from Chapter 6. Name one failure pattern.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Day 6</div>
+                <div class="concept-block__value">Fix the pattern, add it as an evaluator, and re-run.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Day 7, Friday</div>
+                <div class="concept-block__value">Run the Apply Friday review questions. Then take the self-assessment and note your two lowest areas and one weekly action for each.</div>
               </div>
             </div>
-            <p class="section-note"><strong>The PMs who will thrive</strong> are the ones who understand problems so clearly that the solution becomes obvious — to them and to the agents they work with. Now go take the readiness self-assessment.</p>
+            <div class="apply-callout">
+              <div class="apply-callout__title">Take the self-assessment</div>
+              <p>Then take the self-assessment and note your two lowest areas and one weekly action for each.</p>
+              <a class="apply-callout__link" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">Open Self-Assessment ↗</a>
+            </div>
+            <p class="section-note"><strong>Monday move:</strong> start Day 1 today. Pick the problem and write the context doc.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">Self-Assessment ↗</a>.</p>
+            <p class="section-note"><strong>Self-check:</strong> did the loop run without you in the middle of it?</p>
           </section>
 
           <!-- Ch 8 · CTA -->
