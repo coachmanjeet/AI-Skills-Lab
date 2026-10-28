@@ -6,10 +6,13 @@ A hands-on curriculum for **AI evals** — for PMs and AI engineers who want to 
 
 ## What's in it
 
-Two tracks are live:
+Five tracks are live:
 
+- **How to Become an AI-Native PM**: foundations for the modern PM.
+- **AI PM Agent Team**: Research, PRD, Prototype, Feedback, and CS agents in a shared workspace.
 - **Eval 101** — foundations + 4 hands-on labs (Model safety · Conversational · RAG · Coding agent) + wrap-up + Apply.
 - **Eval 201** — advanced: multi-agent · voice · long-running · trust & governance · multi-modal · framework comparison · judge alignment · trace analysis method · release gates · maturity ladder · standards + monitoring playbook.
+- **Harness**: make agents reliable with tools, context, guardrails, loop, verify, plus the Harness Designer.
 
 Each track has three tabs:
 
@@ -54,7 +57,7 @@ Vanilla HTML / CSS / vanilla JS. SLDS v2.25.5 via unpkg CDN. No framework, no bu
 
 ## Contributing
 
-Open an issue for ideas or requests. The curriculum will keep expanding — Observability 101 / 201 and Harness 101 / 201 tracks are stubbed and coming next.
+Open an issue for ideas or requests. The curriculum will keep expanding, with Observability and Adoption and ROI tracks coming next.
 
 ## License
 
