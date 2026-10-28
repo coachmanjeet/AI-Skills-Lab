@@ -4729,6 +4729,124 @@
       </div>
 
       <!-- ============================================================
+           TRACK · ADOPTION ROI · LEARN
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="adoption-roi" data-mode="learn" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Adoption ROI · Learn</div>
+          <h2 class="chapter__title">An agent earns its keep in completed tasks, not in demos.</h2>
+          <p class="chapter__lede"><strong>What this covers:</strong> what adoption ROI means, measuring the baseline first, cost per completed task, running an honest pilot, and the scale decision. <strong>Format:</strong> each concept follows the same shape — <em>What it is → How to do it → Example → Why it matters</em>. <strong>Time:</strong> ~15 min end-to-end.</p>
+
+          <!-- ===== Core concept: What adoption ROI means ===== -->
+          <section id="concept-roi-meaning" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 01</div>
+            <h3 class="chapter__title" style="font-size:22px">What adoption ROI means</h3>
+            <p class="chapter__lede">Return on investment for an agent is value gained minus cost, measured against what the work cost before the agent existed. Value usually shows up as time saved, errors avoided, or capacity gained, not as a single money number. Cost includes everything the agent consumes: model calls, tool calls, review time, and rework when it fails. An ROI claim with no baseline and no cost side is a slogan, not a measurement.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Write the ROI sentence before you build: "This agent replaces X hours of Y work per week at Z error rate, and costs C per week to run." If any of those four numbers is unknown, measuring it is the first task, not building the agent.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A triage agent handles 200 requests a week. Each request took a person 10 minutes; the agent takes 2 minutes of review time. Gross saving: about 27 hours a week. Cost: model and tool charges plus the review time. Net saving is what is left after both sides are counted.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Agents that look cheap per call can be expensive per finished task, and agents that look slow can still be worth it if they remove the most error-prone step. Only both sides of the ledger tell you which.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: Baseline first ===== -->
+          <section id="concept-roi-baseline" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 02</div>
+            <h3 class="chapter__title" style="font-size:22px">Baseline first: measure the work before the agent touches it</h3>
+            <p class="chapter__lede">You cannot claim an improvement without a before number. Before the agent runs on real work, measure the current way for two to four weeks: time per task, cost per task, error rate, and volume. The baseline is also what catches a quiet truth: sometimes the current way is already fast, and the agent's real value is consistency or coverage, not speed.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Sample real tasks, not remembered ones. Time 20 to 50 actual cases end to end, record errors the same way you will record them for the agent, and write the baseline down where the pilot results will sit next to it.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A team believes intake takes 15 minutes per case. Timed samples show 9 minutes, because half the cases are simple repeats. The agent's honest target becomes beating 9 minutes with fewer errors, not beating the remembered 15.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Without a baseline, every pilot succeeds, because there is nothing to fail against. With one, the pilot has a number to beat, and the team trusts the result either way.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: Cost per completed task ===== -->
+          <section id="concept-roi-cost" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 03</div>
+            <h3 class="chapter__title" style="font-size:22px">Cost per completed task, not per call</h3>
+            <p class="chapter__lede">The price that matters is total cost divided by tasks actually finished. Attempts that fail still cost: every retry, every correction, every minute a person spends reviewing a bad draft. An agent that is cheap per call but needs three attempts and a heavy review is more expensive than a slower agent that finishes first time. Count the whole loop, not the cheapest step.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">For one week, log every cost driver per task: model charges, tool charges, review minutes, and rework minutes. Divide the week's total by the week's finished tasks. That quotient is your cost per completed task. Track it weekly, not once.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">Two setups look equal at 40 cents per call. Setup A finishes 8 of 10 tasks first try; setup B finishes 5 of 10 and needs review on all 10. Per completed task, A costs far less, because B pays for failures and for review on every attempt.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Per-call pricing hides the two costs that sink agent budgets: retries and human review. Per-completed-task pricing exposes both, and it is the number a budget owner actually cares about.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: The honest pilot ===== -->
+          <section id="concept-roi-pilot" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 04</div>
+            <h3 class="chapter__title" style="font-size:22px">The honest pilot: small scope, one metric, decided in advance</h3>
+            <p class="chapter__lede">A pilot proves something only if it can fail. That takes three decisions made before it starts: a small scope (one task type, one team, real users), a fixed duration (two to four weeks is enough for most task types), and one success metric with its threshold written down. A pilot that can declare success any way it turns out proves nothing, however good the demo looked.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Write one line before launch: "This pilot succeeds if cost per completed task falls below X with an error rate at or below Y over Z tasks." Run it on real work, not on hand-picked examples, and report the number whether it passes or not.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A pilot targets intake: success means cost per completed case below the baseline with errors at or below the baseline rate, over 100 real cases. It lands at 90 cases with errors slightly above baseline. That is a miss, and the miss points at the exact error shape to fix before any expansion.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Pilots without a pre-written bar drift: the scope grows, the metric changes, and the team remembers a success that never cleared a bar. A written bar keeps the pilot honest and the scale decision easy.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: The scale decision ===== -->
+          <section id="concept-roi-scale" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 05</div>
+            <h3 class="chapter__title" style="font-size:22px">The scale decision: expand, hold, or stop</h3>
+            <p class="chapter__lede">After the pilot, three numbers decide: value per task, cost per task, and failure rate. Expand only when value beats cost with a failure rate you can live with. Hold when the numbers are close and one fix could tip them. Stop when the failure rate stays high, because scaling multiplies failures, not value. Stopping is a successful pilot outcome: it is cheaper than scaling a losing agent to ten teams.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Put the three numbers in one row next to the baseline row, and decide in the same meeting. If the decision is hold, name the one fix and the re-test date. If it is stop, write down what was learned so the next attempt does not repeat it.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A pilot shows value per task above cost, but a 12% failure rate on one input shape. Decision: hold, fix that shape, re-test in two weeks. The re-test shows 3%. Decision: expand. The hold cost two weeks; expanding at 12% would have cost ten teams' trust.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Most agent losses come from scaling too early, not from building too slowly. The scale decision is where ROI is actually won or lost.</div>
+              </div>
+            </div>
+          </section>
+
+          <p class="section-note"><strong>Where this goes next:</strong> the practice panel turns this chapter into numbers on a real workflow: baselining it, costing it, and writing a pilot bar. The apply panel turns it into a scale decision for a real team.</p>
+        </section>
+      </div>
+
+      <!-- ============================================================
            TRACK 07 · ADOPTION AND ROI · PRACTICE (Coming soon)
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="adoption-roi" data-mode="practice" hidden>
