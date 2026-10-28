@@ -4555,6 +4555,124 @@
       </div>
 
       <!-- ============================================================
+           TRACK 05 · OBSERVABILITY · LEARN
+           ============================================================ -->
+      <div class="track-panel js-track-panel" data-track="obs-101" data-mode="learn" hidden>
+        <section class="chapter">
+          <div class="chapter__eyebrow">Observability · Learn</div>
+          <h2 class="chapter__title">See what your agent actually did, not what you hoped it did.</h2>
+          <p class="chapter__lede"><strong>What this covers:</strong> what observability means for an agent, traces and spans, what to record, turning traces into signals, and alerts that point back to evidence. <strong>Format:</strong> each concept follows the same shape — <em>What it is → How to do it → Example → Why it matters</em>. <strong>Time:</strong> ~15 min end-to-end.</p>
+
+          <!-- ===== Core concept: What observability means for an agent ===== -->
+          <section id="concept-obs-meaning" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 01</div>
+            <h3 class="chapter__title" style="font-size:22px">What observability means for an agent</h3>
+            <p class="chapter__lede">A traditional service answers one request with one code path, and a log line usually tells you what happened. An agent answers one request with many steps: it plans, calls tools, reads results, changes its mind, and sometimes loops. No single log line explains that. Observability for an agent means keeping a record you can replay: every step, in order, with what went in and what came out.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Record three signals for every run: traces (the step-by-step record), metrics (counts and timings added up over many runs), and logs (plain-text notes for the moments that need a sentence).</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A support agent refunds the wrong order. The trace shows it called the lookup tool with the wrong order number, then skipped the confirmation step. Without the trace, the team would blame the model. With it, they fix the lookup input.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Agents fail in ways that look like bad luck until you can replay them. A replayable record turns "sometimes it goes wrong" into a specific step you can fix.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: Traces and spans ===== -->
+          <section id="concept-obs-traces" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 02</div>
+            <h3 class="chapter__title" style="font-size:22px">Traces and spans: one run, many steps</h3>
+            <p class="chapter__lede">A trace is the record of one end-to-end run, from the user's request to the final answer. A span is one step inside that trace: a model call, a tool call, a decision, a wait. Spans nest inside each other, so a tool call sits inside the step that decided to make it. Read a trace top to bottom, and look first at the spans that took longest or errored.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Give every run one trace id, and every step a span with a start time, an end time, and a parent. When a step calls a tool, record the tool name and its arguments as part of that span.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A research agent takes 90 seconds on one question. The trace shows three spans: a fast search, a slow document read, and a second search that repeated the first. The fix is a rule against repeat searches, found in one minute of reading.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Without spans, a slow or wrong run is a mystery. With them, it is a list of steps with timings, and the broken step stands out.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: What to record ===== -->
+          <section id="concept-obs-record" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 03</div>
+            <h3 class="chapter__title" style="font-size:22px">What to record, and what never to record</h3>
+            <p class="chapter__lede">A useful span carries six things: what went in, what came out, how long it took, what it cost, whether it errored, and the run's final outcome. Anything less, and the trace cannot answer "why did this run end this way?" One category must never be recorded at all: secrets and personal data. Passwords, keys, and private user details do not belong in traces, logs, or dashboards.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Scrub sensitive fields before storage, not after. Keep a short blocklist of field names, apply it at the point where spans are written, and test it with a span that contains a fake secret.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">A tool call returns a record that includes a reset token. The scrubber drops the token field before the span is stored, so the trace still shows the call happened and what it returned, minus the one field that must never persist.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">A trace store is a copy of your users' data. If it holds secrets, every person and system with trace access holds them too.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: From traces to signals ===== -->
+          <section id="concept-obs-signals" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 04</div>
+            <h3 class="chapter__title" style="font-size:22px">From traces to signals: one run explains, many runs warn</h3>
+            <p class="chapter__lede">One trace explains one run. A thousand traces show a pattern. Add traces up into rates: error rate, slow-run rate, cost per completed task, tool-call failure rate. A dashboard answers "is it getting worse?" A single trace answers "what happened this time?" You need both, and they serve different questions, so do not try to make one view do both jobs.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Pick four rates that match your agent's real failure modes, chart each over time, and compare against the previous week, not against zero. A rate that moves is the signal; the absolute number alone is not.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">Tool-call failures sit at 2% for weeks, then climb to 9% after a prompt change. The dashboard catches the climb on day one. The traces behind it show the same tool failing on the same new input shape.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Agents drift: prompts change, tools change, inputs change. Rates catch drift while it is still small. Single traces only explain it after someone complains.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Core concept: Alerts and the loop ===== -->
+          <section id="concept-obs-alerts" class="chapter chapter--sub">
+            <div class="chapter__eyebrow">Core concept 05</div>
+            <h3 class="chapter__title" style="font-size:22px">Alerts and the loop: every alert points to evidence</h3>
+            <p class="chapter__lede">Alert on rates crossing a threshold, not on single failures. Single failures are normal for agents, and alerting on them trains everyone to ignore alerts. Every alert must link to example traces, so the person woken up can see the failure instead of guessing. And every repeated failure earns a new offline test case, so the eval suite grows from production evidence instead of from imagination.</p>
+            <div class="concept-block">
+              <div class="concept-block__row">
+                <div class="concept-block__label">How to do it</div>
+                <div class="concept-block__value">Set one threshold per rate, attach two or three example traces to each alert, and hold a short weekly review: which alerts fired, which were real, and which new test cases they produced.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Example</div>
+                <div class="concept-block__value">The slow-run rate crosses its threshold three mornings in a row. The linked traces all show the same slow lookup step. The team adds that input shape to the offline suite, fixes the lookup, and the rate falls back.</div>
+              </div>
+              <div class="concept-block__row">
+                <div class="concept-block__label">Why it matters</div>
+                <div class="concept-block__value">Observability without a loop is decoration. The loop, trace to alert to test case to fix, is what turns watching into improving.</div>
+              </div>
+            </div>
+          </section>
+
+          <p class="section-note"><strong>Where this goes next:</strong> the practice panel builds the hands-on version of this chapter: instrumenting a trace, reading a slow run, and writing the first alert. The apply panel turns it into a working setup for a real agent.</p>
+        </section>
+      </div>
+
+      <!-- ============================================================
            TRACK 05 · OBSERVABILITY · PRACTICE (Coming soon)
            ============================================================ -->
       <div class="track-panel js-track-panel" data-track="obs-101" data-mode="practice" hidden>
