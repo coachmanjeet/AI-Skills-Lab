@@ -1,4 +1,3 @@
 # Routes that link to a panel that does not exist yet.
 # Each entry must be removed in the same PR that adds its panel.
-obs-101/learn
 adoption-roi/learn
