@@ -1,0 +1,12 @@
+name: smoke
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  smoke-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check route panels
+        run: python3 scripts/check_routes.py
