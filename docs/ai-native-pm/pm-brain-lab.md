@@ -113,10 +113,10 @@ Two short paragraphs, plus one fix.
 
 Run the lab end to end without your own notes. The example brain is in this repo at `docs/ai-native-pm/pm-brain-example/`. It is fictional: TripCo is a made-up travel company, and every number and decision in it is invented for this lab. Do not quote any of it as real.
 
-- [facts.md](./pm-brain-example/facts.html): 5 facts about TripCo trip changes.
-- [decisions.md](./pm-brain-example/decisions.html): 3 decisions, each with a date, a reason, and who made it.
-- [call-2026-11-20-trip-change-review.md](./pm-brain-example/call-2026-11-20-trip-change-review.html): why fare-difference sessions hand off.
-- [call-2026-11-24-pricing-sync.md](./pm-brain-example/call-2026-11-24-pricing-sync.html): the refund window, confirmed by finance.
+- [facts.md](./pm-brain-example/facts.md): 5 facts about TripCo trip changes.
+- [decisions.md](./pm-brain-example/decisions.md): 3 decisions, each with a date, a reason, and who made it.
+- [call-2026-11-20-trip-change-review.md](./pm-brain-example/call-2026-11-20-trip-change-review.md): why fare-difference sessions hand off.
+- [call-2026-11-24-pricing-sync.md](./pm-brain-example/call-2026-11-24-pricing-sync.md): the refund window, confirmed by finance.
 
 Point gbrain at that folder, sync, and ask these 5 sample questions. They are the 5 filled rows in the scoring sheet above.
 
