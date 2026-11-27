@@ -512,7 +512,7 @@
             </div>
             <p class="section-note"><strong>TripCo worked example.</strong> Overnight, TripCo's factory drafts fare-difference explanations for the handoff sessions and rebuilds multi-city itineraries. In the morning queue, an explanation with clean test output lands in needs review, and the PM reads it before it goes to a traveler. Any change touching payment reissue lands in flagged risky. A rebuild that broke a test lands in failed. The PM spends the morning on flagged items and intent.</p>
             <p class="section-note"><strong>Monday move:</strong> pick one ticket-sized task, set a cap and a sandbox, run it overnight, and review it in the morning.</p>
-            <p class="section-note"><strong>Link:</strong> <a href="./harness-101/harness-designer.html" target="_blank" rel="noopener">Harness Designer ↗</a>, and the deeper material at <a href="#/harness-101/learn">harness-101 Learn →</a>.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./harness-101/harness-designer.html" target="_blank" rel="noopener">Harness Designer ↗</a>, and the deeper material at <a href="#/harness-101/learn">harness-101 Learn →</a>, and the skillify lab that turns a factory workflow into a gated skill: <a href="https://github.com/coachmanjeet/AI-Agent-Evals-Course/blob/main/week-06-production-eval-infrastructure/assignments/03-skillify-lab/README.md" target="_blank" rel="noopener">Skillify lab ↗</a>.</p>
             <p class="section-note"><strong>Self-check:</strong> what would stop the loop at 3am without you?</p>
           </section>
 
@@ -544,7 +544,7 @@
             <p class="section-note"><strong>Your definitions travel.</strong> The scorecards, policies, and examples you write today become the standard the next system learns from. Write them as if they will be copied, because they will be.</p>
             <p class="section-note"><strong>TripCo scorecard example.</strong> TripCo's 20 starter cases come from its real failures: the 31% fare-difference handoffs and the 44% human-rewritten multi-city itineraries. Case one: a multi-city change with a fare difference, where the agent must explain the difference in plain language and cite the rule. Case two: a reissue that requires payment, where the agent must stop for approval. Case three: a missing fare basis, where the agent must flag the gap instead of guessing. Set the pass bar before running: all 20 cases pass before the agent touches production traffic.</p>
             <p class="section-note"><strong>Monday move:</strong> take one existing PRD and rewrite its acceptance criteria as five scorecard cases.</p>
-            <p class="section-note"><strong>Link:</strong> <a href="./eval-101/test-data-builder.html" target="_blank" rel="noopener">Test Data Builder ↗</a>, and the deeper eval material at <a href="#/eval-101/learn">eval-101 Learn →</a>.</p>
+            <p class="section-note"><strong>Link:</strong> <a href="./eval-101/test-data-builder.html" target="_blank" rel="noopener">Test Data Builder ↗</a>, and the deeper eval material at <a href="#/eval-101/learn">eval-101 Learn →</a>, and the skillify lab, where the Chapter 8 scorecard gates a skill before it ships: <a href="https://github.com/coachmanjeet/AI-Agent-Evals-Course/blob/main/week-06-production-eval-infrastructure/assignments/03-skillify-lab/README.md" target="_blank" rel="noopener">Skillify lab ↗</a>.</p>
             <p class="section-note"><strong>Self-check:</strong> can a stranger run your scorecard and reach the same verdict you would?</p>
           </section>
 
@@ -708,12 +708,17 @@
           <div class="pr-topbar">
             <div class="pr-topbar__eyebrow">AI-Native PM · Practice</div>
           </div>
-          <div class="pr-exercises-label">1 Exercise</div>
+          <div class="pr-exercises-label">2 Exercises</div>
           <div class="pr-grid" style="grid-template-columns:1fr">
             <a class="pr-card" href="./ai-native-pm/self-assessment.html" target="_blank" rel="noopener">
               <div class="pr-card__eyebrow">Exercise 1 · ~10 min</div>
               <div class="pr-card__title">Score yourself across 8 readiness areas</div>
               <p class="pr-card__desc">The AI-Native PM self-assessment. Rate 1 / 3 / 5, get your gap map + weekly plan.</p>
+            </a>
+            <a class="pr-card" href="https://github.com/coachmanjeet/AI-Agent-Evals-Course/blob/main/week-06-production-eval-infrastructure/assignments/03-skillify-lab/README.md" target="_blank" rel="noopener">
+              <div class="pr-card__eyebrow">Exercise 2 · ~2-3 hrs</div>
+              <div class="pr-card__title">Turn a workflow into a gated skill</div>
+              <p class="pr-card__desc">Turn a Pronto eval workflow into a tested skill file and ship it only if it passes the scorecard; the full lab lives in the AI Evals course repo.</p>
             </a>
           </div>
           <div class="pr-continue">
